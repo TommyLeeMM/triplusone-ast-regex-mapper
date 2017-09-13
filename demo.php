@@ -109,8 +109,9 @@ foreach($rendered[0]['blocks'] as $key => $block) {
     echo 'Block #'.$rendered[0]['blockIds'][$block];
     foreach($block->parents as $prev) {
         if($rendered[0]['blockIds']->contains($block)) {
-            $list[ $rendered[0]['blockIds'][$block]-1 ][] = $rendered[0]['blockIds'][$prev]-1;
+//            $list[ $rendered[0]['blockIds'][$block]-1 ][] = $rendered[0]['blockIds'][$prev]-1;
             echo ' Parent : '.$rendered[0]['blockIds'][$prev];
+            $list[$rendered[0]['blockIds'][$prev]-1][] = $rendered[0]['blockIds'][$block]-1;
         }
     }
     echo '<br/>';
