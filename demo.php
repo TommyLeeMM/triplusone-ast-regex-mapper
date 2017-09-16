@@ -100,22 +100,30 @@ foreach($rendered[0]['blocks'] as $key => $block) {
 }
 
 $list = array();
-for($i = 0, $count = count($rendered[0]['blocks']); $i < $count; $i++) {
-    $list[] = array();
+foreach($rendered[0]['blocks'] as $key => $block) {
+    $blockId = $rendered[0]['blockIds'][$block];
+    $list[] = [
+        'id' => $blockId,
+//        'block' => $block,
+        'children' => []
+    ];
 }
 
 foreach($rendered[0]['blocks'] as $key => $block) {
-    $ops = $rendered[0]['blocks'][$block];
-    echo 'Block #'.$rendered[0]['blockIds'][$block];
+//    $ops = $rendered[0]['blocks'][$block];
+    $blockId = $rendered[0]['blockIds'][$block];
+    echo 'Block #'.$blockId;
     foreach($block->parents as $prev) {
         if($rendered[0]['blockIds']->contains($block)) {
-//            $list[ $rendered[0]['blockIds'][$block]-1 ][] = $rendered[0]['blockIds'][$prev]-1;
             echo ' Parent : '.$rendered[0]['blockIds'][$prev];
-            $list[$rendered[0]['blockIds'][$prev]-1][] = $rendered[0]['blockIds'][$block]-1;
+            $list[$rendered[0]['blockIds'][$prev]-1]['children'][] = [
+                'childId' => $blockId,
+//                'block' => $block
+            ];
         }
     }
     echo '<br/>';
 }
 echo '<pre>';
-print_r($list);
+var_dump($list);
 echo '</pre>';
