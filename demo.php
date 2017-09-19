@@ -77,32 +77,34 @@ echo '<pre>';
 //}
 echo '</pre>';
 
-foreach($rendered[0]['blocks'] as $key => $block) {
-    $isJumpOnly = false;
-    foreach($rendered[0]['blocks']->offsetGet($block) as $children) {
-//        echo 'Block '.($key+1).' instance of '. get_class($children['op']).'<br>';
-        if($children['op'] instanceof \PHPCfg\Op\Stmt\Jump
-            || $children['op'] instanceof \PHPCfg\Op\Terminal\Return_
-            || $children['op'] instanceof \PHPCfg\Op\Phi) {
-            if($children['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
-                echo 'Block Return di block '.($key+1).'<br>';
-            }
-            $isJumpOnly = true;
-        }
-        else {
-            $isJumpOnly = false;
-            break;
-        }
-    }
-    if($isJumpOnly) {
-        echo 'JumpOnly di block '.($key+1).'<br>';
-    }
-}
+//foreach($rendered[0]['blocks'] as $key => $block) {
+//    $isJumpOnly = false;
+//    foreach($rendered[0]['blocks']->offsetGet($block) as $children) {
+////        echo 'Block '.($key+1).' instance of '. get_class($children['op']).'<br>';
+//        if($children['op'] instanceof \PHPCfg\Op\Stmt\Jump
+//            || $children['op'] instanceof \PHPCfg\Op\Terminal\Return_
+//            || $children['op'] instanceof \PHPCfg\Op\Phi) {
+//            if($children['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
+//                echo 'Block Return di block '.($key+1).'<br>';
+//            }
+//            $isJumpOnly = true;
+//        }
+//        else {
+//            $isJumpOnly = false;
+//            break;
+//        }
+//    }
+//    if($isJumpOnly) {
+//        echo 'JumpOnly di block '.($key+1).'<br>';
+//    }
+//}
 
-$list = array();
+$adjList = array();
+$returnBlocks = array();
+
 foreach($rendered[0]['blocks'] as $key => $block) {
     $blockId = $rendered[0]['blockIds'][$block];
-    $list[] = [
+    $adjList[] = [
         'id' => $blockId,
 //        'block' => $block,
         'children' => []
@@ -110,13 +112,20 @@ foreach($rendered[0]['blocks'] as $key => $block) {
 }
 
 foreach($rendered[0]['blocks'] as $key => $block) {
-//    $ops = $rendered[0]['blocks'][$block];
+    $ops = $rendered[0]['blocks'][$block];
     $blockId = $rendered[0]['blockIds'][$block];
+    foreach($ops as $op) {
+        if($op['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
+            $returnBlocks[] = $blockId;
+            break;
+        }
+    }
+
     echo 'Block #'.$blockId;
     foreach($block->parents as $prev) {
         if($rendered[0]['blockIds']->contains($block)) {
             echo ' Parent : '.$rendered[0]['blockIds'][$prev];
-            $list[$rendered[0]['blockIds'][$prev]-1]['children'][] = [
+            $adjList[$rendered[0]['blockIds'][$prev]-1]['children'][] = [
                 'childId' => $blockId,
 //                'block' => $block
             ];
@@ -124,6 +133,45 @@ foreach($rendered[0]['blocks'] as $key => $block) {
     }
     echo '<br/>';
 }
+
+class MyStack {
+    private $stack;
+    public function __construct()
+    {
+        $this->stack = array();
+    }
+    public function push($item) {
+        $this->stack[] = $item;
+    }
+    public function pop() {
+        return array_pop($this->stack);
+    }
+    public function top() {
+        return ($this->isEmpty() ? null : $this->stack[count($this->stack)-1]);
+    }
+    public function isEmpty() {
+        return count($this->stack) == 0;
+    }
+}
+
+$paths = array();
+
+$stack = new MyStack();
+$stack->push($adjList[0]);
+while(!$stack->isEmpty()) {
+    $top = $stack->top();
+    echo $top['id'].'<br/>';
+    $stack->pop();
+    if(in_array($top['id'], $returnBlocks)) {
+        echo 'Ketemu end!<br/>';
+    }
+    else {
+        foreach($top['children'] as $child) {
+            $stack->push($adjList[$child['childId']-1]);
+        }
+    }
+}
+
 echo '<pre>';
-var_dump($list);
+//print_r($adjList);
 echo '</pre>';
