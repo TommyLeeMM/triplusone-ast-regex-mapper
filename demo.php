@@ -101,6 +101,7 @@ echo '</pre>';
 
 $adjList = array();
 $returnBlocks = array();
+$visited = array();
 
 foreach($rendered[0]['blocks'] as $key => $block) {
     $blockId = $rendered[0]['blockIds'][$block];
@@ -109,6 +110,7 @@ foreach($rendered[0]['blocks'] as $key => $block) {
 //        'block' => $block,
         'children' => []
     ];
+    $visited[] = false;
 }
 
 foreach($rendered[0]['blocks'] as $key => $block) {
@@ -154,23 +156,50 @@ class MyStack {
     }
 }
 
-$paths = array();
 
-$stack = new MyStack();
-$stack->push($adjList[0]);
-while(!$stack->isEmpty()) {
-    $top = $stack->top();
-    echo $top['id'].'<br/>';
-    $stack->pop();
-    if(in_array($top['id'], $returnBlocks)) {
-        echo 'Ketemu end!<br/>';
+//$stack = new MyStack();
+//$stack->push($adjList[0]);
+//while(!$stack->isEmpty()) {
+//    $top = $stack->top();
+//    echo $top['id'].'<br/>';
+//    $stack->pop();
+//    if(in_array($top['id'], $returnBlocks)) {
+//        echo 'Ketemu end!<br/>';
+//    }
+//    else {
+//        foreach($top['children'] as $child) {
+//            $stack->push($adjList[$child['childId']-1]);
+//        }
+//    }
+//}
+
+function dfs($start, $end, $visited, $adjList) {
+    $pathIndex = 0;
+    $path = [];
+    dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList);
+}
+function dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList) {
+    $visited[$start] = true;
+    $path[$pathIndex] = $adjList[$start]['id'];
+    $pathIndex++;
+
+    if(in_array($adjList[$start]['id'], $end)) {
+        for($i = 0; $i < $pathIndex; $i++) {
+            echo $path[$i].' ';
+        }
+        echo '<br/>';
     }
     else {
-        foreach($top['children'] as $child) {
-            $stack->push($adjList[$child['childId']-1]);
+        for($i = 0; $i < count($adjList[$start]['children']); $i++) {
+            if(!$visited[$adjList[$start]['children'][$i]['childId']-1]) {
+                dfsRecursive($adjList[$start]['children'][$i]['childId']-1, $end, $visited, $path, $pathIndex, $adjList);
+            }
         }
     }
+    $pathIndex--;
+    $visited[$start] = false;
 }
+dfs(0, $returnBlocks, $visited, $adjList);
 
 echo '<pre>';
 //print_r($adjList);
