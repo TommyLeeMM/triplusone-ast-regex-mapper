@@ -1,63 +1,17 @@
 <?php
-use PhpParser\ParserFactory;
 
 require __DIR__ . "/vendor/autoload.php";
+require_once 'kv_custom/CFGPrinter.php';
+require_once 'kv_custom/Stack.php';
 
-class MyPrinter extends \PHPCfg\Printer {
-    public function printScript(\PHPCfg\Script $script) {
-        $output = '';
-        $output .= $this->printFunc($script->main);
-//        foreach ($script->functions as $func) {
-//            $name = $func->getScopedName();
-//            $output .= "\nFunction $name():";
-//            $output .= $this->printFunc($func);
-//        }
-        return $output;
-    }
-    public function printFunc(\PHPCfg\Func $func) {
-        $rendered = $this->render($func);
-
-        $output = '';
-        foreach ($rendered['blocks'] as $block) {
-            $ops = $rendered['blocks'][$block];
-            $output .= "\nBlock#" . $rendered['blockIds'][$block];
-            foreach ($block->parents as $prev) {
-                if ($rendered['blockIds']->contains($prev)) {
-                    $output .= $this->indent("\nParent: Block#" . $rendered['blockIds'][$prev]);
-                }
-            }
-            foreach ($ops as $op) {
-                $output .= $this->indent("\n" . $op['label']);
-                foreach ($op['childBlocks'] as $child) {
-                    $output .= $this->indent("\n" . $child['name'] . ": Block#" . $rendered['blockIds'][$child['block']], 2);
-                }
-            }
-            $output .= "\n";
-        }
-        return $output;
-    }
-    public function renderScript($script) {
-        $rendered = array();
-
-        $rendered[] = $this->render($script->main);
-        foreach($script->functions as $function) {
-            $result = $this->render($function);
-            $rendered[] = $result;
-        }
-        return $rendered;
-    }
-}
-
-
-$parser = new PHPCfg\Parser(
-    (new PhpParser\ParserFactory)->create(PhpParser\ParserFactory::PREFER_PHP7)
-);
-$script = $parser->parse(file_get_contents('samplecode/code.php'), 'code.php');
+$parser = new PHPCfg\Parser((new PhpParser\ParserFactory)->create(PhpParser\ParserFactory::PREFER_PHP7));
+$script = $parser->parse(file_get_contents('test_codes/code.php'), 'code.php');
 $dumper = new PHPCfg\Printer\Text();
-$myDumper = new MyPrinter();
 
+$myDumper = new kv_custom\CFGPrinter();
 $rendered = $myDumper->renderScript($script);
 
+##### Block Content
 /*
  * blocks => isi blocknya
  * blockIds => no block
@@ -65,7 +19,7 @@ $rendered = $myDumper->renderScript($script);
  * varIds => id var
  */
 //$keyIdx = 0;
-echo '<pre>';
+//echo '<pre>';
 //echo $dumper->printScript($script);
 //echo count($rendered[0]['blocks']).'<br>';
 //foreach($rendered[$keyIdx]['blocks'] as $key => $block) {
@@ -75,30 +29,36 @@ echo '<pre>';
 //        $ops = $rendered[0]['blocks'][$block];
 //    }
 //}
-echo '</pre>';
+//echo '</pre>';
+##### End Block Content
 
-//foreach($rendered[0]['blocks'] as $key => $block) {
-//    $isJumpOnly = false;
-//    foreach($rendered[0]['blocks']->offsetGet($block) as $children) {
-////        echo 'Block '.($key+1).' instance of '. get_class($children['op']).'<br>';
-//        if($children['op'] instanceof \PHPCfg\Op\Stmt\Jump
-//            || $children['op'] instanceof \PHPCfg\Op\Terminal\Return_
-//            || $children['op'] instanceof \PHPCfg\Op\Phi) {
-//            if($children['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
-//                echo 'Block Return di block '.($key+1).'<br>';
-//            }
-//            $isJumpOnly = true;
-//        }
-//        else {
-//            $isJumpOnly = false;
-//            break;
-//        }
-//    }
-//    if($isJumpOnly) {
-//        echo 'JumpOnly di block '.($key+1).'<br>';
-//    }
-//}
+###### Check Empty
+$jumpOnlyBlocks = [];
+foreach($rendered[0]['blocks'] as $key => $block) {
+    $isJumpOnly = false;
+    foreach($rendered[0]['blocks']->offsetGet($block) as $children) {
+//        echo 'Block '.($key+1).' instance of '. get_class($children['op']).'<br>';
+        if($children['op'] instanceof \PHPCfg\Op\Stmt\Jump
+            || $children['op'] instanceof \PHPCfg\Op\Terminal\Return_
+            || $children['op'] instanceof \PHPCfg\Op\Phi) {
+            if($children['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
+                echo 'Block Return di block '.($key+1).'<br>';
+            }
+            $isJumpOnly = true;
+        }
+        else {
+            $isJumpOnly = false;
+            break;
+        }
+    }
+    if($isJumpOnly) {
+        $jumpOnlyBlocks[] = $rendered[0]['blockIds'][$block];
+        echo 'JumpOnly di block '.$rendered[0]['blockIds'][$block].'<br>';
+    }
+}
+###### End Check Empty Block
 
+###### DFS
 $adjList = array();
 $returnBlocks = array();
 $visited = array();
@@ -107,7 +67,7 @@ foreach($rendered[0]['blocks'] as $key => $block) {
     $blockId = $rendered[0]['blockIds'][$block];
     $adjList[] = [
         'id' => $blockId,
-//        'block' => $block,
+        'block' => $rendered[0]['blocks'][$block],
         'children' => []
     ];
     $visited[] = false;
@@ -122,42 +82,17 @@ foreach($rendered[0]['blocks'] as $key => $block) {
             break;
         }
     }
-
-    echo 'Block #'.$blockId;
     foreach($block->parents as $prev) {
         if($rendered[0]['blockIds']->contains($block)) {
-            echo ' Parent : '.$rendered[0]['blockIds'][$prev];
             $adjList[$rendered[0]['blockIds'][$prev]-1]['children'][] = [
                 'childId' => $blockId,
-//                'block' => $block
             ];
         }
     }
-    echo '<br/>';
 }
 
-class MyStack {
-    private $stack;
-    public function __construct()
-    {
-        $this->stack = array();
-    }
-    public function push($item) {
-        $this->stack[] = $item;
-    }
-    public function pop() {
-        return array_pop($this->stack);
-    }
-    public function top() {
-        return ($this->isEmpty() ? null : $this->stack[count($this->stack)-1]);
-    }
-    public function isEmpty() {
-        return count($this->stack) == 0;
-    }
-}
-
-
-//$stack = new MyStack();
+###### DFS Stack
+//$stack = new \kv_custom\Stack();
 //$stack->push($adjList[0]);
 //while(!$stack->isEmpty()) {
 //    $top = $stack->top();
@@ -172,7 +107,10 @@ class MyStack {
 //        }
 //    }
 //}
+###### End DFS Stack
 
+###### DFS Recursive
+$paths = [];
 function dfs($start, $end, $visited, $adjList) {
     $pathIndex = 0;
     $path = [];
@@ -184,6 +122,8 @@ function dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList) {
     $pathIndex++;
 
     if(in_array($adjList[$start]['id'], $end)) {
+        global $paths;
+        $paths[] = $path;
         for($i = 0; $i < $pathIndex; $i++) {
             echo $path[$i].' ';
         }
@@ -200,7 +140,20 @@ function dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList) {
     $visited[$start] = false;
 }
 dfs(0, $returnBlocks, $visited, $adjList);
+###### End DFS Recursive
 
-echo '<pre>';
-//print_r($adjList);
-echo '</pre>';
+foreach($paths as $key => $path) {
+    foreach($path as $blockId) {
+        $block = $adjList[$blockId-1]['block'];
+        foreach($block as $op) {
+            if($op['op'] instanceof \PhpParser\Node\Stmt\If_ ||
+                $op['op'] instanceof \PHPCfg\Op\Stmt\JumpIf
+            ) {
+                echo 'ada if disini '.$blockId;
+            }
+        }
+    }
+    echo '<br>';
+}
+
+###### END DFS
