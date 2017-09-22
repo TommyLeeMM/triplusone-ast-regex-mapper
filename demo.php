@@ -146,10 +146,14 @@ foreach($paths as $key => $path) {
     foreach($path as $blockId) {
         $block = $adjList[$blockId-1]['block'];
         foreach($block as $op) {
-            if($op['op'] instanceof \PhpParser\Node\Stmt\If_ ||
+            if($op['op'] instanceof \PhpParser\Node\Stmt\If_
+                ||
                 $op['op'] instanceof \PHPCfg\Op\Stmt\JumpIf
             ) {
-                echo 'ada if disini '.$blockId;
+                echo '<pre>';
+//                var_dump( $op['op']->cond);
+                echo '</pre>';
+                echo 'Ada if disini '.$blockId;
             }
         }
     }
