@@ -45,8 +45,8 @@ class Parser {
             $blockId = $mainBlocks['blockIds'][$block];
             $this->adjList[] = [
                 'id' => $blockId,
-                'block' => $block,
-                'children' => []
+//                'block' => $block,
+                'childrenIds' => []
             ];
             $this->setReturnId($mainBlocks, $block);
         }
@@ -66,9 +66,7 @@ class Parser {
         foreach($blocks['blocks'] as $key => $block) {
             foreach ($block->parents as $prev) {
                 if ($blocks['blockIds']->contains($block)) {
-                    $this->adjList[$blocks['blockIds'][$prev] - 1]['children'][] = [
-                        'childId' => $blocks['blockIds'][$block],
-                    ];
+                    $this->adjList[$blocks['blockIds'][$prev] - 1]['childrenIds'][] = $blocks['blockIds'][$block];
                 }
             }
         }
@@ -109,16 +107,10 @@ class PathFinder {
         $this->visited = $this->paths = $this->transversedCount = [];
         for($i = 0, $count = count($this->adjList); $i < $count; $i++) {
             $this->visited[] = false;
-        }
-    }
-
-    public function setTransversedCount() {
-        for($i = 0, $count = count($this->adjList); $i < $count; $i++) {
-            $neighbors = $this->adjList[$i]['children'];
+            $neighbors = $this->adjList[$i]['childrenIds'];
             $source =  $this->adjList[$i]['id'];
             foreach($neighbors as $neighbor) {
-                $destination = $neighbor['childId'];
-                $keyPair = serialize(array($source, $destination));
+                $keyPair = serialize(array($source, $neighbor));
                 $this->transversedCount[$keyPair] = 0;
             }
         }
@@ -126,7 +118,6 @@ class PathFinder {
 
     public function findAllPaths() {
         $this->initialize();
-        $this->setTransversedCount();
         $this->findRecursive(0, array(), 0, 0);
         return $this->paths;
     }
@@ -141,18 +132,18 @@ class PathFinder {
             $this->paths[] = $path;
         }
         else {
-            for($i = 0; $i < count($this->adjList[$start]['children']); $i++) {
-                $destinationId = $this->adjList[$start]['children'][$i]['childId'];
+            for($i = 0; $i < count($this->adjList[$start]['childrenIds']); $i++) {
+                $destinationId = $this->adjList[$start]['childrenIds'][$i];
                 $pairKey = serialize(array($sourceId, $destinationId));
                 if(array_key_exists($pairKey, $this->transversedCount))
                 {
                     if($this->transversedCount[$pairKey] < 1) {
                         ++$this->transversedCount[$pairKey];
-                        $this->findRecursive($this->adjList[$start]['children'][$i]['childId']-1, $path, $pathIndex, $sourceId);
+                        $this->findRecursive($destinationId-1, $path, $pathIndex, $sourceId);
                     }
                 }
 //                if(!$this->visited[$destinationId-1]) {
-//                    $this->findRecursive($this->adjList[$start]['children'][$i]['childId']-1, $path, $pathIndex, $sourceId);
+//                    $this->findRecursive($destinationId-1, $path, $pathIndex, $sourceId);
 //                }
             }
         }
@@ -166,8 +157,13 @@ class PathFinder {
     }
 }
 
+function prettyPrint($object) {
+    echo '<pre>'; var_dump($object); echo '</pre>';
+}
+
 $parser = new Parser();
 $parseResult = $parser->parse();
+prettyPrint($parseResult['adjList']);
 $pathFinder = new PathFinder($parseResult);
 $paths = $pathFinder->findAllPaths();
 
