@@ -10,4 +10,13 @@ $x = 2;
 while($x < 10) {
     echo 'abc';
     $x += 2;
+    for($i = 0; $i < $x; $i++) {
+        echo 'haihaihai'.$i;
+    }
+    if($x % 2 == 0) {
+        echo 'Genap';
+    }
+    else {
+        echo 'Ganjil';
+    }
 }

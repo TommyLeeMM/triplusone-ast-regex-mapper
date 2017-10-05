@@ -82,6 +82,10 @@ class Parser {
             'returnBlockIds' => $this->returnBlockIds
         ];
     }
+
+    public function printBlockContents() {
+        echo '<pre>'; echo $this->phpCfgDumper->printScript($this->script); echo '</pre>';
+    }
 }
 
 class PathFinder {
@@ -163,11 +167,16 @@ class PathFinder {
 }
 
 $parser = new Parser();
-$pathFinder = new PathFinder($parser->parse());
+$parseResult = $parser->parse();
+$pathFinder = new PathFinder($parseResult);
 $paths = $pathFinder->findAllPaths();
-foreach($paths as $path) {
+
+echo 'Available paths:<br/>';
+foreach($paths as $key => $path) {
+    echo ($key+1).'## ';
     foreach($path as $id) {
         echo $id.' ';
     }
     echo '<br>';
 }
+$parser->printBlockContents();
