@@ -5,11 +5,15 @@ require_once 'kv_custom/CFGPrinter.php';
 require_once 'kv_custom/Stack.php';
 
 $parser = new PHPCfg\Parser((new PhpParser\ParserFactory)->create(PhpParser\ParserFactory::PREFER_PHP7));
-$script = $parser->parse(file_get_contents('test_codes/code.php'), 'code.php');
+$script = $parser->parse(file_get_contents('test_codes/loop.php'), 'code.php');
 $dumper = new PHPCfg\Printer\Text();
 
 $myDumper = new kv_custom\CFGPrinter();
 $rendered = $myDumper->renderScript($script);
+
+echo '<pre>';
+echo $dumper->printScript($script);
+echo '</pre>';
 
 ##### Block Content
 /*
@@ -33,29 +37,29 @@ $rendered = $myDumper->renderScript($script);
 ##### End Block Content
 
 ###### Check Empty
-$jumpOnlyBlocks = [];
-foreach($rendered[0]['blocks'] as $key => $block) {
-    $isJumpOnly = false;
-    foreach($rendered[0]['blocks']->offsetGet($block) as $children) {
-//        echo 'Block '.($key+1).' instance of '. get_class($children['op']).'<br>';
-        if($children['op'] instanceof \PHPCfg\Op\Stmt\Jump
-            || $children['op'] instanceof \PHPCfg\Op\Terminal\Return_
-            || $children['op'] instanceof \PHPCfg\Op\Phi) {
-            if($children['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
-                echo 'Block Return di block '.($key+1).'<br>';
-            }
-            $isJumpOnly = true;
-        }
-        else {
-            $isJumpOnly = false;
-            break;
-        }
-    }
-    if($isJumpOnly) {
-        $jumpOnlyBlocks[] = $rendered[0]['blockIds'][$block];
-        echo 'JumpOnly di block '.$rendered[0]['blockIds'][$block].'<br>';
-    }
-}
+//$jumpOnlyBlocks = [];
+//foreach($rendered[0]['blocks'] as $key => $block) {
+//    $isJumpOnly = false;
+//    foreach($rendered[0]['blocks']->offsetGet($block) as $children) {
+////        echo 'Block '.($key+1).' instance of '. get_class($children['op']).'<br>';
+//        if($children['op'] instanceof \PHPCfg\Op\Stmt\Jump
+//            || $children['op'] instanceof \PHPCfg\Op\Terminal\Return_
+//            || $children['op'] instanceof \PHPCfg\Op\Phi) {
+//            if($children['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
+//                echo 'Block Return di block '.($key+1).'<br>';
+//            }
+//            $isJumpOnly = true;
+//        }
+//        else {
+//            $isJumpOnly = false;
+//            break;
+//        }
+//    }
+//    if($isJumpOnly) {
+//        $jumpOnlyBlocks[] = $rendered[0]['blockIds'][$block];
+//        echo 'JumpOnly di block '.$rendered[0]['blockIds'][$block].'<br>';
+//    }
+//}
 ###### End Check Empty Block
 
 ###### DFS
@@ -117,6 +121,7 @@ function dfs($start, $end, $visited, $adjList) {
     dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList);
 }
 function dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList) {
+    echo $adjList[$start]['id'].'<br>';
     $visited[$start] = true;
     $path[$pathIndex] = $adjList[$start]['id'];
     $pathIndex++;
@@ -142,22 +147,35 @@ function dfsRecursive($start, $end, $visited, $path, $pathIndex, $adjList) {
 dfs(0, $returnBlocks, $visited, $adjList);
 ###### End DFS Recursive
 
-foreach($paths as $key => $path) {
-    foreach($path as $blockId) {
-        $block = $adjList[$blockId-1]['block'];
-        foreach($block as $op) {
-            if($op['op'] instanceof \PhpParser\Node\Stmt\If_
-                ||
-                $op['op'] instanceof \PHPCfg\Op\Stmt\JumpIf
-            ) {
-                echo '<pre>';
-//                var_dump( $op['op']->cond);
-                echo '</pre>';
-                echo 'Ada if disini '.$blockId;
-            }
-        }
-    }
-    echo '<br>';
-}
+//$block = $adjList[0]['block'];
+//foreach($block as $key => $op) {
+//    if($op['op'] instanceof \PhpParser\Node\Stmt\If_
+//        ||
+//        $op['op'] instanceof \PHPCfg\Op\Stmt\JumpIf
+//    ) {
+////        echo '<pre>';
+////        var_dump( $op['op']->cond);
+////        echo '</pre>';
+//        echo $key;
+//    }
+//}
+
+//foreach($paths as $key => $path) {
+//    foreach($path as $blockId) {
+//        $block = $adjList[$blockId-1]['block'];
+//        foreach($block as $op) {
+//            if($op['op'] instanceof \PhpParser\Node\Stmt\If_
+//                ||
+//                $op['op'] instanceof \PHPCfg\Op\Stmt\JumpIf
+//            ) {
+//                echo '<pre>';
+////                var_dump( $op['op']->cond);
+//                echo '</pre>';
+//                echo 'Ada if disini '.$blockId;
+//            }
+//        }
+//    }
+//    echo '<br>';
+//}
 
 ###### END DFS
