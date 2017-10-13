@@ -40,7 +40,7 @@ abstract class Printer {
     }
 
     protected function renderOperand(Operand $var) {
-        $type = isset($var->type) ? "<{$var->type}>" : "";
+        $type = isset($var->type) ? "xxx<{$var->type}>" : "";
         if ($var instanceof Literal) {
             return "LITERAL{$type}(" . var_export($var->value, true) . ")";
         } elseif ($var instanceof Variable) {

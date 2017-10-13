@@ -6,17 +6,19 @@
  * Time: 12:19
  */
 
-$x = 2;
-while($x < 10) {
-    echo 'abc';
-    $x += 2;
-    for($i = 0; $i < $x; $i++) {
-        echo 'haihaihai'.$i;
+$x = 0;
+$y = 0;
+$a = 5;
+$b = 20;
+
+if($a >= $b) {
+    $x = 5;
+    $y = 2;
+}
+else {
+    while($a < $b) {
+        $a++;
+        $x += 2;
     }
-    if($x % 2 == 0) {
-        echo 'Genap';
-    }
-    else {
-        echo 'Ganjil';
-    }
+    $y = 10;
 }
