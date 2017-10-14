@@ -38,6 +38,7 @@ class PathFinder
             }
         }
         $this->DFSRecursive($this->graphs[0][0], [], 0, 0);
+        return $this->paths;
     }
 
     private function DFSRecursive($start, $path, $pathIndex, $_source) {

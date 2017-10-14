@@ -17,15 +17,25 @@ require_once 'kv_custom/Helper.php';
 set_time_limit(0);
 $parser = new \kv_custom\Parser();
 $parseResult = $parser->parse();
-//\kv_custom\Helper::prettyVarDump($parseResult);
 $pathFinder = new \kv_custom\PathFinder($parseResult);
-echo '<pre>';
-foreach($pathFinder->findAllPathsBFSPublic() as $path) {
-    foreach($path as $a) {
-        echo $a['node']->getId().' ';
+
+foreach($pathFinder->findAllPaths() as $path) {
+    foreach($path as $node) {
+        echo $node.' ';
     }
     echo '<br/>';
 }
+echo '</pre>';
+\kv_custom\Helper::stop();
+
+\kv_custom\Helper::startTime();
 echo '<pre>';
+foreach($pathFinder->findAllPathsBFSPublic() as $path) {
+    foreach($path as $node) {
+        echo $node['node']->getId().' ';
+    }
+    echo '<br/>';
+}
+echo '</pre>';
 
 \kv_custom\Helper::stop();
