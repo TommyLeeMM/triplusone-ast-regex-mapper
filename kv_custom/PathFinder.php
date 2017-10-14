@@ -110,7 +110,7 @@ class PathFinder
     private function isPreviousNext ($last, $list) {
         for($i = 0, $count = count($list)-1; $i < $count; $i++) {
             if($last['node']->getId() == $list[$i]['node']->getId()) {
-                return $i+1;
+                return $list[$i+1]['node']->getId();
             }
         }
         return -1;
