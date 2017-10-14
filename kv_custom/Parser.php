@@ -10,103 +10,87 @@ namespace kv_custom;
 
 
 use PHPCfg\Op\Stmt\JumpIf;
+use PHPCfg\Op\Terminal\Return_;
 
 class Parser
 {
     private $phpParser;
     private $script;
     private $phpCfgDumper;
-    private $renderedGraphs;
-
-    private $adjList;
-    private $returnBlockIds;
+    private $renderedScripts;
+    private $graphs;
 
     public function __construct()
     {
         $this->phpParser = new \PHPCfg\Parser((new \PhpParser\ParserFactory)->create(\PhpParser\ParserFactory::PREFER_PHP7));
         $this->phpCfgDumper = new \PHPCfg\Printer\Text();
-    }
-
-    private function prettyPrint($object) {
-        echo '<pre>'; var_dump($object); echo '</pre>';
-    }
-
-    private function initialize() {
-        $this->adjList = $this->returnBlockIds = [];
         $this->parseCode();
-    }
-
-    private function parseCode() {
-        $this->script = $this->phpParser->parse(file_get_contents('test_codes/loop.php'), 'code.php');
-        $this->renderedGraphs = (new CFGPrinter())->renderScript($this->script);
-    }
-
-    private function createGraph() {
-        $mainBlocks = $this->renderedGraphs[0];
-        foreach($mainBlocks['blocks'] as $key => $block) {
-            $blockId = $mainBlocks['blockIds'][$block];
-            $condIdxNum = $trueDestId = $falseDestId = -1;
-            foreach($block->children as $idx => $child) {
-                if($child instanceof JumpIf) {
-                    $condIdxNum = $idx;
-                    $trueDestId = $mainBlocks['blockIds'][$child->if];
-                    $falseDestId = $mainBlocks['blockIds'][$child->else];
-                }
-            }
-            if($trueDestId != -1 && $falseDestId != -1) {
-                $this->adjList[] = [
-                    'id' => $blockId,
-                    'block' => $block,
-                    'childrenIds' => [],
-                    'jumpIf' => [
-                        'cond' => $condIdxNum-1,
-                        'true' => $trueDestId,
-                        'false' => $falseDestId
-                    ]
-                ];
-            }
-            else {
-                $this->adjList[] = [
-                    'id' => $blockId,
-                    'block' => $block,
-                    'childrenIds' => [],
-                ];
-            }
-
-            $this->setReturnId($mainBlocks, $block);
-        }
-        $this->reverseEdges($mainBlocks);
-    }
-
-    private function setReturnId($blocks, $block) {
-        foreach($blocks['blocks'][$block] as $op) {
-            if($op['op'] instanceof \PHPCfg\Op\Terminal\Return_) {
-                $this->returnBlockIds[] = $blocks['blockIds'][$block];
-                break;
-            }
-        }
-    }
-
-    private function reverseEdges($blocks) {
-        foreach($blocks['blocks'] as $key => $block) {
-            foreach ($block->parents as $prev) {
-                if ($blocks['blockIds']->contains($block)) {
-                    $this->adjList[$blocks['blockIds'][$prev] - 1]['childrenIds'][] = $blocks['blockIds'][$block];
-                }
-            }
-        }
-    }
-
-    public function parse() {
-        $this->initialize();
-        $this->createGraph();
-        return [
-            'adjList' => $this->adjList,
-            'returnBlockIds' => $this->returnBlockIds
-        ];
     }
 
     public function printBlockContents() {
         echo '<pre>'; echo $this->phpCfgDumper->printScript($this->script); echo '</pre>';
+    }
+
+    private function parseCode() {
+        $script = $this->phpParser->parse(file_get_contents('test_codes/code.php'), 'code.php');
+        $this->renderedScripts = (new CFGPrinter())->renderScript($script);
+    }
+
+    public function parse() {
+        $this->graphs = [];
+        foreach($this->renderedScripts as $script) {
+            $this->graphs[] = $this->createGraph($script);
+        }
+        return $this->graphs;
+    }
+
+    private function createNodes($script) {
+        $nodes = [];
+        foreach($script['blocks'] as $key => $block) {
+            $blockId = $script['blockIds'][$block];
+            $node = new Node($blockId, $block);
+            foreach($block->children as $childKey => $child) {
+                if($child instanceof Return_) {
+                    $node->setIsReturnBlock(true);
+                }
+                else if($child instanceof JumpIf) {
+                    $jumpIf = [
+                        'true' => $script['blockIds'][$block][$child->if],
+                        'false' => $script['blockIds'][$block][$child->else],
+                        'condIdx' => $childKey-1
+                    ];
+                    $node->setJumpIf($jumpIf);
+                }
+            }
+            $nodes[] = $node;
+        }
+        return $nodes;
+    }
+
+    private function createGraph($script) {
+        $nodes = $this->createNodes($script);
+        $adjList = [];
+        foreach($script['blocks'] as $key => $block) {
+            $blockId = $script['blockIds'][$block];
+            $adjList[] = [
+                'node' => $nodes[$blockId - 1],
+                'children' => []
+            ];
+        }
+        $adjList = $this->reverseEdges($script, $nodes, $adjList);
+        return $adjList;
+    }
+
+    private function reverseEdges($script, $nodes, $adjList) {
+        foreach($script['blocks'] as $key => $block) {
+            foreach ($block->parents as $prev) {
+                if ($script['blockIds']->contains($block)) {
+                    $parentBlockId = $script['blockIds'][$prev];
+                    $currentBlockId = $script['blockIds'][$block];
+                    $adjList[$parentBlockId-1]['children'][] = $nodes[$currentBlockId-1];
+                }
+            }
+        }
+        return $adjList;
     }
 }
