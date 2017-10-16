@@ -4,9 +4,8 @@
     <list default="true" id="a75e9823-b6c4-45ec-846d-0134d54d3cdf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kv_custom/Helper.php" afterPath="$PROJECT_DIR$/kv_custom/Helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kv_custom/Node.php" afterPath="$PROJECT_DIR$/kv_custom/Node.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/kv_custom/Parser.php" afterPath="$PROJECT_DIR$/kv_custom/Parser.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_codes/loop.php" afterPath="$PROJECT_DIR$/test_codes/loop.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,31 +19,100 @@
       <file leaf-file-name="simple_malware.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_codes/simple_malware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1411">
-              <caret line="94" column="48" lean-forward="false" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
-              <folding>
-                <marker date="1508130918061" expanded="true" signature="467:681" ph="..." />
-                <marker date="1508130918061" expanded="true" signature="916:1471" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="1666">
+              <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="b374k.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_codes/b374k.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="12" column="38" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2458" selection-end-column="2" />
+              <folding>
+                <element signature="e#166271#166291#0#HTML" expanded="true" />
+                <element signature="e#166568#166574#0#HTML" expanded="true" />
+                <element signature="e#166574#166580#0#HTML" expanded="true" />
+                <element signature="e#166625#166644#0#HTML" expanded="true" />
+                <element signature="e#166786#166811#0#HTML" expanded="true" />
+                <element signature="e#166965#166984#0#HTML" expanded="true" />
+                <element signature="e#167056#167075#0#HTML" expanded="true" />
+                <element signature="e#167729#167766#0#HTML" expanded="true" />
+                <element signature="e#167953#167971#0#HTML" expanded="true" />
+                <element signature="e#168136#168155#0#HTML" expanded="true" />
+                <element signature="e#168544#168581#0#HTML" expanded="true" />
+                <element signature="e#168675#168716#0#HTML" expanded="true" />
+                <element signature="e#168726#168732#0#HTML" expanded="true" />
+                <element signature="e#168841#168861#0#HTML" expanded="true" />
+                <element signature="e#168946#168965#0#HTML" expanded="true" />
+                <element signature="e#169053#169059#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="priv.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_codes/priv.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4811">
+              <caret line="292" column="2" lean-forward="false" selection-start-line="292" selection-start-column="2" selection-end-line="292" selection-end-column="2" />
+              <folding>
+                <marker date="1508137509083" expanded="true" signature="191:1145" ph="..." />
+                <marker date="1508137509083" expanded="true" signature="198:989" ph="..." />
+                <marker date="1508137509083" expanded="true" signature="289:981" ph="..." />
+                <marker date="1508137509083" expanded="true" signature="295:411" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="429:498" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="514:547" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="569:639" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="645:680" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="683:719" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="721:768" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="776:834" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="856:973" ph="{...}" />
+                <marker date="1508137509083" expanded="true" signature="996:1145" ph="..." />
+                <marker date="1508137509083" expanded="true" signature="1121:1145" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loop.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_codes/loop.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PathFinder.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/kv_custom/PathFinder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kv_custom/Parser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+            <state relative-caret-position="280">
+              <caret line="34" column="91" lean-forward="false" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
               <folding>
                 <element signature="e#112#138#0#PHP" expanded="true" />
               </folding>
@@ -72,15 +140,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test_codes/another_long_codes.php" />
-        <option value="$PROJECT_DIR$/test_codes/loop.php" />
-        <option value="$PROJECT_DIR$/kv_custom/PathFinder.php" />
         <option value="$PROJECT_DIR$/kv_custom/Helper.php" />
         <option value="$PROJECT_DIR$/lib/PHPCfg/Printer/Text.php" />
         <option value="$PROJECT_DIR$/lib/PHPCfg/Printer.php" />
         <option value="$PROJECT_DIR$/kv_custom/Node.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/test_codes/simple_malware.php" />
+        <option value="$PROJECT_DIR$/test_codes/loop.php" />
+        <option value="$PROJECT_DIR$/kv_custom/PathFinder.php" />
+        <option value="$PROJECT_DIR$/test_codes/b374k.php" />
+        <option value="$PROJECT_DIR$/test_codes/priv.php" />
         <option value="$PROJECT_DIR$/kv_custom/Parser.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -112,8 +182,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,10 +194,17 @@
               <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="kv_custom" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="triplusone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test_codes" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -163,16 +238,16 @@
       <updated>1507889178770</updated>
       <workItem from="1507889181160" duration="5614000" />
       <workItem from="1507944203855" duration="15836000" />
-      <workItem from="1508124930552" duration="5765000" />
+      <workItem from="1508124930552" duration="6235000" />
+      <workItem from="1508135788063" duration="2340000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27215000" />
+    <option name="totallyTimeSpent" value="30025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -206,12 +281,35 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/test_codes/simple_malware.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kv_custom/Parser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+          <folding>
+            <element signature="e#112#138#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_codes/simple_malware.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1508130918061" expanded="true" signature="467:681" ph="..." />
-            <marker date="1508130918061" expanded="true" signature="916:1471" ph="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -262,22 +360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_codes/loop.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="21" column="17" lean-forward="false" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kv_custom/PathFinder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="106" column="9" lean-forward="true" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/kv_custom/Helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -298,7 +380,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -320,30 +401,91 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_codes/simple_malware.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="94" column="48" lean-forward="false" selection-start-line="94" selection-start-column="48" selection-end-line="94" selection-end-column="48" />
+        <state relative-caret-position="1666">
+          <caret line="103" column="9" lean-forward="false" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_codes/loop.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kv_custom/PathFinder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="51" column="7" lean-forward="true" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_codes/b374k.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="12" column="38" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="2458" selection-end-column="2" />
           <folding>
-            <marker date="1508130918061" expanded="true" signature="467:681" ph="..." />
-            <marker date="1508130918061" expanded="true" signature="916:1471" ph="..." />
+            <element signature="e#166271#166291#0#HTML" expanded="true" />
+            <element signature="e#166568#166574#0#HTML" expanded="true" />
+            <element signature="e#166574#166580#0#HTML" expanded="true" />
+            <element signature="e#166625#166644#0#HTML" expanded="true" />
+            <element signature="e#166786#166811#0#HTML" expanded="true" />
+            <element signature="e#166965#166984#0#HTML" expanded="true" />
+            <element signature="e#167056#167075#0#HTML" expanded="true" />
+            <element signature="e#167729#167766#0#HTML" expanded="true" />
+            <element signature="e#167953#167971#0#HTML" expanded="true" />
+            <element signature="e#168136#168155#0#HTML" expanded="true" />
+            <element signature="e#168544#168581#0#HTML" expanded="true" />
+            <element signature="e#168675#168716#0#HTML" expanded="true" />
+            <element signature="e#168726#168732#0#HTML" expanded="true" />
+            <element signature="e#168841#168861#0#HTML" expanded="true" />
+            <element signature="e#168946#168965#0#HTML" expanded="true" />
+            <element signature="e#169053#169059#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kv_custom/Parser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="34" column="91" lean-forward="false" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
+          <folding>
+            <element signature="e#112#138#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_codes/priv.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4811">
+          <caret line="292" column="2" lean-forward="false" selection-start-line="292" selection-start-column="2" selection-end-line="292" selection-end-column="2" />
+          <folding>
+            <marker date="1508137509083" expanded="true" signature="191:1145" ph="..." />
+            <marker date="1508137509083" expanded="true" signature="198:989" ph="..." />
+            <marker date="1508137509083" expanded="true" signature="289:981" ph="..." />
+            <marker date="1508137509083" expanded="true" signature="295:411" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="429:498" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="514:547" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="569:639" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="645:680" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="683:719" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="721:768" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="776:834" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="856:973" ph="{...}" />
+            <marker date="1508137509083" expanded="true" signature="996:1145" ph="..." />
+            <marker date="1508137509083" expanded="true" signature="1121:1145" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="127">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kv_custom/Parser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
-          <folding>
-            <element signature="e#112#138#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

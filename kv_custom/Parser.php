@@ -32,7 +32,7 @@ class Parser
     }
 
     private function parseCode() {
-        $this->phpParserScript = $this->phpParser->parse(file_get_contents('test_codes/simple_malware.php'), 'code.php');
+        $this->phpParserScript = $this->phpParser->parse(file_get_contents('test_codes/priv.php'), 'code.php');
         $this->renderedScripts = (new CFGPrinter())->renderScript($this->phpParserScript);
     }
 
@@ -41,6 +41,8 @@ class Parser
         foreach($this->renderedScripts as $script) {
             $this->graphs[] = $this->createGraph($script);
         }
+        unset($this->phpParserScript);
+        unset($this->renderedScripts);
         return $this->graphs;
     }
 
