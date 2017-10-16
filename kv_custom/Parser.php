@@ -15,7 +15,7 @@ use PHPCfg\Op\Terminal\Return_;
 class Parser
 {
     private $phpParser;
-    private $script;
+    private $phpParserScript;
     private $phpCfgDumper;
     private $renderedScripts;
     private $graphs;
@@ -28,12 +28,12 @@ class Parser
     }
 
     public function printBlockContents() {
-        echo '<pre>'; echo $this->phpCfgDumper->printScript($this->script); echo '</pre>';
+        echo '<pre>'; echo $this->phpCfgDumper->printScript($this->phpParserScript); echo '</pre>';
     }
 
     private function parseCode() {
-        $script = $this->phpParser->parse(file_get_contents('test_codes/code.php'), 'code.php');
-        $this->renderedScripts = (new CFGPrinter())->renderScript($script);
+        $this->phpParserScript = $this->phpParser->parse(file_get_contents('test_codes/simple_malware.php'), 'code.php');
+        $this->renderedScripts = (new CFGPrinter())->renderScript($this->phpParserScript);
     }
 
     public function parse() {
@@ -84,7 +84,7 @@ class Parser
     private function reverseEdges($script, $nodes, $adjList) {
         foreach($script['blocks'] as $key => $block) {
             foreach ($block->parents as $prev) {
-                if ($script['blockIds']->contains($block)) {
+                if ($script['blocks']->contains($prev)) {
                     $parentBlockId = $script['blockIds'][$prev];
                     $currentBlockId = $script['blockIds'][$block];
                     $adjList[$parentBlockId-1]['children'][] = $nodes[$currentBlockId-1];

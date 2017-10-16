@@ -28,6 +28,10 @@ class Helper
 
     public static function stop() {
         self::$endTime = microtime(true);
-        echo 'Elapsed in '. (self::$endTime - self::$startTime).' secs';
+        echo 'Elapsed in '. (self::$endTime - self::$startTime).' secs<br/>';
+    }
+
+    public static function memory() {
+        echo 'Memory usage: '. (memory_get_usage()/1048576).' MB.<br/>';
     }
 }
