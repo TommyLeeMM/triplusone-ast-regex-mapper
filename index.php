@@ -12,10 +12,12 @@ require_once 'kv_custom/Node.php';
 require_once 'kv_custom/Parser.php';
 require_once 'kv_custom/PathFinder.php';
 require_once 'kv_custom/Helper.php';
+require_once 'kv_custom/Mongo.php';
 
 set_time_limit(0);
 
 $parser = new \kv_custom\Parser();
+//$mongo = new \kv_custom\Mongo();
 
 echo '<pre>';
 $parser->printBlockContents();
@@ -26,12 +28,16 @@ $pathFinder = new \kv_custom\PathFinder($parseResult);
 unset($parser);
 unset($parseResult);
 
+$pathFinder->findAllPaths();
 //\kv_custom\Helper::startTime();
 //foreach($pathFinder->findAllPaths() as $path) {
+//    $string = '';
 //    foreach($path as $node) {
 //        echo $node.' ';
+//        $string .= $node." ";
 //    }
 //    echo '<br/>';
+//    $mongo->insertPath(array("path" => $string));
 //}
 //\kv_custom\Helper::stop();
 //\kv_custom\Helper::memory();

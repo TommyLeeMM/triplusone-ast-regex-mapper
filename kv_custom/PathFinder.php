@@ -8,17 +8,18 @@
 
 namespace kv_custom;
 
-
 class PathFinder
 {
     private $graphs;
     private $paths;
     private $visited;
     private $transversedCount;
+    private $mongo;
 
     public function __construct($graphs)
     {
         $this->graphs = $graphs;
+        $this->mongo = new Mongo();
     }
 
     private function initialize() {
@@ -38,7 +39,7 @@ class PathFinder
             }
         }
         $this->DFSRecursive($this->graphs[0][0], [], 0, 0);
-        return $this->paths;
+        //return $this->paths;
     }
 
     private function DFSRecursive($start, $path, $pathIndex, $_source) {
@@ -48,7 +49,12 @@ class PathFinder
         //        $this->visited[$startId-1] = true;
 
         if($start['node']->isReturnBlock()) {
-            $this->paths[] = $path;
+            //$this->paths[] = $path;
+            $string = '';
+            foreach($path as $node) {
+                $string .= $node." ";
+            }
+            $this->mongo->insertPath(array("path"=>$string));
         }
         else {
             for($i = 0, $childrenCount = count($start['children']); $i < $childrenCount; $i++) {
