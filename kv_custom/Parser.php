@@ -32,7 +32,7 @@ class Parser
     }
 
     private function parseCode() {
-        $this->phpParserScript = $this->phpParser->parse(file_get_contents('test_codes/specials.php'), 'code.php');
+        $this->phpParserScript = $this->phpParser->parse(file_get_contents('test_codes/code.php'), 'code.php');
         $this->renderedScripts = (new CFGPrinter())->renderScript($this->phpParserScript);
     }
 

@@ -5,17 +5,17 @@
  * Date: 18-Oct-17
  * Time: 15:12
  */
-
+//phpinfo();
     ### connect to mongodb
-//    $m = new MongoClient();
-//    echo "Connection to Database Successfully<br/>";
-//
-//    ### select a database
-//    $db = $m->triplusone;
-//    echo "Database triplusone selected<br/>";
-//
-//    ### select collection
-//    $collection = $db->test;
+    // $m = new MongoClient();
+   // echo "Connection to Database Successfully<br/>";
+
+   // ### select a database
+   // $db = $m->triplusone;
+   // echo "Database triplusone selected<br/>";
+
+   // ### select collection
+   // $collection = $db->test;
 
     ### insert data
 //    $document = array("name"=>"Tengku","age"=>28);

@@ -29,30 +29,37 @@ class PathFinder
     public function findAllPaths() {
         $this->initialize();
         $this->visited = [];
+        //Helper::prettyVarDump($this->graphs[0][3]["node"]);
         foreach($this->graphs[0] as $graph) {
             $this->visited[] = false;
             $source = $graph['node'];
             $children = $graph['children'];
+            $childs = array();
             foreach($children as $child) {
+                $childs[] = $child->toArray();
                 $keyPair = serialize(array($source->getId(), $child->getId()));
                 $this->transversedCount[$keyPair] = 0;
             }
+            $this->mongo->insertNode(array('node' => $source->toArray(), 'children'=> $childs));
+            unset($childs);
         }
-        $this->DFSRecursive($this->graphs[0][0], [], 0, 0);
-        //return $this->paths;
+        $this->DFSRecursive($this->graphs[0][0], [], 0, 0,[]);
+        // var_dump($node->toArray());
+        // return $this->paths;
     }
 
-    private function DFSRecursive($start, $path, $pathIndex, $_source) {
+    private function DFSRecursive($start, $path, $pathIndex, $_source, $pathNode) {
         $startId = $start['node']->getId();
         $path[$pathIndex] = $startId;
+        $pathNode[$pathIndex] = $start['node'];
         $pathIndex++;
         //        $this->visited[$startId-1] = true;
 
         if($start['node']->isReturnBlock()) {
             //$this->paths[] = $path;
-            $string = '';
-            foreach($path as $node) {
-                $string .= $node." ";
+            $string = [];
+            foreach($pathNode as $node) {
+                $string[] = $node->toArray();
             }
             $this->mongo->insertPath(array("path"=>$string));
         }
@@ -67,7 +74,7 @@ class PathFinder
                 {
                     if($this->transversedCount[$pairKey] < 1) {
                         ++$this->transversedCount[$pairKey];
-                        $this->DFSRecursive($this->graphs[0][$child->getId()-1], $path, $pathIndex, $startId);
+                        $this->DFSRecursive($this->graphs[0][$child->getId()-1], $path, $pathIndex, $startId, $pathNode);
                     }
                 }
             }

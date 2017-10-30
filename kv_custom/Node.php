@@ -11,7 +11,7 @@ namespace kv_custom;
 
 use PHPCfg\Op\Stmt\Jump;
 
-class Node
+class Node 
 {
     private $id;
     private $block;
@@ -23,11 +23,11 @@ class Node
     public function __construct($id, $block)
     {
         $this->id = $id;
-        $this->block = $block;
+        //$this->block = $block;
         $this->count = 0;
         $this->jumpIf = null;
         $this->isReturnBlock = false;
-        $this->setIsJumpOnly();
+        //$this->setIsJumpOnly();
     }
 
     public function getId()
@@ -98,6 +98,16 @@ class Node
         }
         else
             $this->isJumpOnly = false;
+    }
+
+    public function toArray(){
+        return array(
+            'id'=> $this->id,
+            'block'=> $this->block,
+            'count' => $this->count,
+            'jumpIf' => $this->jumpIf,
+            'isReturnBlock' => $this->isReturnBlock
+        );
     }
 
 }

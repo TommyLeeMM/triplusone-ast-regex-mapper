@@ -19,12 +19,18 @@ class Mongo
     {
         $mongo = new MongoClient();
         $this->db = $mongo->triplusone;
-        $this->collection = $this->db->path;
     }
 
     public function insertPath(array $document)
     {
         //$document -> bisa diisi array satu atau dua dimensi
+        $this->collection = $this->db->path;
+        $this->collection->insert($document);
+    }
+
+    public function insertNode(array $document)
+    {
+        $this->collection = $this->db->node;
         $this->collection->insert($document);
     }
 

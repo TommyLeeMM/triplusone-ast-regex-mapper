@@ -24,23 +24,23 @@ $parser->printBlockContents();
 echo '</pre>';
 
 $parseResult = $parser->parse();
+//print_r($parser->parse());
 $pathFinder = new \kv_custom\PathFinder($parseResult);
 unset($parser);
 unset($parseResult);
 
 $pathFinder->findAllPaths();
-//\kv_custom\Helper::startTime();
-//foreach($pathFinder->findAllPaths() as $path) {
+// \kv_custom\Helper::startTime();
+// foreach($pathFinder->findAllPaths() as $path) {
 //    $string = '';
 //    foreach($path as $node) {
 //        echo $node.' ';
 //        $string .= $node." ";
 //    }
 //    echo '<br/>';
-//    $mongo->insertPath(array("path" => $string));
-//}
-//\kv_custom\Helper::stop();
-//\kv_custom\Helper::memory();
+// }
+// \kv_custom\Helper::stop();
+// \kv_custom\Helper::memory();
 
 //\kv_custom\Helper::startTime();
 //foreach($pathFinder->findAllPathsBFSPublic() as $path) {
