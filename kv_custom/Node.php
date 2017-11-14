@@ -15,19 +15,18 @@ class Node
 {
     private $id;
     private $block;
-    private $count;
     private $jumpIf;
     private $isReturnBlock;
     private $isJumpOnly;
+    private $statements;
 
     public function __construct($id, $block)
     {
         $this->id = $id;
-        //$this->block = $block;
-        $this->count = 0;
+        $this->block = $block;
         $this->jumpIf = null;
         $this->isReturnBlock = false;
-        //$this->setIsJumpOnly();
+        $this->setIsJumpOnly();
     }
 
     public function getId()
@@ -43,21 +42,6 @@ class Node
     public function getBlock()
     {
         return $this->block;
-    }
-
-    public function setBlock($block)
-    {
-        $this->block = $block;
-    }
-
-    public function getCount()
-    {
-        return $this->count;
-    }
-
-    public function setCount($count)
-    {
-        $this->count = $count;
     }
 
     public function getJumpIf()
@@ -80,10 +64,6 @@ class Node
         $this->isReturnBlock = $isReturnBlock;
     }
 
-    public function increaseCount() {
-        $this->count++;
-    }
-
     public function isJumpOnly()
     {
         return $this->isJumpOnly;
@@ -103,11 +83,20 @@ class Node
     public function toArray(){
         return array(
             'id'=> $this->id,
-            'block'=> $this->block,
-            'count' => $this->count,
+            'statements'=> $this->statements,
             'jumpIf' => $this->jumpIf,
-            'isReturnBlock' => $this->isReturnBlock
+            'isReturnBlock' => $this->isReturnBlock,
+            'isJumpOnly' => $this->isJumpOnly
         );
     }
 
+    public function getStatements()
+    {
+        return $this->statements;
+    }
+
+    public function setStatements($statements)
+    {
+        $this->statements = $statements;
+    }
 }

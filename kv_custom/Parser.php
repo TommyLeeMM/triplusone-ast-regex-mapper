@@ -22,7 +22,7 @@ class Parser
 
     public function __construct()
     {
-        $this->phpParser = new \PHPCfg\Parser((new \PhpParser\ParserFactory)->create(\PhpParser\ParserFactory::PREFER_PHP7));
+        $this->phpParser = new \PHPCfg\Parser((new \PhpParser\ParserFactory)->create(\PhpParser\ParserFactory::PREFER_PHP5));
         $this->phpCfgDumper = new \PHPCfg\Printer\Text();
         $this->parseCode();
     }
@@ -51,19 +51,25 @@ class Parser
         foreach($script['blocks'] as $key => $block) {
             $blockId = $script['blockIds'][$block];
             $node = new Node($blockId, $block);
+            $statements = [];
             foreach($block->children as $childKey => $child) {
+                $statement = [
+                    'lineNumber' => $child->getLine()
+                ];
+                $statements[] = $statement;
                 if($child instanceof Return_) {
                     $node->setIsReturnBlock(true);
                 }
                 else if($child instanceof JumpIf) {
                     $jumpIf = [
-                        'true' => $script['blockIds'][$block][$child->if],
-                        'false' => $script['blockIds'][$block][$child->else],
-                        'condIdx' => $childKey-1
+                        'true' => $script['blockIds'][$child->if],
+                        'false' => $script['blockIds'][$child->else],
+                        'condIdx' => $childKey
                     ];
                     $node->setJumpIf($jumpIf);
                 }
             }
+            $node->setStatements($statements);
             $nodes[] = $node;
         }
         return $nodes;
