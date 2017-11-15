@@ -39,6 +39,7 @@ class Parser
             $graphs[] = $this->createGraph($functionName, $script);
         }
         $this->saveScript($filename, $graphs);
+        return $graphs;
     }
 
     private function createGraph($functionName, $script) {

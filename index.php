@@ -33,10 +33,11 @@ $parseResults = [];
 foreach($filenames as $filename) {
     $parseResults[$filename] = $parser->parse($filename);
 }
-//foreach($parseResults as $parseResult) {
-//    $pathFinder = new \kv_custom\PathFinder($parseResult);
-//    $pathFinder->findAllPaths();
-//}
+
+foreach($parseResults as $filename => $parseResult) {
+    $pathFinder = new \kv_custom\PathFinder($filename, $parseResult);
+    $pathFinder->findAllPaths();
+}
 
 \kv_custom\Helper::stop();
 \kv_custom\Helper::memory();

@@ -15,35 +15,40 @@ class PathFinder
     private $visited;
     private $transversedCount;
     private $database;
+    private $filename;
 
-    public function __construct($graphs)
+    public function __construct($filename, $graphs)
     {
+        $this->filename = $filename;
         $this->graphs = $graphs;
         $this->database = new Mongo();
     }
 
     private function initialize() {
-        $this->paths = [];
+//        $this->paths = [];
+        $this->transversedCount = [];
     }
 
     public function findAllPaths() {
         $this->initialize();
         $this->visited = [];
-        Helper::prettyVarDump($this->graphs);
-//        foreach($this->graphs[0] as $graph) {
+
+        foreach($this->graphs as $graph) {
 //            $this->visited[] = false;
-//            $source = $graph['node'];
-//            $children = $graph['children'];
-//            foreach($children as $child) {
-//                $keyPair = serialize(array($source->getId(), $child->getId()));
-//                $this->transversedCount[$keyPair] = 0;
-//            }
-//        }
-//        $this->DFSRecursive($this->graphs[0][0], [], 0, 0,[]);
+            $adjList = $graph->getAdjacencyList();
+            foreach($adjList as $row) {
+                $node = $row['node'];
+                foreach($row['children'] as $child) {
+                    $keyPair = serialize(array($node->getId(), $child->getId()));
+                    $this->transversedCount[$keyPair] = 0;
+                }
+            }
+            $this->DFSRecursive($adjList[0], [], 0, 0, [], $graph);
+        }
         // return $this->paths;
     }
 
-    private function DFSRecursive($start, $path, $pathIndex, $_source, $pathNode) {
+    private function DFSRecursive($start, $path, $pathIndex, $_source, $pathNode, $graph) {
         $startId = $start['node']->getId();
         $path[$pathIndex] = $startId;
         $pathNode[$pathIndex] = $start['node'];
@@ -52,11 +57,15 @@ class PathFinder
 
         if($start['node']->isReturnBlock()) {
             //$this->paths[] = $path;
-            $string = [];
+            $foundPath = [];
             foreach($pathNode as $node) {
-                $string[] = $node->toArray();
+                $foundPath[] = $node->toArray();
             }
-            $this->database->insertPath(array("path"=>$string));
+            $this->database->insertPath([
+                'filename' => $this->filename,
+                'functionName' => $graph->getFunctionName(),
+                'path' => $foundPath
+            ]);
         }
         else {
             for($i = 0, $childrenCount = count($start['children']); $i < $childrenCount; $i++) {
@@ -69,7 +78,7 @@ class PathFinder
                 {
                     if($this->transversedCount[$pairKey] < 1) {
                         ++$this->transversedCount[$pairKey];
-                        $this->DFSRecursive($this->graphs[0][$child->getId()-1], $path, $pathIndex, $startId, $pathNode);
+                        $this->DFSRecursive($graph->getAdjacencyList()[$child->getId()-1], $path, $pathIndex, $startId, $pathNode, $graph);
                     }
                 }
             }
