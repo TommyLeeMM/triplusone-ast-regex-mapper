@@ -23,3 +23,7 @@ if($b < 5) {
     }
     $z = 2;
 }
+
+function abc() {
+    echo '13332';
+}

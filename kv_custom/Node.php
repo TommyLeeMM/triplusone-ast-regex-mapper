@@ -23,10 +23,10 @@ class Node
     public function __construct($id, $block)
     {
         $this->id = $id;
-        $this->block = $block;
+        //$this->block = $block;
         $this->jumpIf = null;
         $this->isReturnBlock = false;
-        $this->setIsJumpOnly();
+        //$this->setIsJumpOnly();
     }
 
     public function getId()

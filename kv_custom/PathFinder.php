@@ -29,19 +29,17 @@ class PathFinder
     public function findAllPaths() {
         $this->initialize();
         $this->visited = [];
-        foreach($this->graphs[0] as $graph) {
-            $this->visited[] = false;
-            $source = $graph['node'];
-            $children = $graph['children'];
-            $childs = array();
-            foreach($children as $child) {
-                $childs[] = $child->toArray();
-                $keyPair = serialize(array($source->getId(), $child->getId()));
-                $this->transversedCount[$keyPair] = 0;
-            }
-            $this->database->insertNode(array('node' => $source->toArray(), 'children'=> $childs));
-        }
-        $this->DFSRecursive($this->graphs[0][0], [], 0, 0,[]);
+        Helper::prettyVarDump($this->graphs);
+//        foreach($this->graphs[0] as $graph) {
+//            $this->visited[] = false;
+//            $source = $graph['node'];
+//            $children = $graph['children'];
+//            foreach($children as $child) {
+//                $keyPair = serialize(array($source->getId(), $child->getId()));
+//                $this->transversedCount[$keyPair] = 0;
+//            }
+//        }
+//        $this->DFSRecursive($this->graphs[0][0], [], 0, 0,[]);
         // return $this->paths;
     }
 

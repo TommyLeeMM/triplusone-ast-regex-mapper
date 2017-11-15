@@ -10,6 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 require_once 'kv_custom/DirectoryScanner.php';
 require_once 'kv_custom/CFGPrinter.php';
 require_once 'kv_custom/Node.php';
+require_once 'kv_custom/Graph.php';
 require_once 'kv_custom/Parser.php';
 require_once 'kv_custom/PathFinder.php';
 require_once 'kv_custom/Helper.php';
@@ -25,9 +26,17 @@ $parser = new \kv_custom\Parser();
 
 \kv_custom\Helper::startTime();
 
-$parseResult = $parser->parse();
-$pathFinder = new \kv_custom\PathFinder($parseResult);
-$pathFinder->findAllPaths();
+$directoryScanner = new \kv_custom\DirectoryScanner();
+$filenames = $directoryScanner->scan("C:\\XAMPP\\XAMPP56\\htdocs\\triplusone\\test_codes");
+
+$parseResults = [];
+foreach($filenames as $filename) {
+    $parseResults[$filename] = $parser->parse($filename);
+}
+//foreach($parseResults as $parseResult) {
+//    $pathFinder = new \kv_custom\PathFinder($parseResult);
+//    $pathFinder->findAllPaths();
+//}
 
 \kv_custom\Helper::stop();
 \kv_custom\Helper::memory();

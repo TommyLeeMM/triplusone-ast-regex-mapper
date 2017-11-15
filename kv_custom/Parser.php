@@ -15,35 +15,44 @@ use PHPCfg\Op\Terminal\Return_;
 class Parser
 {
     private $phpParser;
-    private $phpParserScript;
     private $phpCfgDumper;
-    private $renderedScripts;
-    private $graphs;
+    private $cfgPrinter;
+    private $database;
 
     public function __construct()
     {
         $this->phpParser = new \PHPCfg\Parser((new \PhpParser\ParserFactory)->create(\PhpParser\ParserFactory::PREFER_PHP5));
         $this->phpCfgDumper = new \PHPCfg\Printer\Text();
-        $this->parseCode();
+        $this->cfgPrinter = new CFGPrinter();
+        $this->database = new Mongo();
     }
 
-    public function printBlockContents() {
-        echo '<pre>'; echo $this->phpCfgDumper->printScript($this->phpParserScript); echo '</pre>';
+    private function parseCode($filename) {
+        $phpParserScript = $this->phpParser->parse(file_get_contents($filename), $filename);
+        return $this->cfgPrinter->renderScript($phpParserScript);
     }
 
-    private function parseCode() {
-        $this->phpParserScript = $this->phpParser->parse(file_get_contents('test_codes/code.php'), 'code.php');
-        $this->renderedScripts = (new CFGPrinter())->renderScript($this->phpParserScript);
-    }
-
-    public function parse() {
-        $this->graphs = [];
-        foreach($this->renderedScripts as $script) {
-            $this->graphs[] = $this->createGraph($script);
+    public function parse($filename) {
+        $renderedScripts = $this->parseCode($filename);
+        $graphs = [];
+        foreach($renderedScripts as $functionName => $script) {
+            $graphs[] = $this->createGraph($functionName, $script);
         }
-        unset($this->phpParserScript);
-        unset($this->renderedScripts);
-        return $this->graphs;
+        $this->saveScript($filename, $graphs);
+    }
+
+    private function createGraph($functionName, $script) {
+        $nodes = $this->createNodes($script);
+        $adjList = [];
+        foreach($script['blocks'] as $key => $block) {
+            $blockId = $script['blockIds'][$block];
+            $adjList[] = [
+                'node' => $nodes[$blockId - 1],
+                'children' => []
+            ];
+        }
+        $graph = new Graph($functionName, $this->reverseEdges($script, $nodes, $adjList));
+        return $graph;
     }
 
     private function createNodes($script) {
@@ -75,30 +84,27 @@ class Parser
         return $nodes;
     }
 
-    private function createGraph($script) {
-        $nodes = $this->createNodes($script);
-        $adjList = [];
-        foreach($script['blocks'] as $key => $block) {
-            $blockId = $script['blockIds'][$block];
-            $adjList[] = [
-                'node' => $nodes[$blockId - 1],
-                'children' => []
-            ];
-        }
-        $adjList = $this->reverseEdges($script, $nodes, $adjList);
-        return $adjList;
-    }
-
-    private function reverseEdges($script, $nodes, $adjList) {
+    private function reverseEdges($script, $nodes, $graph) {
         foreach($script['blocks'] as $key => $block) {
             foreach ($block->parents as $prev) {
                 if ($script['blocks']->contains($prev)) {
                     $parentBlockId = $script['blockIds'][$prev];
                     $currentBlockId = $script['blockIds'][$block];
-                    $adjList[$parentBlockId-1]['children'][] = $nodes[$currentBlockId-1];
+                    $graph[$parentBlockId-1]['children'][] = $nodes[$currentBlockId-1];
                 }
             }
         }
-        return $adjList;
+        return $graph;
+    }
+
+    private function saveScript($filename, $graphs) {
+        $graphsArray = [];
+        foreach ($graphs as $graph) {
+            $graphsArray[] = $graph->toArray();
+        }
+        $this->database->insertNode([
+            'filename' => $filename,
+            'graphs' => $graphsArray
+        ]);
     }
 }

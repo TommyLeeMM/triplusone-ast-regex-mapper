@@ -24,13 +24,13 @@ class Mongo
     public function insertPath(array $document)
     {
         //$document -> bisa diisi array satu atau dua dimensi
-        $this->collection = $this->db->path;
+        $this->collection = $this->db->paths;
         $this->collection->insert($document);
     }
 
     public function insertNode(array $document)
     {
-        $this->collection = $this->db->node;
+        $this->collection = $this->db->graphs;
         $this->collection->insert($document);
     }
 

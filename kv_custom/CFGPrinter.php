@@ -46,10 +46,10 @@ class CFGPrinter extends \PHPCfg\Printer
     {
         $rendered = array();
 
-        $rendered[] = $this->render($script->main);
+        $rendered[$script->main->getScopedName()] = $this->render($script->main);
         foreach ($script->functions as $function) {
             $result = $this->render($function);
-            $rendered[] = $result;
+            $rendered[$function->getScopedName()] = $result;
         }
         return $rendered;
     }
