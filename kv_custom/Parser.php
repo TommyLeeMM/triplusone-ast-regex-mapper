@@ -36,14 +36,14 @@ class Parser
         $renderedScripts = $this->parseCode($filename);
         $graphs = [];
         foreach($renderedScripts as $functionName => $script) {
-            $graphs[] = $this->createGraph($functionName, $script);
+            $graphs[] = $this->createGraph($filename, $functionName, $script);
         }
         $this->saveScript($filename, $graphs);
         return $graphs;
     }
 
-    private function createGraph($functionName, $script) {
-        $nodes = $this->createNodes($script);
+    private function createGraph($filename, $functionName, $script) {
+        $nodes = $this->createNodes($filename, $script);
         $adjList = [];
         foreach($script['blocks'] as $key => $block) {
             $blockId = $script['blockIds'][$block];
@@ -56,17 +56,15 @@ class Parser
         return $graph;
     }
 
-    private function createNodes($script) {
+    private function createNodes($filename, $script) {
         $nodes = [];
+        $codes = $this->getRawCodes($filename);
         foreach($script['blocks'] as $key => $block) {
             $blockId = $script['blockIds'][$block];
             $node = new Node($blockId, $block);
             $statements = [];
             foreach($block->children as $childKey => $child) {
-                $statement = [
-                    'lineNumber' => $child->getLine()
-                ];
-                $statements[] = $statement;
+                $statements[] = $this->extractStatement($child, $codes);
                 if($child instanceof Return_) {
                     $node->setIsReturnBlock(true);
                 }
@@ -83,6 +81,31 @@ class Parser
             $nodes[] = $node;
         }
         return $nodes;
+    }
+
+    private function getRawCodes($filename) {
+        $codeString = file_get_contents($filename);
+        return explode(PHP_EOL, $codeString);
+    }
+
+    private function extractStatement($statement, $codes) {
+        $startLine = $statement->getLine();
+        $endLine = $statement->getAttribute('endLine', -1);
+        $stringCode = '';
+        if($startLine != -1) {
+            for($i = $startLine; $i <= $endLine; $i++) {
+                $stringCode .= $codes[$i-1];
+            }
+        }
+        else {
+            $stringCode = null;
+        }
+        return [
+            'startLine' => $startLine,
+            'endLine' => $endLine,
+            'code' => $stringCode,
+            'type' => get_class($statement)
+        ];
     }
 
     private function reverseEdges($script, $nodes, $graph) {

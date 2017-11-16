@@ -32,7 +32,7 @@ class Helper
     }
 
     public static function memory() {
-        $mem_usage = memory_get_usage(true);
+        $mem_usage = memory_get_usage(false);
 
         if ($mem_usage < 1024)
             echo $mem_usage." bytes";
