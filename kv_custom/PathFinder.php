@@ -13,7 +13,7 @@ class PathFinder
     private $graphs;
     private $paths;
     private $visited;
-    private $transversedCount;
+    private $isEdgeExplored;
     private $database;
     private $filename;
 
@@ -26,21 +26,21 @@ class PathFinder
 
     private function initialize() {
 //        $this->paths = [];
-        $this->transversedCount = [];
+        $this->isEdgeExplored = [];
     }
 
     public function findAllPaths() {
-        $this->initialize();
         $this->visited = [];
 
         foreach($this->graphs as $graph) {
 //            $this->visited[] = false;
+            $this->initialize();
             $adjList = $graph->getAdjacencyList();
             foreach($adjList as $row) {
                 $node = $row['node'];
                 foreach($row['children'] as $child) {
                     $keyPair = serialize(array($node->getId(), $child->getId()));
-                    $this->transversedCount[$keyPair] = 0;
+                    $this->isEdgeExplored[$keyPair] = false;
                 }
             }
             $this->DFSRecursive($adjList[0], [], 0, 0, [], $graph);
@@ -74,10 +74,10 @@ class PathFinder
 //                    $this->DFSRecursive($this->graphs[0][$child->getId()-1], $path, $pathIndex, $_source);
 //                }
                 $pairKey = serialize(array($startId, $child->getId()));
-                if(array_key_exists($pairKey, $this->transversedCount))
+                if(array_key_exists($pairKey, $this->isEdgeExplored))
                 {
-                    if($this->transversedCount[$pairKey] < 1) {
-                        ++$this->transversedCount[$pairKey];
+                    if(!$this->isEdgeExplored[$pairKey]) {
+                        $this->isEdgeExplored[$pairKey] = true;
                         $this->DFSRecursive($graph->getAdjacencyList()[$child->getId()-1], $path, $pathIndex, $startId, $pathNode, $graph);
                     }
                 }
@@ -86,8 +86,8 @@ class PathFinder
 
         $pathIndex--;
         $pairKey2 = serialize(array($_source, $startId));
-        if(array_key_exists($pairKey2, $this->transversedCount))
-            --$this->transversedCount[$pairKey2];
+        if(array_key_exists($pairKey2, $this->isEdgeExplored))
+            $this->isEdgeExplored[$pairKey2] = false;
 //        $this->visited[$startId-1] = false;
     }
 
