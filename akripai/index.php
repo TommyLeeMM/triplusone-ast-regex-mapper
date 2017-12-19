@@ -6,19 +6,16 @@
  * Time: 18:40
  */
 
-include_once('vendor/autoload.php');
-
-spl_autoload_register(function ($class_name) {
-    include $class_name . '.php';
-});
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-//header('Content-type:text/plain');
+include_once 'bootstrap.php';
 
 $parser = new \lib\Parser();
-$result = $parser->parse('sample_malwares/code.php');
-\lib\Helper::prettyVarDump($result[0]->getName());
-//\lib\Helper::prettyVarDump($result);
-
+//$result = $parser->parse('sample_malwares/code.php');
+//
+//$mapper = new \lib\AstRegexMapper();
+//
+//$traverser = new \PhpParser\NodeTraverser();
+//$traverser->addVisitor($mapper);
+//
+//foreach($result as $filename => $ast) {
+//    $traverser->traverse($ast);
+//}

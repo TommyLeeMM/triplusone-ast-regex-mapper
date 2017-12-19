@@ -28,12 +28,4 @@ class FuncCall extends Expr
     public function getSubNodeNames() {
         return array('name', 'args');
     }
-
-    public function getName() {
-        $name = $this->name->parts[0];
-        return [
-            'name' => $name,
-            'args' => $this->args
-        ];
-    }
 }

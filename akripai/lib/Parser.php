@@ -8,8 +8,6 @@
 
 namespace lib;
 
-
-use PhpParser\NodeDumper;
 use PhpParser\ParserFactory;
 
 class Parser
@@ -26,21 +24,18 @@ class Parser
 
     public function parse($path) {
         $this->setFileNames($path);
+        $asts = [];
         foreach($this->fileNames as $fileName) {
             try {
                 $ast = $this->nikicParser->parse(file_get_contents($fileName));
-//				echo '<pre>';
-//                Helper::prettyVarDump($ast);
-//                echo (new NodeDumper())->dump($ast);
-//				echo '</pre>';
-
             }
             catch (\Exception $exception) {
                 print 'Error '. $exception->getMessage();
                 die();
             }
-            return $ast;
+            $asts[] = $ast;
         }
+        return $asts;
     }
 
     private function setFileNames($path) {
