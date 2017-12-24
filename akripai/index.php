@@ -9,13 +9,14 @@
 include_once 'bootstrap.php';
 
 $parser = new \lib\Parser();
-//$result = $parser->parse('sample_malwares/code.php');
-//
-//$mapper = new \lib\AstRegexMapper();
-//
-//$traverser = new \PhpParser\NodeTraverser();
-//$traverser->addVisitor($mapper);
-//
-//foreach($result as $filename => $ast) {
-//    $traverser->traverse($ast);
-//}
+$result = $parser->parse('sample_malwares/code.php');
+
+$mapper = new \lib\AstRegexMapper();
+
+$traverser = new \PhpParser\NodeTraverser();
+$traverser->addVisitor($mapper);
+
+foreach($result as $filename => $ast) {
+//    \lib\Helper::prettyVarDump($ast);
+    $traverser->traverse($ast);
+}
