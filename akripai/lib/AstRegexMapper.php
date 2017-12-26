@@ -12,6 +12,7 @@ use MongoDB\Driver\Query;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
+use PhpParser\Skripsi\IStatementExtractable;
 
 class AstRegexMapper extends NodeVisitorAbstract
 {
@@ -24,24 +25,42 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     public function enterNode(Node $node)
     {
-        if($node instanceof Node\Expr\FuncCall) {
+        if ($node instanceof Node\Expr\FuncCall) {
             $extractedNode = $this->extractNode($node);
             Helper::prettyVarDump($extractedNode);
             $cursor = $this->searchRegex($extractedNode);
             $cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
             $cursorArray = $cursor->toArray();
-            if(!empty($cursorArray))
-                echo '<h3>Regexnya: '. $cursorArray[0]['regex'] .'</h3><br/>';
+            if (!empty($cursorArray))
+                echo '<h3>Regexnya: ' . $cursorArray[0]['regex'] . '</h3><br/>';
+        } else if ($node instanceof IStatementExtractable) {
+            $statements = $node->getStatements();
+            if(is_array($statements[0])) {
+                foreach ($statements as $stmts) {
+                    $this->extractStatements($stmts);
+                }
+            }
+            else {
+                $this->extractStatements($statements);
+            }
         }
         return NodeTraverser::DONT_TRAVERSE_CHILDREN;
     }
 
-    private function extractNode($node) {
+    private function extractStatements($stmts)
+    {
+        foreach ($stmts as $stmt) {
+            $this->enterNode($stmt);
+        }
+    }
+
+    private function extractNode($node)
+    {
         $extractedNode = array();
         $extractedNode['type'] = $node->getType();
-        $extractedNode['name'] = $node->extractName();
+        $extractedNode['name'] = $node->extract();
         $extractedNode['args'] = array();
-        foreach($node->args as $argObj) {
+        foreach ($node->args as $argObj) {
             $argValue = $argObj->value;
             $arg = array();
             $arg['type'] = $argValue->getType();
@@ -50,7 +69,8 @@ class AstRegexMapper extends NodeVisitorAbstract
         return $extractedNode;
     }
 
-    private function searchRegex($extractedNode) {
+    private function searchRegex($extractedNode)
+    {
         $filters = array(
             'type' => $extractedNode['type'],
             'name' => $extractedNode['name'],
