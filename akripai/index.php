@@ -16,7 +16,7 @@ $mapper = new \lib\AstRegexMapper();
 $traverser = new \PhpParser\NodeTraverser();
 $traverser->addVisitor($mapper);
 
-$manager = \lib\DatabaseManager::getInstance();
+//$manager = \lib\DatabaseManager::getInstance();
 //$manager->insertDummyData();
 
 foreach($result as $filename => $ast) {
