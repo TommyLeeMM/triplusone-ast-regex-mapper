@@ -11,7 +11,7 @@ namespace lib\regex;
 
 class GroupE extends Group
 {
-    protected $methodCount = 14;
+    protected $methodCount = 15;
 
     public function E0() {
         $data = array();
@@ -251,7 +251,7 @@ class GroupE extends Group
         $data = array();
         $args = array();
 
-        $data['regex'] = 'E11';
+        $data['regex'] = 'E12';
         $data['type'] = ClassConstant::$METHODCALL;
         $data['name'] = 'win_shell_execute';
 
@@ -275,6 +275,22 @@ class GroupE extends Group
 
         $arg1 = array();
         $arg1['type'] = ClassConstant::$VARIABLE;
+
+        $args[] = $arg1;
+        $data['args'] = $args;
+        return $data;
+    }
+
+    public function E14() {
+        $data = array();
+        $args = array();
+
+        $data['regex'] = 'E14';
+        $data['type'] = ClassConstant::$EVAL;
+        $data['name'] = 'eval';
+
+        $arg1 = array();
+        $arg1['type'] = ClassConstant::$STRING;
 
         $args[] = $arg1;
         $data['args'] = $args;

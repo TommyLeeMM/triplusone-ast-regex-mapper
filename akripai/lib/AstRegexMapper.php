@@ -8,6 +8,7 @@
 
 namespace lib;
 
+use lib\regex\ClassConstant;
 use MongoDB\Driver\Query;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
@@ -48,6 +49,7 @@ class AstRegexMapper extends NodeVisitorAbstract
         }
 
         if ($node instanceof Node\Expr\FuncCall
+                || $node instanceof Node\Expr\Eval_
                 || $node instanceof Node\Expr\MethodCall) {
             $extractedNode = $node->extract();
             Helper::prettyVarDump($extractedNode);
@@ -108,16 +110,21 @@ class AstRegexMapper extends NodeVisitorAbstract
     private function searchRegexOnlyParamType($extractedNode) {
         $args = array();
         foreach($extractedNode['args'] as $arg) {
-            $_arg = array();
-            $_arg['type'] = $arg['type'];
-            $args[] = $_arg;
+            if($arg['type'] !== ClassConstant::$VARIABLE &&
+                $arg['type'] !== ClassConstant::$STRING) {
+                $args[] = $arg;
+            }
+            else {
+                $_arg = array();
+                $_arg['type'] = $arg['type'];
+                $args[] = $_arg;
+            }
         }
         $filters = array(
             'type' => $extractedNode['type'],
             'name' => $extractedNode['name'],
             'args' => $args
         );
-        Helper::prettyVarDump($filters);
         $cursorArray = $this->search($filters);
         if($cursorArray === null || count($cursorArray) === 0) {
             return null;

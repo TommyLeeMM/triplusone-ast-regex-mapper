@@ -2,127 +2,119 @@
 /**
  * Created by PhpStorm.
  * User: kevin
- * Date: 29/12/2017
- * Time: 16:31
+ * Date: 07/01/2018
+ * Time: 20:18
  */
 
 namespace lib;
-include_once 'Helper.php';
+
+use MongoDB\Driver\Query;
 
 class NaiveBayesClassifier
 {
     private $positiveGroups, $negativeGroups;
-    private $positives, $negatives, $data;
+    private $positive, $negative;
+    private $additiveValue = 1;
+    private $labelCount = 2; // malware or not
 
-    public function __construct() {
-        $this->prepare();
-        $this->train();
+    public function __construct()
+    {
+        $this->calculateBasedAppearance();
     }
 
-    private function train() {
-        $this->positiveGroups = array();
-        $this->negativeGroups = array();
-        for($i = 0; $i < 5; $i++) {
-            $this->positiveGroups[] = array();
-            $this->negativeGroups[] = array();
-        }
+    private function calculateBasedAppearance() {
+        $generator = new DummyDataGenerator();
+        $this->positiveGroups = $generator->generateRegexIsAppearOrNotPositiveCounter();
+        $this->negativeGroups = $generator->generateRegexIsAppearOrNotNegativeCounter();
 
-        foreach($this->positives as $positive) {
-            foreach($positive as $key => $p) {
-                if(array_key_exists($p, $this->positiveGroups[$key])) {
-                    $this->positiveGroups[$key][$p]++;
-                }
-                else {
-                    $this->positiveGroups[$key][$p] = 1;
-                }
+        $this->positive = $generator->prepareRegexCounter();
+        $this->negative = $generator->prepareRegexCounter();
+
+        foreach($this->positiveGroups as $positiveGroup) {
+            foreach($positiveGroup as $key => $value) {
+                $this->positive[$key] += $value;
             }
         }
-        foreach($this->negatives as $negative) {
-            foreach($negative as $key => $p) {
-                if(array_key_exists($p, $this->negativeGroups[$key])) {
-                    $this->negativeGroups[$key][$p]++;
-                }
-                else {
-                    $this->negativeGroups[$key][$p] = 1;
-                }
+        foreach($this->negativeGroups as $negativeGroup) {
+            foreach($negativeGroup as $key => $value) {
+                $this->negative[$key] += $value;
             }
         }
-    }
 
-    private function prepare() {
-        $this->data = [
-            ['Sunny', 'Hot', 'High', 0, 'N'],
-            ['Sunny', 'Hot', 'High', 1, 'N'],
-            ['Overcast', 'Hot', 'High', 0, 'P'],
-            ['Rain', 'Mild', 'High', 0, 'P'],
-            ['Rain', 'Cool', 'Normal', 0, 'P'],
-            ['Rain', 'Cool', 'Normal', 1, 'N'],
-            ['Overcast', 'Cool', 'Normal', 1, 'P'],
-            ['Sunny', 'Mild', 'High', 0, 'N'],
-            ['Sunny', 'Cool', 'Normal', 0, 'P'],
-            ['Rain', 'Mild', 'Normal', 0, 'P'],
-            ['Sunny', 'Mild', 'Normal', 1, 'P'],
-            ['Overcast', 'Mild', 'High', 1, 'P'],
-            ['Overcast', 'Hot', 'Normal', 0, 'P'],
-            ['Rain', 'Mild', 'High', 1, 'N']
-        ];
-
-        $this->positives = array();
-        $this->negatives = array();
-        foreach($this->data as $datum) {
-            $this->positiveOrNegative($datum);
+        // additive smoothing
+        foreach($this->positive as $key => $item) {
+            $this->positive[$key] += $this->additiveValue;
+        }
+        foreach($this->negative as $key => $item) {
+            $this->negative[$key] += $this->additiveValue;
         }
     }
 
-    private function positiveOrNegative($datum) {
-        if($datum[4] === 'P') {
-            $this->positives[] = $datum;
+    private function calculateBasedApperanceCount() {
+        $generator = new DummyDataGenerator();
+        $this->positiveGroups = $generator->generateRegexAppearanceCountPositiveCounter();
+        $this->negativeGroups = $generator->generateRegexAppearanceCountNegativeCounter();
+
+        $this->positive = $generator->prepareRegexCounter();
+        $this->negative = $generator->prepareRegexCounter();
+
+        foreach($this->positiveGroups as $positiveGroup) {
+            foreach($positiveGroup as $key => $value) {
+                $this->positive[$key] += $value;
+            }
         }
-        else {
-            $this->negatives[] = $datum;
+        foreach($this->negativeGroups as $negativeGroup) {
+            foreach($negativeGroup as $key => $value) {
+                $this->negative[$key] += $value;
+            }
+        }
+
+//        $positivePropertyCount = 0;
+//        $negativePropertyCount = 0;
+//        foreach($this->positive as $key => $item) {
+//            $positivePropertyCount += $item;
+//        }
+//        foreach($this->neg as $key => $item) {
+//            $positivePropertyCount += $item;
+//        }
+
+        // additive smoothing
+        foreach($this->positive as $key => $item) {
+            $this->positive[$key] += $this->additiveValue;
+        }
+        foreach($this->negative as $key => $item) {
+            $this->negative[$key] += $this->additiveValue;
         }
     }
 
-    public function classify(array $data) {
-        $positive = array();
-        $negative = array();
-        foreach($data as $key => $datum) {
-            if(array_key_exists($datum, $this->positiveGroups[$key]))
-                $positive[] = $this->positiveGroups[$key][$datum] / count($this->positives);
-            else
-                $positive[] = 0;
+    public function classify($dataset) {
+        return $this->classifyBasedAppearance($dataset);
+    }
 
-            if(array_key_exists($datum, $this->negativeGroups[$key]))
-                $negative[] = $this->negativeGroups[$key][$datum] / count($this->negatives);
-            else
-                $negative[] = 0;
+    private function classifyBasedAppearance($dataset) {
+        $count = count($this->positiveGroups) + count($this->negativeGroups);
+
+        $positiveValues = array();
+        foreach($dataset as $key => $value) {
+            $positiveValues[] = $this->positive[$key] / (count($this->positiveGroups)+$this->additiveValue);
         }
-        $positive[] = count($this->positives) / count($this->data);
-        $negative[] = count($this->negatives) / count($this->data);
+        $positiveValues[] = (count($this->positiveGroups)+$this->additiveValue) / ($count + ($this->additiveValue * $this->labelCount));
 
-        $positiveScore = array_product($positive);
-        $negativeScore = array_product($negative);
-        $totalScore = $positiveScore + $negativeScore;
-        echo 'Positive: '.$positiveScore .'. Percentage: '. ($positiveScore/$totalScore*100).'%<br/>';
-        echo 'Negative: '.$negativeScore .'. Percentage: '. ($negativeScore/$totalScore*100).'%<br/>';
-        echo 'Result: ';
-        echo ($positiveScore > $negativeScore) ? 'Positive' : 'Negative';
+        $negativeValues = array();
+        foreach($dataset as $key => $value) {
+            $negativeValues[] = $this->negative[$key] / (count($this->negativeGroups)+$this->additiveValue);
+        }
+        $negativeValues[] = (count($this->negativeGroups)+$this->additiveValue) / ($count + ($this->additiveValue * $this->labelCount));
+
+        $positiveValue = array_product($positiveValues);
+        $negativeValue = array_product($negativeValues);
+
+        echo ($positiveValue >= $negativeValue) ? 'Positive' : 'Negative';
         echo '<br/>';
-    }
-
-    public function training($data) {
-        $this->data[] = $data;
-        $this->positiveOrNegative($data);
-        $this->train();
+        echo $positiveValue . ' ### '. $positiveValue/ ($positiveValue + $negativeValue) * 100;
+        echo '<br/>';
+        echo $negativeValue . ' ### '. $negativeValue/ ($positiveValue + $negativeValue) * 100;
+        echo '<br/>';
+        return ($positiveValue >= $negativeValue) ? $positiveValue : $negativeValue;
     }
 }
-
-$classifier = new NaiveBayesClassifier();
-$classifier->classify(['Rain', 'Mild', 'Normal', 1]);
-$classifier->classify(['Overcast', 'Cool', 'High', 0]);
-$classifier->training(['Overcast', 'Cool', 'High', 0, 'N']);
-$classifier->training(['Overcast', 'Cool', 'High', 0, 'N']);
-$classifier->training(['Overcast', 'Cool', 'High', 0, 'N']);
-$classifier->training(['Overcast', 'Cool', 'High', 0, 'N']);
-$classifier->classify(['Rain', 'Mild', 'Normal', 1]);
-$classifier->classify(['Overcast', 'Cool', 'High', 0]);

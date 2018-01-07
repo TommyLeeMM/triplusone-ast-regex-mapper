@@ -85,7 +85,7 @@ class GroupF extends Group
         $data = array();
         $args = array();
 
-        $data['regex'] = 'F3';
+        $data['regex'] = 'F4';
         $data['type'] = ClassConstant::$FUNCCALL;
         $data['name'] = 'pg_query';
 
