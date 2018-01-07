@@ -22,14 +22,14 @@ class DummyDataGenerator
 {
     public function generate() {
         $groups = array();
-//        $groups[] = (new GroupB())->getAll();
+        $groups[] = (new GroupB())->getAll();
         $groups[] = (new GroupC())->getAll();
-//        $groups[] = (new GroupD())->getAll();
-//        $groups[] = (new GroupE())->getAll();
-//        $groups[] = (new GroupF())->getAll();
-//        $groups[] = (new GroupG())->getAll();
-//        $groups[] = (new GroupH())->getAll();
-//        $groups[] = (new GroupI())->getAll();
+        $groups[] = (new GroupD())->getAll();
+        $groups[] = (new GroupE())->getAll();
+        $groups[] = (new GroupF())->getAll();
+        $groups[] = (new GroupG())->getAll();
+        $groups[] = (new GroupH())->getAll();
+        $groups[] = (new GroupI())->getAll();
         return $groups;
     }
 

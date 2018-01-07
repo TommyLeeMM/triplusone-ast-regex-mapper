@@ -50,6 +50,7 @@ class AstRegexMapper extends NodeVisitorAbstract
         if ($node instanceof Node\Expr\FuncCall
                 || $node instanceof Node\Expr\MethodCall) {
             $extractedNode = $node->extract();
+            Helper::prettyVarDump($extractedNode);
             $result = $this->searchRegex($extractedNode);
             if($result !== null) {
                 $regex = [];
@@ -107,14 +108,16 @@ class AstRegexMapper extends NodeVisitorAbstract
     private function searchRegexOnlyParamType($extractedNode) {
         $args = array();
         foreach($extractedNode['args'] as $arg) {
-            $args['type'] = $arg['type'];
+            $_arg = array();
+            $_arg['type'] = $arg['type'];
+            $args[] = $_arg;
         }
         $filters = array(
             'type' => $extractedNode['type'],
             'name' => $extractedNode['name'],
             'args' => $args
         );
-
+        Helper::prettyVarDump($filters);
         $cursorArray = $this->search($filters);
         if($cursorArray === null || count($cursorArray) === 0) {
             return null;
