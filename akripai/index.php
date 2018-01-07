@@ -8,18 +8,38 @@
 
 include_once 'bootstrap.php';
 
-$parser = new \lib\Parser();
-$result = $parser->parse('sample_malwares/code.php');
+\lib\Helper::startTime();
 
-$mapper = new \lib\AstRegexMapper();
-
-$traverser = new \PhpParser\NodeTraverser();
-$traverser->addVisitor($mapper);
-
-//$manager = \lib\DatabaseManager::getInstance();
-//$manager->insertDummyData();
-
-foreach($result as $filename => $ast) {
-//    \lib\Helper::prettyVarDump($ast);
-    $traverser->traverse($ast);
+if(isset($_POST['insert'])) {
+    $manager = \lib\DatabaseManager::getInstance();
+    $manager->insertDummyData();
 }
+else if(isset($_POST['transverse'])) {
+    $parser = new \lib\Parser();
+    $result = $parser->parse('sample_malwares');
+
+    $mapper = new \lib\AstRegexMapper();
+
+    $traverser = new \PhpParser\NodeTraverser();
+    $traverser->addVisitor($mapper);
+
+    foreach($result as $filename => $ast) {
+        $traverser->traverse($ast);
+        \lib\Helper::prettyVarDump($filename);
+        \lib\Helper::prettyVarDump($mapper->getRegexes());
+    }
+}
+?>
+
+<form method="post">
+    <input type="hidden" name="insert">
+    <button type="submit">Insert Database</button>
+</form>
+<form method="post">
+    <input type="hidden" name="transverse">
+    <button type="submit">Transverse Node</button>
+</form>
+
+<?php
+\lib\Helper::stop();
+?>

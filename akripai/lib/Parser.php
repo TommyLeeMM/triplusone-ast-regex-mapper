@@ -33,7 +33,7 @@ class Parser
                 print 'Error '. $exception->getMessage();
                 die();
             }
-            $asts[] = $ast;
+            $asts[$fileName] = $ast;
         }
         return $asts;
     }

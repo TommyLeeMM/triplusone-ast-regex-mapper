@@ -8,11 +8,32 @@
 
 namespace lib;
 
+use lib\regex\GroupB;
+use lib\regex\GroupC;
+use lib\regex\GroupD;
+use lib\regex\GroupE;
+use lib\regex\GroupF;
+use lib\regex\GroupG;
+use lib\regex\GroupH;
+use lib\regex\GroupI;
+
 
 class DummyDataGenerator
 {
+    public function generate() {
+        $groups = array();
+//        $groups[] = (new GroupB())->getAll();
+        $groups[] = (new GroupC())->getAll();
+//        $groups[] = (new GroupD())->getAll();
+//        $groups[] = (new GroupE())->getAll();
+//        $groups[] = (new GroupF())->getAll();
+//        $groups[] = (new GroupG())->getAll();
+//        $groups[] = (new GroupH())->getAll();
+//        $groups[] = (new GroupI())->getAll();
+        return $groups;
+    }
 
-//b
+    // Group B - Start
     public function isCallableSystem(){
         $dummyData = array();
         $dummyData['regex'] = 'B0';
@@ -168,7 +189,7 @@ class DummyDataGenerator
 
     public function functionExistsFputs(){
         $dummyData = array();
-        $dummyData['regex'] = 'B9';
+        $dummyData['regex'] = 'B12';
         $dummyData['type'] = 'Expr_FuncCall';
         $dummyData['name'] = 'function_exists';
         $dummyData['args'] = array();
@@ -181,7 +202,7 @@ class DummyDataGenerator
 
     public function functionExistsFileGetContents(){
         $dummyData = array();
-        $dummyData['regex'] = 'B9';
+        $dummyData['regex'] = 'B13';
         $dummyData['type'] = 'Expr_FuncCall';
         $dummyData['name'] = 'function_exists';
         $dummyData['args'] = array();
@@ -194,7 +215,7 @@ class DummyDataGenerator
 
     public function functionExistsFread(){
         $dummyData = array();
-        $dummyData['regex'] = 'B9';
+        $dummyData['regex'] = 'B14';
         $dummyData['type'] = 'Expr_FuncCall';
         $dummyData['name'] = 'function_exists';
         $dummyData['args'] = array();
@@ -204,7 +225,9 @@ class DummyDataGenerator
         $dummyData['args'][] = $firstArg;
         return $dummyData;
     }
-//C
+    // Group B - End
+
+    // Group C - Start
     public function base64Decode() {
         $dummyData = array();
         $dummyData['regex'] = 'C0';
@@ -272,7 +295,9 @@ class DummyDataGenerator
         $dummyData['args'][] = $firstArg;
         return $dummyData;
     }
-//D
+    // Group C - End
+
+    // Group D - Start
     public function unLink(){
         $dummyData = array();
         $dummyData['regex'] = 'D0';
@@ -552,8 +577,9 @@ class DummyDataGenerator
         $dummyData['args'][] = $firstArg;
         return $dummyData;
     }
+    // Group D - End
 
-//E
+    // Group E - Start
     public function evalParam(){
         $dummyData = array();
         $dummyData['regex'] = 'E0';
@@ -736,7 +762,9 @@ class DummyDataGenerator
         $dummyData['args'][] = $fourthArg;
         return $dummyData;
     }
-//F
+    // Group E - Start
+
+    // Group F - Start
     public function mysqlQueryParam(){
         $dummyData = array();
         $dummyData['regex'] = 'F0';
@@ -880,7 +908,9 @@ class DummyDataGenerator
         $dummyData['args'][] = $firstArg;
         return $dummyData;
     }
+    // Group F - End
 
+    // Group H - Start
     public function fileGetContents(){
         $dummyData = array();
         $dummyData['regex'] = 'H0';
@@ -987,7 +1017,9 @@ class DummyDataGenerator
         $dummyData['args'][] = $thirdArg;
         return $dummyData;
     }
-//I
+    // Group H - End
+
+    // Group I - Start
     public function gzOpen(){
         $dummyData = array();
         $dummyData['regex'] = 'I1';
@@ -1101,4 +1133,5 @@ class DummyDataGenerator
         $dummyData['args'][] = $secondArg;
         return $dummyData;
     }
+    // Group I - End
 }

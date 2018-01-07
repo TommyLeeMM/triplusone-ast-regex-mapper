@@ -10,6 +10,7 @@ namespace lib;
 
 
 use MongoDB\Driver\BulkWrite;
+use MongoDB\Driver\Command;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 
@@ -32,10 +33,14 @@ class DatabaseManager
     }
 
     public function insertDummyData() {
+        $this->deleteAttributes();
         $generator = new DummyDataGenerator();
         $bulkWriter = new BulkWrite();
-        $bulkWriter->insert($generator->base64Decode());
-        $bulkWriter->insert($generator->execTwoParameters());
+        foreach($generator->generate() as $groups) {
+            foreach($groups as $item) {
+                $bulkWriter->insert($item);
+            }
+        }
         $this->executeBulkWrite($bulkWriter);
     }
 
@@ -45,5 +50,11 @@ class DatabaseManager
 
     public function executeQuery(Query $query) {
         return $this->manager->executeQuery($this->collectionNamespace, $query);
+    }
+
+    public function deleteAttributes() {
+        $bulk = new BulkWrite();
+        $bulk->delete([]);
+        $this->manager->executeBulkWrite($this->collectionNamespace, $bulk);
     }
 }

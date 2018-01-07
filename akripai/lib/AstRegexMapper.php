@@ -12,61 +12,78 @@ use MongoDB\Driver\Query;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
+use PhpParser\Skripsi\IConditionExtractable;
 use PhpParser\Skripsi\IStatementExtractable;
 
 class AstRegexMapper extends NodeVisitorAbstract
 {
-    private $arrayOfNodes;
+    private $regexes;
+
+    public function getRegexes() {
+        return $this->regexes;
+    }
 
     public function beforeTraverse(array $nodes)
     {
-        $this->arrayOfNodes = array();
+        $this->regexes = array();
     }
 
     public function enterNode(Node $node)
     {
-        if ($node instanceof Node\Expr\FuncCall) {
-            $extractedNode = $this->extractNode($node);
-            Helper::prettyVarDump($extractedNode);
-            $cursor = $this->searchRegex($extractedNode);
-            $cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-            $cursorArray = $cursor->toArray();
-            if (!empty($cursorArray))
-                echo '<h3>Regexnya: ' . $cursorArray[0]['regex'] . '</h3><br/>';
-        } else if ($node instanceof IStatementExtractable) {
-            $statements = $node->getStatements();
-            if(is_array($statements[0])) {
-                foreach ($statements as $stmts) {
-                    $this->extractStatements($stmts);
-                }
-            }
-            else {
-                $this->extractStatements($statements);
-            }
-        }
+        $this->extractNode($node);
         return NodeTraverser::DONT_TRAVERSE_CHILDREN;
     }
 
-    private function extractStatements($stmts)
-    {
-        foreach ($stmts as $stmt) {
-            $this->enterNode($stmt);
+    private function extractNode(Node $node) {
+        if($node instanceof IConditionExtractable) {
+            $conditions = $node->getCondition();
+            if(!is_array($conditions)) {
+                $this->extractNode($conditions);
+            }
+            else {
+                foreach($conditions as $condition) {
+                    $this->extractNode($condition);
+                }
+            }
+        }
+
+        if ($node instanceof Node\Expr\FuncCall
+                || $node instanceof Node\Expr\MethodCall) {
+            $extractedNode = $node->extract();
+            $result = $this->searchRegex($extractedNode);
+            if($result !== null) {
+                $regex = [];
+                $regex['regex'] = $result;
+                $regex['startLine'] = $node->getAttribute('startLine', -1);
+                $regex['endLine'] = $node->getAttribute('endLine', -1);
+                $this->regexes[] = $regex;
+            }
+
+        }
+        else if ($node instanceof IStatementExtractable) {
+            $statements = $node->getStatements();
+            foreach($statements as $statement) {
+                if($statement !== null) {
+                    foreach($statement as $node) {
+                        $this->extractNode($node);
+                    }
+                }
+            }
         }
     }
 
-    private function extractNode($node)
-    {
-        $extractedNode = array();
-        $extractedNode['type'] = $node->getType();
-        $extractedNode['name'] = $node->extract();
-        $extractedNode['args'] = array();
-        foreach ($node->args as $argObj) {
-            $argValue = $argObj->value;
-            $arg = array();
-            $arg['type'] = $argValue->getType();
-            $extractedNode['args'][] = $arg;
-        }
-        return $extractedNode;
+    private function search($filters) {
+        $options = array(
+            'projection' => [
+                '_id' => 0,
+                'regex' => 1
+            ],
+            'limit' => 1
+        );
+        $query = new Query($filters, $options);
+        $cursor = DatabaseManager::getInstance()->executeQuery($query);
+        $cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
+        return $cursor->toArray();
     }
 
     private function searchRegex($extractedNode)
@@ -76,14 +93,32 @@ class AstRegexMapper extends NodeVisitorAbstract
             'name' => $extractedNode['name'],
             'args' => $extractedNode['args']
         );
-        $options = array(
-            'projection' => [
-                '_id' => 0,
-                'regex' => 1
-            ],
-            'limit' => 1
+        $cursorArray = $this->search($filters);
+        $result = null;
+        if($cursorArray === null || count($cursorArray) === 0) {
+            $result = $this->searchRegexOnlyParamType($extractedNode);
+        }
+        else {
+            $result = $cursorArray[0]['regex'];
+        }
+        return $result;
+    }
+
+    private function searchRegexOnlyParamType($extractedNode) {
+        $args = array();
+        foreach($extractedNode['args'] as $arg) {
+            $args['type'] = $arg['type'];
+        }
+        $filters = array(
+            'type' => $extractedNode['type'],
+            'name' => $extractedNode['name'],
+            'args' => $args
         );
-        $query = new Query($filters, $options);
-        return DatabaseManager::getInstance()->executeQuery($query);
+
+        $cursorArray = $this->search($filters);
+        if($cursorArray === null || count($cursorArray) === 0) {
+            return null;
+        }
+        return $cursorArray[0]['regex'];
     }
 }
