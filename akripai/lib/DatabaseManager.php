@@ -18,7 +18,8 @@ class DatabaseManager
 {
     private $manager;
     private static $instance;
-    private $collectionNamespace = 'triplusone.attributes';
+    const SETTING_COLLECTION = 'triplusone.settings';
+    const ATTRIBUTES_COLLECTION = 'triplusone.attributes';
 
     private function __construct()
     {
@@ -32,29 +33,17 @@ class DatabaseManager
         return self::$instance;
     }
 
-    public function insertDummyData() {
-        $this->deleteAttributes();
-        $generator = new DummyDataGenerator();
-        $bulkWriter = new BulkWrite();
-        foreach($generator->generate() as $groups) {
-            foreach($groups as $item) {
-                $bulkWriter->insert($item);
-            }
-        }
-        $this->executeBulkWrite($bulkWriter);
+    public function executeBulkWrite($collectionName, BulkWrite $bulkWriter) {
+        $this->manager->executeBulkWrite($collectionName, $bulkWriter);
     }
 
-    public function executeBulkWrite(BulkWrite $bulkWriter) {
-        $this->manager->executeBulkWrite($this->collectionNamespace, $bulkWriter);
-    }
-
-    public function executeQuery(Query $query) {
-        return $this->manager->executeQuery($this->collectionNamespace, $query);
+    public function executeQuery($collectionName, Query $query) {
+        return $this->manager->executeQuery($collectionName, $query);
     }
 
     public function deleteAttributes() {
         $bulk = new BulkWrite();
         $bulk->delete([]);
-        $this->manager->executeBulkWrite($this->collectionNamespace, $bulk);
+        $this->manager->executeBulkWrite(self::ATTRIBUTES_COLLECTION, $bulk);
     }
 }

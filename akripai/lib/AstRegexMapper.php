@@ -31,104 +31,90 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     public function enterNode(Node $node)
     {
-        $this->extractNode($node);
+        $this->explore($node);
         return NodeTraverser::DONT_TRAVERSE_CHILDREN;
     }
 
-    private function extractNode(Node $node) {
+    private function explore(Node $node) {
         if($node instanceof IConditionExtractable) {
             $conditions = $node->getCondition();
             if(!is_array($conditions)) {
-                $this->extractNode($conditions);
+                $this->explore($conditions);
             }
             else {
                 foreach($conditions as $condition) {
-                    $this->extractNode($condition);
+                    $this->explore($condition);
                 }
             }
         }
 
-        if ($node instanceof Node\Expr\FuncCall
-                || $node instanceof Node\Expr\Eval_
-                || $node instanceof Node\Expr\MethodCall) {
+        if ($node instanceof Node\Expr\FuncCall || $node instanceof Node\Expr\MethodCall) {
             $extractedNode = $node->extract();
-            Helper::prettyVarDump($extractedNode);
-            $result = $this->searchRegex($extractedNode);
-            if($result !== null) {
-                $regex = [];
-                $regex['regex'] = $result;
-                $regex['startLine'] = $node->getAttribute('startLine', -1);
-                $regex['endLine'] = $node->getAttribute('endLine', -1);
+            $regex = $this->searchRegex($extractedNode);
+            if($regex !== null)
                 $this->regexes[] = $regex;
-            }
-
         }
-        else if ($node instanceof IStatementExtractable) {
+
+        if ($node instanceof IStatementExtractable) {
             $statements = $node->getStatements();
             foreach($statements as $statement) {
                 if($statement !== null) {
                     foreach($statement as $node) {
-                        $this->extractNode($node);
+                        $this->explore($node);
                     }
                 }
             }
         }
     }
 
-    private function search($filters) {
-        $options = array(
-            'projection' => [
-                '_id' => 0,
-                'regex' => 1
-            ],
-            'limit' => 1
-        );
-        $query = new Query($filters, $options);
-        $cursor = DatabaseManager::getInstance()->executeQuery($query);
-        $cursor->setTypeMap(['root' => 'array', 'document' => 'array', 'array' => 'array']);
-        return $cursor->toArray();
-    }
-
-    private function searchRegex($extractedNode)
+    private function searchRegex($node)
     {
-        $filters = array(
+        $extractedNode = $this->extractNode($node);
+        $filter = [
             'type' => $extractedNode['type'],
             'name' => $extractedNode['name'],
             'args' => $extractedNode['args']
-        );
-        $cursorArray = $this->search($filters);
-        $result = null;
-        if($cursorArray === null || count($cursorArray) === 0) {
-            $result = $this->searchRegexOnlyParamType($extractedNode);
-        }
-        else {
-            $result = $cursorArray[0]['regex'];
-        }
-        return $result;
+        ];
+        $options = [
+            'limit' => 1,
+            'projection' => [
+                '_id' => 0,
+                'regex' => 1
+            ]
+        ];
+        $query = new Query($filter, $options);
+        $cursor = DatabaseManager::getInstance()->executeQuery(DatabaseManager::ATTRIBUTES_COLLECTION, $query);
+        $cursor->setTypeMap([
+            'root' => 'array',
+            'document' => 'array',
+            'array' => 'array'
+        ]);
+        $cursorArray = $cursor->toArray();
+        return (count($cursorArray) > 0) ? $cursorArray[0]['regex'] : null;
     }
 
-    private function searchRegexOnlyParamType($extractedNode) {
-        $args = array();
-        foreach($extractedNode['args'] as $arg) {
-            if($arg['type'] !== ClassConstant::$VARIABLE &&
-                $arg['type'] !== ClassConstant::$STRING) {
-                $args[] = $arg;
+    private function extractNode($node) {
+        $extractedNode = array();
+        $extractedNode['type'] = $node['type'];
+        $extractedNode['name'] = $node['name'];
+        $extractedNode['args'] = $this->extractArguments($node);
+        return $extractedNode;
+    }
+
+    private function extractArguments($node) {
+        $extractedArgs = array();
+        foreach($node['args'] as $arg) {
+            $extractedArg = array();
+            if($arg['type'] === ClassConstant::$VARIABLE) {
+                $extractedArg['type'] = $arg['type'];
             }
             else {
-                $_arg = array();
-                $_arg['type'] = $arg['type'];
-                $args[] = $_arg;
+                foreach($arg as $key => $value) {
+                    $extractedArg[$key] = $value;
+                }
             }
+            $extractedArgs[] = $extractedArg;
         }
-        $filters = array(
-            'type' => $extractedNode['type'],
-            'name' => $extractedNode['name'],
-            'args' => $args
-        );
-        $cursorArray = $this->search($filters);
-        if($cursorArray === null || count($cursorArray) === 0) {
-            return null;
-        }
-        return $cursorArray[0]['regex'];
+        return $extractedArgs;
     }
 }

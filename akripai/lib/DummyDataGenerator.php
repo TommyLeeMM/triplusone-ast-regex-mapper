@@ -16,6 +16,7 @@ use lib\regex\GroupF;
 use lib\regex\GroupG;
 use lib\regex\GroupH;
 use lib\regex\GroupI;
+use MongoDB\Driver\BulkWrite;
 use MongoDB\Driver\Query;
 
 
@@ -34,6 +35,31 @@ class DummyDataGenerator
         return $groups;
     }
 
+    public function generateSetting() {
+        $setting = array();
+        $setting['sender'] = 'email@domain.com';
+        $setting['intervalDays'] = 1;
+        $setting['timeExecution'] = '17:00:00';
+        $setting['path'] = '/var/www/target_folder';
+        $setting['lastExecutionTime'] = time();
+        $bulk = new BulkWrite();
+        $bulk->insert($setting);
+        DatabaseManager::getInstance()->executeBulkWrite($bulk);
+        Helper::prettyVarDump($setting);
+    }
+
+    public function insertDummyData() {
+        $dbManager = DatabaseManager::getInstance();
+        $dbManager->deleteAttributes();
+        $bulkWriter = new BulkWrite();
+        foreach($this->generate() as $groups) {
+            foreach($groups as $item) {
+                $bulkWriter->insert($item);
+            }
+        }
+        $dbManager->executeBulkWrite(DatabaseManager::ATTRIBUTES_COLLECTION, $bulkWriter);
+    }
+
     public function prepareRegexCounter() {
         $regexes = array();
         $query = new Query([], [
@@ -42,7 +68,7 @@ class DummyDataGenerator
                 'regex' => 1
             ]
         ]);
-        $cursor = DatabaseManager::getInstance()->executeQuery($query);
+        $cursor = DatabaseManager::getInstance()->executeQuery(DatabaseManager::ATTRIBUTES_COLLECTION, $query);
         foreach($cursor as $document) {
             $regexes[] = $document->regex;
         }

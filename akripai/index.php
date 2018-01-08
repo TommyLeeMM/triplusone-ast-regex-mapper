@@ -11,8 +11,7 @@ include_once 'bootstrap.php';
 \lib\Helper::startTime();
 
 if(isset($_POST['insert'])) {
-    $manager = \lib\DatabaseManager::getInstance();
-    $manager->insertDummyData();
+    (new \lib\DummyDataGenerator())->insertDummyData();
 }
 else if(isset($_POST['transverse'])) {
     $parser = new \lib\Parser();
