@@ -14,6 +14,9 @@ use PhpParser\Node;
 use PhpParser\NodeTraverser;
 use PhpParser\NodeVisitorAbstract;
 use PhpParser\Skripsi\IConditionExtractable;
+use PhpParser\Skripsi\IExprOnlyExtractable;
+use PhpParser\Skripsi\IMethodCall;
+use PhpParser\Skripsi\IPartsExtractable;
 use PhpParser\Skripsi\IStatementExtractable;
 
 class AstRegexMapper extends NodeVisitorAbstract
@@ -35,7 +38,7 @@ class AstRegexMapper extends NodeVisitorAbstract
         return NodeTraverser::DONT_TRAVERSE_CHILDREN;
     }
 
-    private function explore(Node $node) {
+    private function explore($node) {
         if($node instanceof IConditionExtractable) {
             $conditions = $node->getCondition();
             if(!is_array($conditions)) {
@@ -48,12 +51,22 @@ class AstRegexMapper extends NodeVisitorAbstract
             }
         }
 
-        if ($node instanceof Node\Expr\FuncCall || $node instanceof Node\Expr\MethodCall) {
+        if ($node instanceof IMethodCall) {
             $extractedNode = $node->extract();
             $regex = $this->searchRegex($extractedNode);
             if($regex !== null)
                 $this->regexes[] = $regex;
         }
+        if ($node instanceof IExprOnlyExtractable) {
+            $result = $node->extract();
+            if(is_array($result)) {
+                foreach($result as $r) $this->explore($r);
+            }
+            else {
+                $this->explore($result);
+            }
+        }
+
 
         if ($node instanceof IStatementExtractable) {
             $statements = $node->getStatements();
@@ -73,7 +86,7 @@ class AstRegexMapper extends NodeVisitorAbstract
         $filter = [
             'type' => $extractedNode['type'],
             'name' => $extractedNode['name'],
-            'args' => $extractedNode['args']
+            'args.type' => $extractedNode['args'][0]['type']
         ];
         $options = [
             'limit' => 1,
@@ -104,17 +117,37 @@ class AstRegexMapper extends NodeVisitorAbstract
     private function extractArguments($node) {
         $extractedArgs = array();
         foreach($node['args'] as $arg) {
-            $extractedArg = array();
-            if($arg['type'] === ClassConstant::$VARIABLE) {
-                $extractedArg['type'] = $arg['type'];
-            }
-            else {
-                foreach($arg as $key => $value) {
-                    $extractedArg[$key] = $value;
-                }
-            }
-            $extractedArgs[] = $extractedArg;
+            $extractedArgs[] = $this->extractArgument($arg);
         }
         return $extractedArgs;
+    }
+
+    private function extractArgument($node)
+    {
+        $extractedArg = array();
+        if ($node instanceof IPartsExtractable) {
+            $result = $node->extract();
+            $extractedArg['type'] = $result['type'];
+            $extractedArg['parts'] = array();
+            foreach ($result['parts'] as $part) {
+                if ($part instanceof IMethodCall) {
+                    $this->explore($part);
+                }
+                $extractedArg['parts'][] = $part->extract();
+            }
+        } else if ($node instanceof IMethodCall) {
+            $this->explore($node);
+            $result = $node->extract();
+            $extractedArg['type'] = $result['type'];
+            $extractedArg['name'] = $result['name'];
+            $extractedArg['args'] = $this->extractArguments($result);
+        } else if (array_key_exists('type', $node) && $node['type'] === ClassConstant::$VARIABLE) {
+            $extractedArg['type'] = $node['type'];
+        } else {
+            foreach ($node->extract() as $key => $value) {
+                $extractedArg[$key] = $value;
+            }
+        }
+        return $extractedArg;
     }
 }
