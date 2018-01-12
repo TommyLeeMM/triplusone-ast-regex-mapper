@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kevnath/PHP-Parser.git",
-                "reference": "ce2b8dbb5d474ddd9934f56ea8772f13640408a5"
+                "reference": "5cac6d0de37dadf0b78566c5bd671d661e533ad1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kevnath/PHP-Parser/zipball/ce2b8dbb5d474ddd9934f56ea8772f13640408a5",
-                "reference": "ce2b8dbb5d474ddd9934f56ea8772f13640408a5",
+                "url": "https://api.github.com/repos/kevnath/PHP-Parser/zipball/5cac6d0de37dadf0b78566c5bd671d661e533ad1",
+                "reference": "5cac6d0de37dadf0b78566c5bd671d661e533ad1",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
             "support": {
                 "source": "https://github.com/kevnath/PHP-Parser/tree/skripsi"
             },
-            "time": "2018-01-11T07:44:53+00:00"
+            "time": "2018-01-11T13:47:57+00:00"
         }
     ],
     "packages-dev": [],

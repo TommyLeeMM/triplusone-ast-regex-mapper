@@ -11,11 +11,12 @@ namespace lib\regex;
 
 class ClassConstant
 {
-    public static $CONCAT = 'Expr_Concat';
-    public static $CONSTFETCH = 'Expr_ConstFetch';
-    public static $EVAL = 'Expr_Eval';
-    public static $FUNCCALL = 'Expr_FuncCall';
-    public static $METHODCALL = 'Expr_MethodCall';
-    public static $STRING = 'Scalar_String';
-    public static $VARIABLE = 'Expr_Variable';
+    const CONCAT = 'Expr_Concat';
+    const CONST_FETCH = 'Expr_ConstFetch';
+    const EVAL_ = 'Expr_Eval';
+    const FUNC_CALL = 'Expr_FuncCall';
+    const METHOD_CALL = 'Expr_MethodCall';
+    const STRING = 'Scalar_String';
+    const VARIABLE = 'Expr_Variable';
+    const ARRAY_ = 'Expr_Array';
 }

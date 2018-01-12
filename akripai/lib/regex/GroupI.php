@@ -18,11 +18,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I0';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'gzopen';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg1;
@@ -35,11 +35,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I1';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'gzwrite';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg1;
@@ -52,11 +52,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I2';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'gzclose';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -68,11 +68,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I3';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'gzencode';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg1;
@@ -85,11 +85,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I4';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'bzopen';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg1;
@@ -102,11 +102,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I5';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'bzwrite';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg1;
@@ -119,11 +119,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I6';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'bzclose';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -135,11 +135,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I7';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'bzclose';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -151,11 +151,11 @@ class GroupI extends Group
         $args = array();
 
         $data['regex'] = 'I8';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'bzcompress';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg1;

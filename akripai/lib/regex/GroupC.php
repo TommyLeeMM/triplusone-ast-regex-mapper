@@ -18,11 +18,12 @@ class GroupC extends Group
         $args = array();
 
         $data['regex'] = 'C0';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'base64_decode';
+        $data['argsTypeKey'] = ClassConstant::STRING.',';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -34,11 +35,11 @@ class GroupC extends Group
         $args = array();
 
         $data['regex'] = 'C1';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'gzinflate';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -50,11 +51,11 @@ class GroupC extends Group
         $args = array();
 
         $data['regex'] = 'C2';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'str_rot13';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -66,15 +67,15 @@ class GroupC extends Group
         $args = array();
 
         $data['regex'] = 'C3';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'gzinflate';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$FUNCCALL;
+        $arg1['type'] = ClassConstant::FUNC_CALL;
         $arg1['name'] = 'str_rot13';
 
         $arg1arg1 = array();
-        $arg1arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1arg1['type'] = ClassConstant::VARIABLE;
 
         $arg1['args'][] = $arg1arg1;
 
@@ -88,19 +89,19 @@ class GroupC extends Group
         $args = array();
 
         $data['regex'] = 'C4';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'str_rot13';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$FUNCCALL;
+        $arg1['type'] = ClassConstant::FUNC_CALL;
         $arg1['name'] = 'gzinflate';
 
         $arg1arg1 = array();
-        $arg1arg1['type'] = ClassConstant::$FUNCCALL;
+        $arg1arg1['type'] = ClassConstant::FUNC_CALL;
         $arg1arg1['name'] = 'str_rot13';
 
         $arg1arg1arg1 = array();
-        $arg1arg1arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1arg1arg1['type'] = ClassConstant::VARIABLE;
 
         $arg1arg1['args'][] = $arg1arg1arg1;
         $arg1['args'][] = $arg1arg1;

@@ -18,11 +18,11 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H0';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'file_get_contents';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -34,11 +34,11 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H1';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'curl_init';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -50,11 +50,11 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H2';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'curl_exec';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -66,11 +66,11 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H3';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'curl_close';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -82,18 +82,18 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H4';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'curl_setopt';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$CONSTFETCH;
+        $arg2['type'] = ClassConstant::CONST_FETCH;
         $arg2['name'] = 'CURLOPT_RETURNTRANSFER';
 
         $arg3 = array();
-        $arg3['type'] = ClassConstant::$CONSTFETCH;
+        $arg3['type'] = ClassConstant::CONST_FETCH;
         $arg3['name'] = 'true';
 
         $args[] = $arg1;
@@ -108,18 +108,18 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H5';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'curl_setopt';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$CONSTFETCH;
+        $arg2['type'] = ClassConstant::CONST_FETCH;
         $arg2['name'] = 'CURLOPT_CURLOPT_POST';
 
         $arg3 = array();
-        $arg3['type'] = ClassConstant::$CONSTFETCH;
+        $arg3['type'] = ClassConstant::CONST_FETCH;
         $arg3['name'] = 'true';
 
         $args[] = $arg1;
@@ -134,18 +134,18 @@ class GroupH extends Group
         $args = array();
 
         $data['regex'] = 'H6';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'curl_setopt';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$CONSTFETCH;
+        $arg2['type'] = ClassConstant::CONST_FETCH;
         $arg2['name'] = 'CURLOPT_POSTFIELDS';
 
         $arg3 = array();
-        $arg3['type'] = ClassConstant::$STRING;
+        $arg3['type'] = ClassConstant::STRING;
 
         $args[] = $arg1;
         $args[] = $arg2;

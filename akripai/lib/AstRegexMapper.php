@@ -52,11 +52,10 @@ class AstRegexMapper extends NodeVisitorAbstract
         }
 
         if ($node instanceof IMethodCall) {
-            $extractedNode = $node->extract();
-            $regex = $this->searchRegex($extractedNode);
-            if($regex !== null)
-                $this->regexes[] = $regex;
+            $extractedNode = $this->extractNode($node);
+            $this->searchRegex($extractedNode);
         }
+
         if ($node instanceof IExprOnlyExtractable) {
             $result = $node->extract();
             if(is_array($result)) {
@@ -66,7 +65,6 @@ class AstRegexMapper extends NodeVisitorAbstract
                 $this->explore($result);
             }
         }
-
 
         if ($node instanceof IStatementExtractable) {
             $statements = $node->getStatements();
@@ -80,14 +78,42 @@ class AstRegexMapper extends NodeVisitorAbstract
         }
     }
 
-    private function searchRegex($node)
+    private function searchRegex($extractedNode)
     {
-        $extractedNode = $this->extractNode($node);
+        $argQueue = new Queue();
+        foreach($extractedNode['args'] as $arg) {
+            if($arg['type'] === ClassConstant::FUNC_CALL) {
+                $argQueue->add($arg);
+            }
+        }
         $filter = [
             'type' => $extractedNode['type'],
             'name' => $extractedNode['name'],
-            'args.type' => $extractedNode['args'][0]['type']
+//            'argsTypeKey' => $this->setRegexParamType($extractedNode['args'])
         ];
+        $result = $this->search($filter);
+        Helper::prettyVarDump($result);
+
+        while(!$argQueue->isEmpty()) {
+            $data = $argQueue->pop();
+            foreach($data['args'] as $arg) {
+                if($arg['type'] === ClassConstant::FUNC_CALL) {
+                    $argQueue->add($arg);
+                }
+            }
+
+            $filter = [
+                'type' => $data['type'],
+                'name' => $data['name'],
+//            'argsTypeKey' => $this->setRegexParamType($extractedNode['args'])
+            ];
+            $result = $this->search($filter);
+            Helper::prettyVarDump($result);
+        }
+//        return $this->search($filter);
+    }
+
+    private function search($filter) {
         $options = [
             'limit' => 1,
             'projection' => [
@@ -107,10 +133,11 @@ class AstRegexMapper extends NodeVisitorAbstract
     }
 
     private function extractNode($node) {
+        $_node = $node->extract();
         $extractedNode = array();
-        $extractedNode['type'] = $node['type'];
-        $extractedNode['name'] = $node['name'];
-        $extractedNode['args'] = $this->extractArguments($node);
+        $extractedNode['type'] = $_node['type'];
+        $extractedNode['name'] = $_node['name'];
+        $extractedNode['args'] = $this->extractArguments($_node);
         return $extractedNode;
     }
 
@@ -136,16 +163,18 @@ class AstRegexMapper extends NodeVisitorAbstract
                 $extractedArg['parts'][] = $part->extract();
             }
         } else if ($node instanceof IMethodCall) {
-            $this->explore($node);
             $result = $node->extract();
             $extractedArg['type'] = $result['type'];
             $extractedArg['name'] = $result['name'];
             $extractedArg['args'] = $this->extractArguments($result);
-        } else if (array_key_exists('type', $node) && $node['type'] === ClassConstant::$VARIABLE) {
+        } else if (array_key_exists('type', $node) && $node['type'] === ClassConstant::VARIABLE) {
             $extractedArg['type'] = $node['type'];
         } else {
-            foreach ($node->extract() as $key => $value) {
-                $extractedArg[$key] = $value;
+            $result = $node->extract();
+            if(is_array($result)) {
+                foreach ($result as $key => $value) {
+                    $extractedArg[$key] = $value;
+                }
             }
         }
         return $extractedArg;

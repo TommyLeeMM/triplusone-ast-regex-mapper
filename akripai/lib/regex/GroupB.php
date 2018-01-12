@@ -18,11 +18,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B0';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_callable';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'system';
 
         $args[] = $arg1;
@@ -35,11 +35,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B1';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_callable';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'shell_exec';
 
         $args[] = $arg1;
@@ -52,11 +52,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B2';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_callable';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'exec';
 
         $args[] = $arg1;
@@ -69,11 +69,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B3';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_callable';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'passthru';
 
         $args[] = $arg1;
@@ -86,11 +86,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B4';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_callable';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'proc_open';
 
         $args[] = $arg1;
@@ -103,11 +103,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B5';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'proc_close';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -119,11 +119,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B6';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_callable';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'popen';
 
         $args[] = $arg1;
@@ -136,11 +136,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B7';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'pclose';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -152,11 +152,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B8';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'is_file';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -168,11 +168,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B9';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'function_exists';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'fopen';
 
         $args[] = $arg1;
@@ -185,11 +185,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B10';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'function_exists';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'fclose';
 
         $args[] = $arg1;
@@ -202,11 +202,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B11';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'function_exists';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'fwrite';
 
         $args[] = $arg1;
@@ -219,11 +219,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B12';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'function_exists';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'fputs';
 
         $args[] = $arg1;
@@ -236,11 +236,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B13';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'function_exists';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'file_get_contents';
 
         $args[] = $arg1;
@@ -253,11 +253,11 @@ class GroupB extends Group
         $args = array();
 
         $data['regex'] = 'B14';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'function_exists';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$STRING;
+        $arg1['type'] = ClassConstant::STRING;
         $arg1['value'] = 'fread';
 
         $args[] = $arg1;

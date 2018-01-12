@@ -18,11 +18,11 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F0';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'mysql_query';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -34,11 +34,11 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F1';
-        $data['type'] = ClassConstant::$METHODCALL;
+        $data['type'] = ClassConstant::METHOD_CALL;
         $data['name'] = 'query';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -50,14 +50,14 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F2';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'sqlsrv_query';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$VARIABLE;
+        $arg2['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg2;
@@ -70,11 +70,11 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F3';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'mssql_query';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -86,11 +86,11 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F4';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'pg_query';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -102,14 +102,14 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F5';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'oci_parse';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$VARIABLE;
+        $arg2['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg2;
@@ -122,19 +122,19 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F6';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'oci_execute';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$FUNCCALL;
+        $arg1['type'] = ClassConstant::FUNC_CALL;
         $arg1['name'] = 'oci_parse';
         $arg1['args'] = array();
 
         $arg1arg1 = array();
-        $arg1arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1arg1['type'] = ClassConstant::VARIABLE;
 
         $arg1arg2 = array();
-        $arg1arg2 ['type'] = ClassConstant::$VARIABLE;
+        $arg1arg2 ['type'] = ClassConstant::VARIABLE;
 
         $arg1['args'][] = $arg1arg1;
         $arg1['args'][] = $arg1arg2;
@@ -148,14 +148,14 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F7';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'sqlite_query';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$VARIABLE;
+        $arg2['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg2;
@@ -168,14 +168,14 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F8';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'odbc_exec';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::$VARIABLE;
+        $arg1['type'] = ClassConstant::VARIABLE;
 
         $arg2 = array();
-        $arg2['type'] = ClassConstant::$VARIABLE;
+        $arg2['type'] = ClassConstant::VARIABLE;
 
         $args[] = $arg1;
         $args[] = $arg2;
@@ -188,11 +188,11 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F9';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'mysql_query';
 
         $arg1 = array();
-        $arg1['type'] =  ClassConstant::$STRING;
+        $arg1['type'] =  ClassConstant::STRING;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -204,11 +204,11 @@ class GroupF extends Group
         $args = array();
 
         $data['regex'] = 'F10';
-        $data['type'] = ClassConstant::$FUNCCALL;
+        $data['type'] = ClassConstant::FUNC_CALL;
         $data['name'] = 'mysql_query';
 
         $arg1 = array();
-        $arg1['type'] =  ClassConstant::$CONCAT;
+        $arg1['type'] =  ClassConstant::CONCAT;
 
         $args[] = $arg1;
         $data['args'] = $args;
