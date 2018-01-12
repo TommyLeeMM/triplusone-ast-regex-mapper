@@ -15,7 +15,7 @@ if(isset($_POST['insert'])) {
 }
 else if(isset($_POST['transverse'])) {
     $parser = new \lib\Parser();
-    $result = $parser->parse('sample_malwares/code.php');
+    $result = $parser->parse('sample_malwares');
 
     $mapper = new \lib\AstRegexMapper();
 
