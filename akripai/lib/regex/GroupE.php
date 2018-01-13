@@ -58,7 +58,7 @@ class GroupE extends Group
 
         $data['regex'] = 'E2';
         $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'eval';
+        $data['name'] = 'system';
 
         $arg1 = array();
         $arg1['type'] = ClassConstant::VARIABLE;

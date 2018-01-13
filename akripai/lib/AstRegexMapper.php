@@ -42,8 +42,8 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     private function explore($node)
     {
+
         if ($node instanceof IConditionExtractable) {
-//            Helper::prettyVarDump($node->getType());
             $conditions = $node->getCondition();
             if (!is_array($conditions)) {
                 $this->explore($conditions);
@@ -57,10 +57,14 @@ class AstRegexMapper extends NodeVisitorAbstract
         if ($node instanceof IStatementExtractable) {
             $statements = $node->getStatements();
             foreach ($statements as $key => $statement) {
-                if ($statement !== null) {
-                    foreach ($statement as $nodeStmt) {
-//                        Helper::prettyVarDump($nodeStmt);
-                        $this->explore($nodeStmt);
+                if(!is_array($statement)) {
+                    $this->explore($statement);
+                }
+                else {
+                    if ($statement !== null) {
+                        foreach ($statement as $nodeStmt) {
+                            $this->explore($nodeStmt);
+                        }
                     }
                 }
             }
@@ -77,6 +81,11 @@ class AstRegexMapper extends NodeVisitorAbstract
             }
         }
 
+        if ($node instanceof ILeftRightExtractable) {
+            $this->explore($node->left);
+            $this->explore($node->right);
+        }
+
         if ($node instanceof IMethodCall) {
             $this->extractFunctionNode($node);
         }
@@ -89,6 +98,7 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     private function extractFunctionNode($node)
     {
+
         $extractedNode = $node->extract();
         $_extractedNode = array();
         $_extractedNode['type'] = $extractedNode['type'];
@@ -99,7 +109,8 @@ class AstRegexMapper extends NodeVisitorAbstract
             $_extractedArg = array();
             if ($arg instanceof Node\Expr\Variable) {
                 $_extractedArg['type'] = $extracted['type'];
-            } else {
+            }
+            else {
                 if (is_array($extracted)) {
                     foreach ($extracted as $key => $value) {
                         $_extractedArg[$key] = $value;
@@ -124,6 +135,10 @@ class AstRegexMapper extends NodeVisitorAbstract
         foreach ($extractedNode['args'] as $arg) {
             if ($arg instanceof IMethodCall) {
                 $this->extractFunctionNode($arg);
+            }
+            else if($arg instanceof ILeftRightExtractable) {
+                $this->explore($arg->left);
+                $this->explore($arg->right);
             }
         }
     }
