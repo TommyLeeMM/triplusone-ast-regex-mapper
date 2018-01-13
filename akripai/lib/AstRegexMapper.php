@@ -8,7 +8,6 @@
 
 namespace lib;
 
-use lib\regex\ClassConstant;
 use MongoDB\Driver\Query;
 use PhpParser\Node;
 use PhpParser\NodeTraverser;
@@ -23,15 +22,21 @@ use PhpParser\Skripsi\IStatementExtractable;
 class AstRegexMapper extends NodeVisitorAbstract
 {
     private $regexes;
+    private $regexCounter;
+
+    public function __construct()
+    {
+        $this->regexes = (new DummyDataGenerator())->prepareRegexCounter();
+    }
 
     public function getRegexes()
     {
-        return $this->regexes;
+        return $this->regexCounter;
     }
 
     public function beforeTraverse(array $nodes)
     {
-        $this->regexes = array();
+        $this->regexCounter = $this->regexes;
     }
 
     public function enterNode(Node $node)
@@ -98,7 +103,6 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     private function extractFunctionNode($node)
     {
-
         $extractedNode = $node->extract();
         $_extractedNode = array();
         $_extractedNode['type'] = $extractedNode['type'];
@@ -128,7 +132,9 @@ class AstRegexMapper extends NodeVisitorAbstract
 
         $regex = $this->search($filter);
         if ($regex !== null) {
-            $this->regexes[] = $regex;
+            if(array_key_exists($regex, $this->regexCounter)) {
+                $this->regexCounter[$regex]++;
+            }
         }
 
         // cek apakah args nya ada function call
@@ -139,6 +145,12 @@ class AstRegexMapper extends NodeVisitorAbstract
             else if($arg instanceof ILeftRightExtractable) {
                 $this->explore($arg->left);
                 $this->explore($arg->right);
+            }
+            else if($arg instanceof IPartsExtractable) {
+                $result = $node->extract();
+                foreach ($result['parts'] as $part) {
+                    $this->explore($part);
+                }
             }
         }
     }
