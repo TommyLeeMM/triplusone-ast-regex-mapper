@@ -1,6 +1,7 @@
 {
   "require": {
-    "nikic/php-parser": "dev-skripsi"
+    "nikic/php-parser": "dev-skripsi",
+    "components/jquery": "^3.2"
   },
   "repositories": [
     {

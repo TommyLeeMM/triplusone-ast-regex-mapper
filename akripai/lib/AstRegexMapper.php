@@ -147,7 +147,7 @@ class AstRegexMapper extends NodeVisitorAbstract
                 $this->explore($arg->right);
             }
             else if($arg instanceof IPartsExtractable) {
-                $result = $node->extract();
+                $result = $arg->extract();
                 foreach ($result['parts'] as $part) {
                     $this->explore($part);
                 }

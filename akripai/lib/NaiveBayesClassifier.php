@@ -12,109 +12,87 @@ use MongoDB\Driver\Query;
 
 class NaiveBayesClassifier
 {
-    private $positiveGroups, $negativeGroups;
-    private $positive, $negative;
+    private $positiveData, $negativeData;
     private $additiveValue = 1;
     private $labelCount = 2; // malware or not
+    private $dbManager;
+    private $positiveCallCount, $negativeCallCount;
+    private $positiveProbability, $negativeProbability;
+    private $regexes;
 
     public function __construct()
     {
-        $this->calculateBasedAppearance();
+        $this->dbManager = DatabaseManager::getInstance();
+        $this->regexCounter = (new DataGenerator())->prepareRegexCounter();
+        $this->initialize();
     }
 
-    private function calculateBasedAppearance() {
-        $generator = new DummyDataGenerator();
-        $this->positiveGroups = $generator->generateRegexIsAppearOrNotPositiveCounter();
-        $this->negativeGroups = $generator->generateRegexIsAppearOrNotNegativeCounter();
-
-        $this->positive = $generator->prepareRegexCounter();
-        $this->negative = $generator->prepareRegexCounter();
-
-        foreach($this->positiveGroups as $positiveGroup) {
-            foreach($positiveGroup as $key => $value) {
-                $this->positive[$key] += $value;
-            }
+    private function initialize() {
+        $dataQuery = new Query([]);
+        $cursor = $this->dbManager->executeQuery(DatabaseManager::DATA_COLLECTION, $dataQuery);
+        $cursor->setTypeMap([
+            'root' => 'array',
+            'document' => 'array',
+            'array' => 'array'
+        ]);
+        $cursorArray = $cursor->toArray();
+        if(count($cursorArray) === 0) {
+            echo 'No data';
         }
-        foreach($this->negativeGroups as $negativeGroup) {
-            foreach($negativeGroup as $key => $value) {
-                $this->negative[$key] += $value;
-            }
-        }
-
-        // additive smoothing
-        foreach($this->positive as $key => $item) {
-            $this->positive[$key] += $this->additiveValue;
-        }
-        foreach($this->negative as $key => $item) {
-            $this->negative[$key] += $this->additiveValue;
+        else {
+            $this->positiveData = $cursorArray[0]['positive'];
+            $this->negativeData = $cursorArray[0]['negative'];
+            $this->prepareProbabilityMap();
         }
     }
 
-    private function calculateBasedApperanceCount() {
-        $generator = new DummyDataGenerator();
-        $this->positiveGroups = $generator->generateRegexAppearanceCountPositiveCounter();
-        $this->negativeGroups = $generator->generateRegexAppearanceCountNegativeCounter();
+    private function prepareProbabilityMap() {
+        $this->positiveCallCount = array_sum($this->positiveData);
+        $this->negativeCallCount = array_sum($this->negativeData);
 
-        $this->positive = $generator->prepareRegexCounter();
-        $this->negative = $generator->prepareRegexCounter();
+        $this->positiveProbability = array();
+        $this->negativeProbability = array();
 
-        foreach($this->positiveGroups as $positiveGroup) {
-            foreach($positiveGroup as $key => $value) {
-                $this->positive[$key] += $value;
-            }
+        foreach($this->positiveData as $regex => $count) {
+            $this->positiveProbability[$regex] = ($count + $this->additiveValue) / ($this->positiveCallCount + count($this->positiveData));
         }
-        foreach($this->negativeGroups as $negativeGroup) {
-            foreach($negativeGroup as $key => $value) {
-                $this->negative[$key] += $value;
-            }
-        }
-
-//        $positivePropertyCount = 0;
-//        $negativePropertyCount = 0;
-//        foreach($this->positive as $key => $item) {
-//            $positivePropertyCount += $item;
-//        }
-//        foreach($this->neg as $key => $item) {
-//            $positivePropertyCount += $item;
-//        }
-
-        // additive smoothing
-        foreach($this->positive as $key => $item) {
-            $this->positive[$key] += $this->additiveValue;
-        }
-        foreach($this->negative as $key => $item) {
-            $this->negative[$key] += $this->additiveValue;
+        foreach($this->negativeData as $regex => $count) {
+            $this->negativeProbability[$regex] = ($count + $this->additiveValue) / ($this->negativeCallCount + count($this->negativeData));
         }
     }
 
-    public function classify($dataset) {
-        return $this->classifyBasedAppearance($dataset);
+    public function classify($regexMap) {
+        $data = array();
+        foreach($regexMap as $filename => $regexes) {
+            $data[$filename] = $this->calculateProbability($regexes);
+        }
+        return $data;
     }
 
-    private function classifyBasedAppearance($dataset) {
-        $count = count($this->positiveGroups) + count($this->negativeGroups);
+    private function calculateProbability($regexes) {
+        $regexCount = $this->calculateRegexCount($regexes);
+        $positiveProb = $negativeProb = $this->regexCounter;
 
-        $positiveValues = array();
-        foreach($dataset as $key => $value) {
-            $positiveValues[] = $this->positive[$key] / (count($this->positiveGroups)+$this->additiveValue);
+        foreach($regexCount as $regex => $count) {
+            $positiveProb[$regex] = ($count === 0) ? 1 : ($count * $this->positiveProbability[$regex]);
         }
-        $positiveValues[] = (count($this->positiveGroups)+$this->additiveValue) / ($count + ($this->additiveValue * $this->labelCount));
-
-        $negativeValues = array();
-        foreach($dataset as $key => $value) {
-            $negativeValues[] = $this->negative[$key] / (count($this->negativeGroups)+$this->additiveValue);
+        foreach($regexCount as $regex => $count) {
+            $negativeProb[$regex] = ($count === 0) ? 1 : ($count * $this->negativeProbability[$regex]);
         }
-        $negativeValues[] = (count($this->negativeGroups)+$this->additiveValue) / ($count + ($this->additiveValue * $this->labelCount));
 
-        $positiveValue = array_product($positiveValues);
-        $negativeValue = array_product($negativeValues);
+        $positiveThreshold = array_product($positiveProb) * ($this->additiveValue / $this->labelCount);
+        $negativeThreshold = array_product($negativeProb) * ($this->additiveValue / $this->labelCount);
+        return [
+            'positiveThreshold' => $positiveThreshold,
+            'negativeThreshold' => $negativeThreshold
+        ];
+    }
 
-        echo ($positiveValue >= $negativeValue) ? 'Positive' : 'Negative';
-        echo '<br/>';
-        echo $positiveValue . ' ### '. $positiveValue/ ($positiveValue + $negativeValue) * 100;
-        echo '<br/>';
-        echo $negativeValue . ' ### '. $negativeValue/ ($positiveValue + $negativeValue) * 100;
-        echo '<br/>';
-        return ($positiveValue >= $negativeValue) ? $positiveValue : $negativeValue;
+    private function calculateRegexCount($regexes) {
+        $data = $this->regexCounter;
+        foreach($regexes as $regex => $count) {
+            $data[$regex] += $count;
+        }
+        return $data;
     }
 }

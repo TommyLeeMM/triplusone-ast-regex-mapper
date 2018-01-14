@@ -1,86 +1,99 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kevin
- * Date: 04/12/2017
- * Time: 18:40
- */
 
-include_once 'bootstrap.php';
+    include_once 'partials/_header.php';
 
-\lib\Helper::startTime();
-
-if(isset($_POST['insert'])) {
-    (new \lib\DummyDataGenerator())->insertDummyData();
-}
-else if(isset($_POST['transverse'])) {
+    $message = '';
     $parser = new \lib\Parser();
-    $result = $parser->parse('sample_malwares/code.php');
-
     $mapper = new \lib\AstRegexMapper();
-
     $traverser = new \PhpParser\NodeTraverser();
     $traverser->addVisitor($mapper);
+    $trainer = new \lib\Trainer();
 
-    foreach($result as $filename => $ast) {
-        $traverser->traverse($ast);
-        \lib\Helper::prettyVarDump($filename);
-        \lib\Helper::prettyVarDump($mapper->getRegexes());
+    if (isset($_POST['trainPositive'])) {
+        $regexes = array();
+        $result = $parser->parse($_POST['trainPositive']);
+        foreach($result as $filename => $ast) {
+            $traverser->traverse($ast);
+            $regexes[$filename] = $mapper->getRegexes();
+        }
+        $trainer->train($regexes, 'Y');
+        $message = 'Training Success';
     }
-}
-else if(isset($_POST['classify'])) {
-    $classifier = new \lib\NaiveBayesClassifier();
-
-    // dataset 1
-    $data = array();
-    $data['E2'] = 1;
-    $data['E4'] = 1;
-    $data['E5'] = 1;
-    $data['E3'] = 1;
-    $data['D14'] = 1;
-    $data['D19'] = 1;
-    $data['D10'] = 1;
-    $data['D5'] = 1;
-    $data['D11'] = 1;
-    $data['D13'] = 1;
-    $data['H5'] = 1;
-    $data['H6'] = 1;
-    $data['H3'] = 1;
-    $result = $classifier->classify($data);
-
-    // dataset 2
-    $data = array();
-    $data['F10'] = 1;
-    $data['B9'] = 1;
-    $data['B10'] = 1;
-    $data['B11'] = 1;
-    $data['B12'] = 1;
-    $data['B13'] = 1;
-    $data['B14'] = 1;
-    $data['D14'] = 1;
-    $data['D19'] = 1;
-    $data['D10'] = 1;
-    $data['D5'] = 1;
-    $data['D11'] = 1;
-    $data['D13'] = 1;
-    $result = $classifier->classify($data);
-
-}
+    else if(isset($_POST['trainNegative'])) {
+        $regexes = array();
+        $result = $parser->parse($_POST['trainNegative']);
+        foreach($result as $filename => $ast) {
+            $traverser->traverse($ast);
+            $regexes[$filename] = $mapper->getRegexes();
+        }
+        $trainer->train($regexes, 'N');
+        $message = 'Training Success';
+    }
+    else if(isset($_POST['classify'])) {
+        $regexes = array();
+        $classifier = new \lib\NaiveBayesClassifier();
+        $result = $parser->parse($_POST['classify']);
+        foreach($result as $filename => $ast) {
+            $traverser->traverse($ast);
+            $regexes[$filename] = $mapper->getRegexes();
+        }
+        $thresholdValues = $classifier->classify($regexes);
+    }
 ?>
 
-<form method="post">
-    <input type="hidden" name="insert">
-    <button type="submit">Insert Database</button>
-</form>
-<form method="post">
-    <input type="hidden" name="transverse">
-    <button type="submit">Transverse Node</button>
-</form>
-<form method="post">
-    <input type="hidden" name="classify">
-    <button type="submit">Classify (dummy data)</button>
-</form>
+<div class="container">
+    <form method="post">
+        <h3>Training</h3>
+        <div class="form-group">
+            <label for="txtTrainPositive">Target Folder / File (Positive / Malware)</label>
+            <div class="input-group">
+                <input type="text" name="trainPositive" id="txtTrainPositive" class="form-control" required>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Train</button>
+               </span>
+            </div>
+        </div>
 
+    </form>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="txtTrainNegative">Target Folder / File (Negative / Non-Malware)</label>
+            <div class="input-group">
+                <input type="text" name="trainNegative" id="txtTrainNegative" class="form-control" required>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Train</button>
+               </span>
+            </div>
+        </div>
+    </form>
+
+    <form method="post">
+        <h3>Classify</h3>
+        <div class="form-group">
+            <label for="txtClassifyTarget">Target Folder / File</label>
+            <div class="input-group">
+                <input type="text" name="classify" id="txtClassifyTarget" class="form-control" required>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Classify</button>
+               </span>
+            </div>
+        </div>
+    </form>
+
+    <a href="settings.php" class="btn btn-info">Settings</a>
+
+    <?php
+    if(isset($_POST['classify'])) {
+        \lib\Helper::prettyVarDump($thresholdValues);
+    }
+    if($message !== '') {
+    ?>
+    <div class="alert alert-success">
+        <?= $message ?>
+    </div>
+    <?php } ?>
+</div>
 <?php
-\lib\Helper::stop();
+    include_once 'partials/_footer.php';
 ?>

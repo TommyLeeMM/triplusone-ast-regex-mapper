@@ -20,6 +20,7 @@ class DatabaseManager
     private static $instance;
     const SETTING_COLLECTION = 'triplusone.settings';
     const ATTRIBUTES_COLLECTION = 'triplusone.attributes';
+    const DATA_COLLECTION = 'triplusone.data';
 
     private function __construct()
     {

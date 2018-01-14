@@ -14,5 +14,3 @@ spl_autoload_register(function ($class_name) {
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-//header('Content-type:text/plain');
