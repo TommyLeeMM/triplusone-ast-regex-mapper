@@ -26,7 +26,7 @@
     }
 ?>
 
-<div class="container">
+<div class="container" style="margin-top:60px">
     <form method="post">
         <h3>E-mail</h3>
         <div class="form-group">
@@ -41,14 +41,19 @@
         </div>
         <div class="form-group">
             <label for="txtTime">Time Execution</label>
-            <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+            <div class="input-group clockpicker">
                 <input type="text" name="timeExecution" class="form-control" value="<?= isset($cursorArray[0]) ? $cursorArray[0]['timeExecution'] : '00:00' ?>">
                 <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
             </span>
             </div>
             <script type="text/javascript">
-                $('.clockpicker').clockpicker();
+                $('.clockpicker').datetimepicker({
+                    format: 'HH:mm',
+                    stepping: 1,
+                    minDate: moment().startOf('day'),
+                    maxDate: moment().endOf('day')
+                });
             </script>
         </div>
         <div class="form-group">
@@ -57,7 +62,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
-    <a href="index.php" class="btn btn-info">Back to Index</a>
 </div>
 
 <?php

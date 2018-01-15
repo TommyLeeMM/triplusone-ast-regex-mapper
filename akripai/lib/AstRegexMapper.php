@@ -26,7 +26,7 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     public function __construct()
     {
-        $this->regexes = (new DummyDataGenerator())->prepareRegexCounter();
+        $this->regexes = (new DataGenerator())->prepareRegexCounter();
     }
 
     public function getRegexes()

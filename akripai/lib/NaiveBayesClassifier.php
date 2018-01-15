@@ -19,6 +19,7 @@ class NaiveBayesClassifier
     private $positiveCallCount, $negativeCallCount;
     private $positiveProbability, $negativeProbability;
     private $regexes;
+    private $positiveFileCount, $negativeFileCount;
 
     public function __construct()
     {
@@ -42,6 +43,8 @@ class NaiveBayesClassifier
         else {
             $this->positiveData = $cursorArray[0]['positive'];
             $this->negativeData = $cursorArray[0]['negative'];
+            $this->positiveFileCount = $cursorArray[0]['positiveFileCount'];
+            $this->negativeFileCount = $cursorArray[0]['negativeFileCount'];
             $this->prepareProbabilityMap();
         }
     }
@@ -80,8 +83,9 @@ class NaiveBayesClassifier
             $negativeProb[$regex] = ($count === 0) ? 1 : ($count * $this->negativeProbability[$regex]);
         }
 
-        $positiveThreshold = array_product($positiveProb) * ($this->additiveValue / $this->labelCount);
-        $negativeThreshold = array_product($negativeProb) * ($this->additiveValue / $this->labelCount);
+        $totalFileCount = $this->positiveFileCount + $this->negativeFileCount;
+        $positiveThreshold = array_product($positiveProb) * ($this->positiveFileCount / $totalFileCount);
+        $negativeThreshold = array_product($negativeProb) * ($this->negativeFileCount / $totalFileCount);
         return [
             'positiveThreshold' => $positiveThreshold,
             'negativeThreshold' => $negativeThreshold
