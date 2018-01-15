@@ -62,10 +62,9 @@ class AstRegexMapper extends NodeVisitorAbstract
         if ($node instanceof IStatementExtractable) {
             $statements = $node->getStatements();
             foreach ($statements as $key => $statement) {
-                if(!is_array($statement)) {
+                if (!is_array($statement)) {
                     $this->explore($statement);
-                }
-                else {
+                } else {
                     if ($statement !== null) {
                         foreach ($statement as $nodeStmt) {
                             $this->explore($nodeStmt);
@@ -108,18 +107,12 @@ class AstRegexMapper extends NodeVisitorAbstract
         $_extractedNode['type'] = $extractedNode['type'];
         $_extractedNode['name'] = $extractedNode['name'];
         $_extractedNode['args'] = array();
+
         foreach ($extractedNode['args'] as $arg) {
             $extracted = $arg->extract();
             $_extractedArg = array();
-            if ($arg instanceof Node\Expr\Variable) {
-                $_extractedArg['type'] = $extracted['type'];
-            }
-            else {
-                if (is_array($extracted)) {
-                    foreach ($extracted as $key => $value) {
-                        $_extractedArg[$key] = $value;
-                    }
-                }
+            foreach ($extracted as $key => $value) {
+                $_extractedArg[$key] = $value;
             }
             $_extractedNode['args'][] = $_extractedArg;
         }
@@ -127,26 +120,67 @@ class AstRegexMapper extends NodeVisitorAbstract
         $filter = [
             'type' => $_extractedNode['type'],
             'name' => $_extractedNode['name'],
-//            'argsTypeKey' => $this->setRegexParamType($extractedNode['args'])
         ];
 
-        $regex = $this->search($filter);
-        if ($regex !== null) {
-            if(array_key_exists($regex, $this->regexCounter)) {
-                $this->regexCounter[$regex]++;
+        $searchResults = $this->search($filter);
+        if (count($searchResults) > 0) {
+            // filter by function's arguments
+            foreach ($searchResults as $searchResult) {
+                // if the db's data has "regexArgs" key, then compare by the regex only
+                if (array_key_exists('regexArgs', $searchResult)) {
+                    // create regexArgs for extracted node
+                    $regexArgsExtractedNodeArr = array();
+                    foreach ($_extractedNode['args'] as $extractedNodeArg) {
+                        $regexArgsExtractedNodeArr[] = Helper::getRegexArgument($extractedNodeArg['type']);
+                    }
+                    $regexArgsExtractedNode = implode(',', $regexArgsExtractedNodeArr);
+
+                    // compare the created regexArgs with pattern from db
+                    if (preg_match('/' . $searchResult['regexArgs'] . '/', $regexArgsExtractedNode)) {
+                        if (array_key_exists($searchResult['regex'], $this->regexCounter)) {
+                            Helper::prettyVarDump($searchResult['regex']);
+                            $this->regexCounter[$searchResult['regex']]++;
+                        }
+                        break;
+                    }
+                }
+                // compare the values
+                else {
+                    $isMatch = true;
+                    $dbArgs = $searchResult['args'];
+                    foreach($dbArgs as $dbArgIndex => $dbArg) {
+                        if($dbArg['type'] === $_extractedNode['args'][$dbArgIndex]['type']) {
+                            // check if "value" key is exists
+                            if(isset($dbArg['value']) && isset($_extractedNode['args'][$dbArgIndex]['value'])) {
+                                if($dbArg['value'] !== $_extractedNode['args'][$dbArgIndex]['value']) {
+                                    $isMatch = false;
+                                    break;
+                                }
+                            }
+                        }
+                        else {
+                            $isMatch = false;
+                            break;
+                        }
+                    }
+                    if($isMatch) {
+                        if (array_key_exists($searchResult['regex'], $this->regexCounter)) {
+                            Helper::prettyVarDump($searchResult['regex']);
+                            $this->regexCounter[$searchResult['regex']]++;
+                        }
+                    }
+                }
             }
         }
 
-        // cek apakah args nya ada function call
+        // check if the args' type is explorable
         foreach ($extractedNode['args'] as $arg) {
             if ($arg instanceof IMethodCall) {
                 $this->extractFunctionNode($arg);
-            }
-            else if($arg instanceof ILeftRightExtractable) {
+            } else if ($arg instanceof ILeftRightExtractable) {
                 $this->explore($arg->left);
                 $this->explore($arg->right);
-            }
-            else if($arg instanceof IPartsExtractable) {
+            } else if ($arg instanceof IPartsExtractable) {
                 $result = $arg->extract();
                 foreach ($result['parts'] as $part) {
                     $this->explore($part);
@@ -191,15 +225,8 @@ class AstRegexMapper extends NodeVisitorAbstract
 //        }
 //    }
 //
-    private function search($filter)
+    private function search($filter, $options = array())
     {
-        $options = [
-            'limit' => 1,
-            'projection' => [
-                '_id' => 0,
-                'regex' => 1
-            ]
-        ];
         $query = new Query($filter, $options);
         $cursor = DatabaseManager::getInstance()->executeQuery(DatabaseManager::ATTRIBUTES_COLLECTION, $query);
         $cursor->setTypeMap([
@@ -207,8 +234,8 @@ class AstRegexMapper extends NodeVisitorAbstract
             'document' => 'array',
             'array' => 'array'
         ]);
-        $cursorArray = $cursor->toArray();
-        return (count($cursorArray) > 0) ? $cursorArray[0]['regex'] : null;
+        return $cursor->toArray();
+//        return (count($cursorArray) > 0) ? $cursorArray[0]['regex'] : null;
     }
 //
 //    private function extractNode($node) {

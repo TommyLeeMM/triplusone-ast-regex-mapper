@@ -16,24 +16,24 @@
 
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">Scanner</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li>
-                <a href="index.php">Home</a>
-            </li>
-            <li>
-                <a href="training.php">Training</a>
-            </li>
-            <li>
-                <a href="classify.php">Classify</a>
-            </li>
-            <li>
-                <a href="settings.php">Automatic Scan Settings</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--            <a class="navbar-brand" href="#">Scanner</a>-->
+<!--        </div>-->
+<!--        <ul class="nav navbar-nav">-->
+<!--            <li>-->
+<!--                <a href="index.php">Home</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="training.php">Training</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="classify.php">Classify</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="settings.php">Automatic Scan Settings</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</nav>-->

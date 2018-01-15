@@ -9,6 +9,7 @@
 namespace lib;
 
 
+use lib\regex\GroupA;
 use lib\regex\GroupB;
 use lib\regex\GroupC;
 use lib\regex\GroupD;
@@ -23,14 +24,15 @@ class DataGenerator
 {
     public function generateDictionary() {
         $groups = array();
+        $groups[] = (new GroupA())->getAll();
         $groups[] = (new GroupB())->getAll();
         $groups[] = (new GroupC())->getAll();
-        $groups[] = (new GroupD())->getAll();
-        $groups[] = (new GroupE())->getAll();
-        $groups[] = (new GroupF())->getAll();
-        $groups[] = (new GroupG())->getAll();
-        $groups[] = (new GroupH())->getAll();
-        $groups[] = (new GroupI())->getAll();
+//        $groups[] = (new GroupD())->getAll();
+//        $groups[] = (new GroupE())->getAll();
+//        $groups[] = (new GroupF())->getAll();
+//        $groups[] = (new GroupG())->getAll();
+//        $groups[] = (new GroupH())->getAll();
+//        $groups[] = (new GroupI())->getAll();
         return $groups;
     }
 

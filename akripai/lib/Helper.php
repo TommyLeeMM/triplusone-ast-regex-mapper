@@ -8,10 +8,13 @@
 
 namespace lib;
 
+use lib\regex\GroupA;
+
 class Helper
 {
     private static $startTime;
     private static $endTime;
+    private static $regexA;
 
     public static function prettyVarDump($object) {
         echo '<pre>';
@@ -43,5 +46,16 @@ class Helper
             echo round($mem_usage/1048576,2)." megabytes";
 
         echo "<br/>";
+    }
+
+    public static function getRegexArgument($type) {
+        if(self::$regexA === null) {
+            self::$regexA = (new GroupA())->getAll();
+        }
+        foreach(self::$regexA as $regex) {
+            if($regex['type'] === $type)
+                return $regex['regex'];
+        }
+        return null;
     }
 }

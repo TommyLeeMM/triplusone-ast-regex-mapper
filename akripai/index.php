@@ -8,5 +8,6 @@ include_once 'partials/_header.php';
 
 </div>
 <?php
+
 include_once 'partials/_footer.php';
 ?>

@@ -9,9 +9,11 @@
 namespace lib\regex;
 
 
+use lib\Helper;
+
 class GroupB extends Group
 {
-    protected $methodCount = 15;
+    protected $methodCount = 5;
 
     public function B0() {
         $data = array();
@@ -19,11 +21,11 @@ class GroupB extends Group
 
         $data['regex'] = 'B0';
         $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_callable';
+        $data['name'] = 'set_time_limit';
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'system';
+        $arg1['type'] = ClassConstant::SCALAR_LNUMBER;
+        $arg1['value'] = 0;
 
         $args[] = $arg1;
         $data['args'] = $args;
@@ -32,236 +34,69 @@ class GroupB extends Group
 
     public function B1() {
         $data = array();
-        $args = array();
 
         $data['regex'] = 'B1';
         $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_callable';
+        $data['name'] = 'htmlspecialchars';
+        $data['args'] = array();
 
         $arg1 = array();
         $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'shell_exec';
 
-        $args[] = $arg1;
-        $data['args'] = $args;
+        $data['args'][] = $arg1;
+        $data['regexArgs'] = $this->setRegexArgs($data['args']);
         return $data;
     }
 
     public function B2() {
         $data = array();
-        $args = array();
 
         $data['regex'] = 'B2';
         $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_callable';
+        $data['name'] = 'htmlspecialchars';
+        $data['args'] = array();
 
         $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'exec';
+        $arg1['type'] = ClassConstant::FUNC_CALL;
 
-        $args[] = $arg1;
-        $data['args'] = $args;
+        $data['args'][] = $arg1;
+        $data['regexArgs'] = $this->setRegexArgs($data['args']);
         return $data;
     }
 
     public function B3() {
         $data = array();
-        $args = array();
 
         $data['regex'] = 'B3';
         $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_callable';
+        $data['name'] = 'ini_set';
+        $data['args'] = array();
 
         $arg1 = array();
         $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'passthru';
+        $arg1['value'] = 'max_execution_time';
 
-        $args[] = $arg1;
-        $data['args'] = $args;
+        $arg2 = array();
+        $arg2['type'] = ClassConstant::SCALAR_LNUMBER;
+        $arg2['value'] = 0;
+
+        $data['args'][] = $arg1;
+        $data['args'][] = $arg2;
         return $data;
     }
 
     public function B4() {
         $data = array();
-        $args = array();
 
         $data['regex'] = 'B4';
         $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_callable';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'proc_open';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B5() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B5';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'proc_close';
+        $data['name'] = 'htmlspecialchars';
 
         $arg1 = array();
         $arg1['type'] = ClassConstant::VARIABLE;
 
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B6() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B6';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_callable';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'popen';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B7() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B7';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'pclose';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B8() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B8';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'is_file';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B9() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B9';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'function_exists';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'fopen';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B10() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B10';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'function_exists';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'fclose';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B11() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B11';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'function_exists';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'fwrite';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B12() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B12';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'function_exists';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'fputs';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B13() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B13';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'function_exists';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'file_get_contents';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
-        return $data;
-    }
-
-    public function B14() {
-        $data = array();
-        $args = array();
-
-        $data['regex'] = 'B14';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'function_exists';
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg1['value'] = 'fread';
-
-        $args[] = $arg1;
-        $data['args'] = $args;
+        $data['args'][] = $arg1;
+        $data['regexArgs'] = $this->setRegexArgs($data['args']);
         return $data;
     }
 }

@@ -9,6 +9,8 @@
 namespace lib\regex;
 
 
+use lib\Helper;
+
 abstract class Group
 {
     protected $methodCount;
@@ -22,5 +24,13 @@ abstract class Group
             $data[] = call_user_func_array(array($this, $groupName.$i), []);
         }
         return $data;
+    }
+
+    protected function setRegexArgs($args) {
+        $results = array();
+        foreach($args as $arg) {
+            $results[] = Helper::getRegexArgument($arg['type']);
+        }
+        return implode(',', $results);
     }
 }
