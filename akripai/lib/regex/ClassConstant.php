@@ -13,6 +13,7 @@ class ClassConstant
 {
     const ARRAY_ = 'Expr_Array';
     const ARRAY_DIM_FETCH = 'Expr_ArrayDimFetch';
+    const CLASS_CONST_FETCH = 'Expr_ClassConstFetch';
     const CONCAT = 'Expr_Concat';
     const CONST_FETCH = 'Expr_ConstFetch';
     const EXPR_BINARY_CONCAT = 'Expr_BinaryOp_Concat';

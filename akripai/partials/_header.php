@@ -13,7 +13,7 @@
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="assets/bower_components/moment/min/moment.min.js"></script>
     <script type="text/javascript" src="assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-
+    <script type="text/javascript" src="assets/bower_components/chart.js/dist/Chart.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top">

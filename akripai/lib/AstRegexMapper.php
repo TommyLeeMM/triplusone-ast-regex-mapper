@@ -47,6 +47,7 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     private function explore($node)
     {
+//        Helper::prettyVarDump($node);
         if ($node instanceof IConditionExtractable) {
             $conditions = $node->getCondition();
             if (!is_array($conditions)) {

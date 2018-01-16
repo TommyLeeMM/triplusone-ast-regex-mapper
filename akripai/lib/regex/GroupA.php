@@ -56,10 +56,10 @@ class GroupA extends Group
     }
 
     public function A6() {
-        // contoh => "$var". Dianggap sama seperti string hardcode
+        // contoh => "$var". Dianggap sama seperti variable
         return parent::setNode([
             'type' => ClassConstant::SCALAR_ENCAPSED,
-            'regex' => 'A0'
+            'regex' => 'A1'
         ], [], false);
     }
 
@@ -83,6 +83,14 @@ class GroupA extends Group
         return parent::setNode([
             'type' => ClassConstant::SCALAR_LNUMBER,
             'regex' => 'A6'
+        ], [], false);
+    }
+
+    public function A10() {
+        // contoh => Class::attr. Dianggap sama seperti variable
+        return parent::setNode([
+            'type' => ClassConstant::CLASS_CONST_FETCH,
+            'regex' => 'A1'
         ], [], false);
     }
 }
