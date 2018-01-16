@@ -33,4 +33,13 @@ abstract class Group
         }
         return implode(',', $results);
     }
+
+    protected function setNode($function, $args, $setArgsRegex = true) {
+        $data = $function;
+        $data['args'] = $args;
+        if($setArgsRegex) {
+            $data['regexArgs'] = $this->setRegexArgs($data['args']);
+        }
+        return $data;
+    }
 }
