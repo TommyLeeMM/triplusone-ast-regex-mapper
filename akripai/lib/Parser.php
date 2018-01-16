@@ -22,8 +22,8 @@ class Parser
         $this->directoryScanner = new DirectoryScanner();
     }
 
-    public function parse($path) {
-        $this->setFileNames($path);
+    public function parse($path, $lastModifiedDate = null) {
+        $this->fileNames = $this->directoryScanner->scan($path, $lastModifiedDate);
         $asts = [];
         foreach($this->fileNames as $fileName) {
             try {
@@ -36,15 +36,5 @@ class Parser
             $asts[$fileName] = $ast;
         }
         return $asts;
-    }
-
-    private function setFileNames($path) {
-        $this->fileNames = [];
-        if(!is_dir($path)) {
-            $this->fileNames[] = $path;
-        }
-        else {
-            $this->fileNames = $this->directoryScanner->scan($path);
-        }
     }
 }

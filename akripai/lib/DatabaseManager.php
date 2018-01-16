@@ -42,9 +42,9 @@ class DatabaseManager
         return $this->manager->executeQuery($collectionName, $query);
     }
 
-    public function deleteAttributes() {
+    public function deleteAll($collectionName) {
         $bulk = new BulkWrite();
         $bulk->delete([]);
-        $this->manager->executeBulkWrite(self::ATTRIBUTES_COLLECTION, $bulk);
+        $this->manager->executeBulkWrite($collectionName, $bulk);
     }
 }

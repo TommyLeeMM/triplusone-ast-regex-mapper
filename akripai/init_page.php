@@ -16,7 +16,8 @@ foreach($dictionary as $group) {
         $bulkWriter->insert($item);
     }
 }
-\lib\DatabaseManager::getInstance()->deleteAttributes();
+\lib\DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::ATTRIBUTES_COLLECTION);
+\lib\DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::DATA_COLLECTION);
 \lib\DatabaseManager::getInstance()->executeBulkWrite(\lib\DatabaseManager::ATTRIBUTES_COLLECTION, $bulkWriter);
 
 header('location: index.php');

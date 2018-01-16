@@ -47,7 +47,6 @@ class AstRegexMapper extends NodeVisitorAbstract
 
     private function explore($node)
     {
-
         if ($node instanceof IConditionExtractable) {
             $conditions = $node->getCondition();
             if (!is_array($conditions)) {
@@ -138,7 +137,6 @@ class AstRegexMapper extends NodeVisitorAbstract
                     // compare the created regexArgs with pattern from db
                     if (preg_match('/' . $searchResult['regexArgs'] . '/', $regexArgsExtractedNode)) {
                         if (array_key_exists($searchResult['regex'], $this->regexCounter)) {
-                            Helper::prettyVarDump($searchResult['regex']);
                             $this->regexCounter[$searchResult['regex']]++;
                         }
                         break;
@@ -148,6 +146,7 @@ class AstRegexMapper extends NodeVisitorAbstract
                 else {
                     $isMatch = true;
                     $dbArgs = $searchResult['args'];
+
                     foreach($dbArgs as $dbArgIndex => $dbArg) {
                         if($dbArg['type'] === $_extractedNode['args'][$dbArgIndex]['type']) {
                             // check if "value" key is exists
@@ -165,7 +164,6 @@ class AstRegexMapper extends NodeVisitorAbstract
                     }
                     if($isMatch) {
                         if (array_key_exists($searchResult['regex'], $this->regexCounter)) {
-                            Helper::prettyVarDump($searchResult['regex']);
                             $this->regexCounter[$searchResult['regex']]++;
                         }
                     }

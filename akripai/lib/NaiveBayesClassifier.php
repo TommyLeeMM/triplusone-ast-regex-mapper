@@ -87,8 +87,8 @@ class NaiveBayesClassifier
         $positiveThreshold = array_product($positiveProb) * ($this->positiveFileCount / $totalFileCount);
         $negativeThreshold = array_product($negativeProb) * ($this->negativeFileCount / $totalFileCount);
         return [
-            'positiveThreshold' => $positiveThreshold,
-            'negativeThreshold' => $negativeThreshold
+            'positiveValue' => $positiveThreshold,
+            'negativeValue' => $negativeThreshold
         ];
     }
 

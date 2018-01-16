@@ -2,7 +2,7 @@
 
 include_once 'partials/_header.php';
 
-$message = '';
+$message = array();
 $parser = new \lib\Parser();
 $mapper = new \lib\AstRegexMapper();
 $traverser = new \PhpParser\NodeTraverser();
@@ -10,24 +10,37 @@ $traverser->addVisitor($mapper);
 $trainer = new \lib\Trainer();
 
 if (isset($_POST['trainPositive'])) {
-    $regexes = array();
-    $result = $parser->parse($_POST['trainPositive']);
-    foreach($result as $filename => $ast) {
-        $traverser->traverse($ast);
-        $regexes[$filename] = $mapper->getRegexes();
+    $targetPath = trim($_POST['trainPositive']);
+    if ($targetPath !== '') {
+        $regexes = array();
+        $result = $parser->parse($targetPath);
+        foreach ($result as $filename => $ast) {
+            $traverser->traverse($ast);
+            $regexes[$filename] = $mapper->getRegexes();
+        }
+        $trainer->train($regexes, 'Y');
+        $message['message'] = 'Training Success';
+        $message['isSuccess'] = true;
+    } else {
+        $message['message'] = 'Input can\'t be empty';
+        $message['isSuccess'] = false;
     }
-    $trainer->train($regexes, 'Y');
-    $message = 'Training Success';
-}
-else if(isset($_POST['trainNegative'])) {
-    $regexes = array();
-    $result = $parser->parse($_POST['trainNegative']);
-    foreach($result as $filename => $ast) {
-        $traverser->traverse($ast);
-        $regexes[$filename] = $mapper->getRegexes();
+} else if (isset($_POST['trainNegative'])) {
+    $targetPath = trim($_POST['trainNegative']);
+    if ($targetPath !== '') {
+        $regexes = array();
+        $result = $parser->parse($_POST['trainNegative']);
+        foreach ($result as $filename => $ast) {
+            $traverser->traverse($ast);
+            $regexes[$filename] = $mapper->getRegexes();
+        }
+        $trainer->train($regexes, 'N');
+        $message['message'] = 'Training Success';
+        $message['isSuccess'] = true;
+    } else {
+        $message['message'] = 'Input can\'t be empty';
+        $message['isSuccess'] = false;
     }
-    $trainer->train($regexes, 'N');
-    $message = 'Training Success';
 }
 ?>
 
@@ -59,11 +72,22 @@ else if(isset($_POST['trainNegative'])) {
     </form>
 
     <?php
-    if($message !== '') {
+    if (count($message) !== 0) {
+        if ($message['isSuccess']) {
+            ?>
+            <div class="alert alert-success">
+                <?= $message['message'] ?>
+            </div>
+            <?php
+        } else {
+            ?>
+            <div class="alert alert-warning">
+                <?= $message['message'] ?>
+            </div>
+            <?php
+        }
         ?>
-        <div class="alert alert-success">
-            <?= $message ?>
-        </div>
+
     <?php } ?>
 </div>
 <?php

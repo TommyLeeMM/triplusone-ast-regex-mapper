@@ -8,7 +8,6 @@
 
 namespace lib;
 
-
 use lib\regex\GroupA;
 use lib\regex\GroupB;
 use lib\regex\GroupC;
@@ -16,8 +15,6 @@ use lib\regex\GroupD;
 use lib\regex\GroupE;
 use lib\regex\GroupF;
 use lib\regex\GroupG;
-use lib\regex\GroupH;
-use lib\regex\GroupI;
 use MongoDB\Driver\Query;
 
 class DataGenerator
@@ -28,11 +25,9 @@ class DataGenerator
         $groups[] = (new GroupB())->getAll();
         $groups[] = (new GroupC())->getAll();
 //        $groups[] = (new GroupD())->getAll();
-//        $groups[] = (new GroupE())->getAll();
-//        $groups[] = (new GroupF())->getAll();
-//        $groups[] = (new GroupG())->getAll();
-//        $groups[] = (new GroupH())->getAll();
-//        $groups[] = (new GroupI())->getAll();
+        $groups[] = (new GroupE())->getAll();
+        $groups[] = (new GroupF())->getAll();
+        $groups[] = (new GroupG())->getAll();
         return $groups;
     }
 
