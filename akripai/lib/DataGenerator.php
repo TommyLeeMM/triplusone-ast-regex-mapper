@@ -21,10 +21,10 @@ class DataGenerator
 {
     public function generateDictionary() {
         $groups = array();
-        $groups[] = (new GroupA())->getAll();
+//        $groups[] = (new GroupA())->getAll();
         $groups[] = (new GroupB())->getAll();
         $groups[] = (new GroupC())->getAll();
-//        $groups[] = (new GroupD())->getAll();
+        $groups[] = (new GroupD())->getAll();
         $groups[] = (new GroupE())->getAll();
         $groups[] = (new GroupF())->getAll();
         $groups[] = (new GroupG())->getAll();

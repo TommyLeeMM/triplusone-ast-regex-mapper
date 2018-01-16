@@ -11,662 +11,647 @@ namespace lib\regex;
 
 class GroupD extends Group
 {
-    protected $methodCount = 62;
+    protected $methodCount = 84;
 
     public function D0() {
-        $data = array();
-
-        $data['regex'] = 'D0';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rmdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D0',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rmdir'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D1() {
-        $data = array();
-
-        $data['regex'] = 'D1';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rmdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D1',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rmdir'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D2() {
-        $data = array();
-
-        $data['regex'] = 'D2';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rmdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D0',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rmdir'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D3() {
-        $data = array();
-
-        $data['regex'] = 'D3';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rmdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D3',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rmdir'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D4() {
-        $data = array();
-
-        $data['regex'] = 'D4';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'mkdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D4',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'mkdir'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D5() {
-        $data = array();
-
-        $data['regex'] = 'D5';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'mkdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D5',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'mkdir'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D6() {
-        $data = array();
-
-        $data['regex'] = 'D6';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'mkdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D6',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'mkdir'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D7() {
-        $data = array();
-
-        $data['regex'] = 'D7';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'mkdir';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D7',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'mkdir'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D8() {
-        $data = array();
-
-        $data['regex'] = 'D8';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D8',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D9() {
-        $data = array();
-
-        $data['regex'] = 'D9';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D9',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D10() {
-        $data = array();
-
-        $data['regex'] = 'D10';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D10',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D11() {
-        $data = array();
-
-        $data['regex'] = 'D11';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D11',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D12() {
-        $data = array();
-
-        $data['regex'] = 'D12';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D12',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D13() {
-        $data = array();
-
-        $data['regex'] = 'D13';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D13',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D14() {
-        $data = array();
-
-        $data['regex'] = 'D14';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D14',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D15() {
-        $data = array();
-
-        $data['regex'] = 'D15';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D15',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D16() {
-        $data = array();
-
-        $data['regex'] = 'D16';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D16',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D17() {
-        $data = array();
-
-        $data['regex'] = 'D17';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D17',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D18() {
-        $data = array();
-
-        $data['regex'] = 'D18';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D18',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D19() {
-        $data = array();
-
-        $data['regex'] = 'D19';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D19',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D20() {
-        $data = array();
-
-        $data['regex'] = 'D20';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D20',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D21() {
-        $data = array();
-
-        $data['regex'] = 'D21';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D21',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D22() {
-        $data = array();
-
-        $data['regex'] = 'D22';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D22',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D23() {
-        $data = array();
-
-        $data['regex'] = 'D20';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'copy';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D23',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'copy'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D24() {
-        $data = array();
-
-        $data['regex'] = 'D24';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D24',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D25() {
-        $data = array();
-
-        $data['regex'] = 'D25';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D25',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D26() {
-        $data = array();
-
-        $data['regex'] = 'D26';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D26',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D27() {
-        $data = array();
-
-        $data['regex'] = 'D27';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D27',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D28() {
-        $data = array();
-
-        $data['regex'] = 'D28';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D28',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D29() {
-        $data = array();
-
-        $data['regex'] = 'D29';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D29',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D30() {
-        $data = array();
-
-        $data['regex'] = 'D30';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D30',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D31() {
-        $data = array();
-
-        $data['regex'] = 'D31';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D31',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D32() {
-        $data = array();
-
-        $data['regex'] = 'D32';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'rename';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::CONCAT;
-        $arg2 = array();
-        $arg2['type'] = ClassConstant::CONCAT;
-
-        $data['args'][] = $arg1;
-        $data['args'][] = $arg2;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D32',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
     }
 
     public function D33() {
-        $data = array();
-
-        $data['regex'] = 'D33';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'file_get_contents';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::STRING;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D33',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
     }
 
     public function D34() {
-        $data = array();
-
-        $data['regex'] = 'D34';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'file_get_contents';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::VARIABLE;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D34',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
     }
 
     public function D35() {
-        $data = array();
-
-        $data['regex'] = 'D35';
-        $data['type'] = ClassConstant::FUNC_CALL;
-        $data['name'] = 'file_get_contents';
-        $data['args'] = array();
-
-        $arg1 = array();
-        $arg1['type'] = ClassConstant::ARRAY_DIM_FETCH;
-
-        $data['args'][] = $arg1;
-        $data['regexArgs'] = $this->setRegexArgs($data['args']);
-        return $data;
+        return parent::setNode([
+            'regex' => 'D35',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
     }
 
     public function D36() {
         return parent::setNode([
             'regex' => 'D36',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D37() {
+        return parent::setNode([
+            'regex' => 'D37',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D38() {
+        return parent::setNode([
+            'regex' => 'D38',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D39() {
+        return parent::setNode([
+            'regex' => 'D39',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'rename'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D40() {
+        return parent::setNode([
+            'regex' => 'D40',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_get_contents'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D41() {
+        return parent::setNode([
+            'regex' => 'D41',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_get_contents'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D42() {
+        return parent::setNode([
+            'regex' => 'D42',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_get_contents'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D43() {
+        return parent::setNode([
+            'regex' => 'D43',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_get_contents'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D44() {
+        return parent::setNode([
+            'regex' => 'D44',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_get_contents'
+        ], [
+            [
+                'type' => ClassConstant::FUNC_CALL
+            ]
+        ]);
+    }
+
+    public function D45() {
+        return parent::setNode([
+            'regex' => 'D45',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'file_put_contents'
         ], [
@@ -679,9 +664,9 @@ class GroupD extends Group
         ]);
     }
 
-    public function D37() {
+    public function D46() {
         return parent::setNode([
-            'regex' => 'D37',
+            'regex' => 'D46',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'file_put_contents'
         ], [
@@ -689,7 +674,535 @@ class GroupD extends Group
                 'type' => ClassConstant::STRING
             ],
             [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D47() {
+        return parent::setNode([
+            'regex' => 'D47',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
                 'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D48() {
+        return parent::setNode([
+            'regex' => 'D48',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D49() {
+        return parent::setNode([
+            'regex' => 'D49',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D50() {
+        return parent::setNode([
+            'regex' => 'D50',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D51() {
+        return parent::setNode([
+            'regex' => 'D51',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D52() {
+        return parent::setNode([
+            'regex' => 'D52',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D53() {
+        return parent::setNode([
+            'regex' => 'D53',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D54() {
+        return parent::setNode([
+            'regex' => 'D54',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D55() {
+        return parent::setNode([
+            'regex' => 'D55',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D56() {
+        return parent::setNode([
+            'regex' => 'D56',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D57() {
+        return parent::setNode([
+            'regex' => 'D57',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D58() {
+        return parent::setNode([
+            'regex' => 'D58',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D59() {
+        return parent::setNode([
+            'regex' => 'D59',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D60() {
+        return parent::setNode([
+            'regex' => 'D60',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'file_put_contents'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D61() {
+        return parent::setNode([
+            'regex' => 'D61',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fopen'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D62() {
+        return parent::setNode([
+            'regex' => 'D62',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fopen'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D63() {
+        return parent::setNode([
+            'regex' => 'D63',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fwrite'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D64() {
+        return parent::setNode([
+            'regex' => 'D64',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fwrite'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D65() {
+        return parent::setNode([
+            'regex' => 'D65',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fwrite'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D66() {
+        return parent::setNode([
+            'regex' => 'D66',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fwrite'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D67() {
+        return parent::setNode([
+            'regex' => 'D67',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fputs'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D68() {
+        return parent::setNode([
+            'regex' => 'D68',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fputs'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D69() {
+        return parent::setNode([
+            'regex' => 'D69',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fputs'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D70() {
+        return parent::setNode([
+            'regex' => 'D70',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fputs'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D71() {
+        return parent::setNode([
+            'regex' => 'D71',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'fclose'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D72() {
+        return parent::setNode([
+            'regex' => 'D72',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'unlink'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D73() {
+        return parent::setNode([
+            'regex' => 'D73',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'unlink'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D74() {
+        return parent::setNode([
+            'regex' => 'D74',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'unlink'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D75() {
+        return parent::setNode([
+            'regex' => 'D75',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'unlink'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D76() {
+        return parent::setNode([
+            'regex' => 'D76',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'touch'
+        ], [
+            [
+                'type' => ClassConstant::STRING
+            ]
+        ]);
+    }
+
+    public function D77() {
+        return parent::setNode([
+            'regex' => 'D77',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'touch'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D78() {
+        return parent::setNode([
+            'regex' => 'D78',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'touch'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ]
+        ]);
+    }
+
+    public function D79() {
+        return parent::setNode([
+            'regex' => 'D79',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'touch'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ]
+        ]);
+    }
+
+    public function D80() {
+        return parent::setNode([
+            'regex' => 'D80',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'chmod'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D81() {
+        return parent::setNode([
+            'regex' => 'D81',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'chmod'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::SCALAR_LNUMBER
+            ]
+        ]);
+    }
+
+    public function D82() {
+        return parent::setNode([
+            'regex' => 'D82',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'chmod'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function D83() {
+        return parent::setNode([
+            'regex' => 'D83',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'chmod'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::SCALAR_LNUMBER
             ]
         ]);
     }
