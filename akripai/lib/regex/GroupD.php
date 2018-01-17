@@ -11,7 +11,7 @@ namespace lib\regex;
 
 class GroupD extends Group
 {
-    protected $methodCount = 84;
+    protected $methodCount = 85;
 
     public function D0() {
         return parent::setNode([
@@ -39,7 +39,7 @@ class GroupD extends Group
 
     public function D2() {
         return parent::setNode([
-            'regex' => 'D0',
+            'regex' => 'D2',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'rmdir'
         ], [
@@ -1055,10 +1055,10 @@ class GroupD extends Group
         return parent::setNode([
             'regex' => 'D72',
             'type' => ClassConstant::FUNC_CALL,
-            'name' => 'unlink'
+            'name' => 'fclose'
         ], [
             [
-                'type' => ClassConstant::STRING
+                'type' => ClassConstant::ARRAY_DIM_FETCH
             ]
         ]);
     }
@@ -1070,7 +1070,7 @@ class GroupD extends Group
             'name' => 'unlink'
         ], [
             [
-                'type' => ClassConstant::VARIABLE
+                'type' => ClassConstant::STRING
             ]
         ]);
     }
@@ -1082,7 +1082,7 @@ class GroupD extends Group
             'name' => 'unlink'
         ], [
             [
-                'type' => ClassConstant::ARRAY_DIM_FETCH
+                'type' => ClassConstant::VARIABLE
             ]
         ]);
     }
@@ -1094,7 +1094,7 @@ class GroupD extends Group
             'name' => 'unlink'
         ], [
             [
-                'type' => ClassConstant::CONCAT
+                'type' => ClassConstant::ARRAY_DIM_FETCH
             ]
         ]);
     }
@@ -1103,10 +1103,10 @@ class GroupD extends Group
         return parent::setNode([
             'regex' => 'D76',
             'type' => ClassConstant::FUNC_CALL,
-            'name' => 'touch'
+            'name' => 'unlink'
         ], [
             [
-                'type' => ClassConstant::STRING
+                'type' => ClassConstant::CONCAT
             ]
         ]);
     }
@@ -1118,7 +1118,7 @@ class GroupD extends Group
             'name' => 'touch'
         ], [
             [
-                'type' => ClassConstant::VARIABLE
+                'type' => ClassConstant::STRING
             ]
         ]);
     }
@@ -1130,7 +1130,7 @@ class GroupD extends Group
             'name' => 'touch'
         ], [
             [
-                'type' => ClassConstant::ARRAY_DIM_FETCH
+                'type' => ClassConstant::VARIABLE
             ]
         ]);
     }
@@ -1142,7 +1142,7 @@ class GroupD extends Group
             'name' => 'touch'
         ], [
             [
-                'type' => ClassConstant::CONCAT
+                'type' => ClassConstant::ARRAY_DIM_FETCH
             ]
         ]);
     }
@@ -1151,13 +1151,10 @@ class GroupD extends Group
         return parent::setNode([
             'regex' => 'D80',
             'type' => ClassConstant::FUNC_CALL,
-            'name' => 'chmod'
+            'name' => 'touch'
         ], [
             [
-                'type' => ClassConstant::VARIABLE
-            ],
-            [
-                'type' => ClassConstant::VARIABLE
+                'type' => ClassConstant::CONCAT
             ]
         ]);
     }
@@ -1172,7 +1169,7 @@ class GroupD extends Group
                 'type' => ClassConstant::VARIABLE
             ],
             [
-                'type' => ClassConstant::SCALAR_LNUMBER
+                'type' => ClassConstant::VARIABLE
             ]
         ]);
     }
@@ -1180,6 +1177,21 @@ class GroupD extends Group
     public function D82() {
         return parent::setNode([
             'regex' => 'D82',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'chmod'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::SCALAR_LNUMBER
+            ]
+        ]);
+    }
+
+    public function D83() {
+        return parent::setNode([
+            'regex' => 'D83',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'chmod'
         ], [
@@ -1192,9 +1204,9 @@ class GroupD extends Group
         ]);
     }
 
-    public function D83() {
+    public function D84() {
         return parent::setNode([
-            'regex' => 'D83',
+            'regex' => 'D84',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'chmod'
         ], [

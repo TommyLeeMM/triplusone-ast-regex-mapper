@@ -11,4 +11,4 @@ include_once 'bootstrap.php';
 $generator = new \lib\DataGenerator();
 $generator->initAll();
 
-header('location: index.php');
+//header('location: index.php');

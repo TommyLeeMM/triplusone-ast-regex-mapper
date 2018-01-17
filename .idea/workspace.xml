@@ -1,31 +1,437 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c6d95dd2-4672-466e-8abb-cfa2fabca7d1" name="Default" comment="" />
+    <list default="true" id="c6d95dd2-4672-466e-8abb-cfa2fabca7d1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/529.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Antichat Shell. Modified by Go0o$E.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Antichat Shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Ayyildiz Tim  -AYT- Shell v 2.1 Biz.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/C99madShell v. 2.0 madnet edition.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/CasuS 1.5.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/CrystalShell v.1.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Cyber Shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/DTool Pro.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Dive Shell 1.0 - Emperor Hacking Team.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Dive_Shell_1.0_Emperor_Hacking_Team.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/GRP WebShell 2.0 release build 2018 (C)2006,Great.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/KA_uShell 0.1.6.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/KAdot Universal Shell v0.1.6.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Liz0ziM Private Safe Mode Command Execuriton Bypass Exploit.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Macker's Private PHPShell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Moroccan Spamers Ma-EditioN By GhOsT.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/PHP Shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/STNC WebShell v0.8.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Simple_PHP_backdoor_by_DK.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Web-shell (c)ShAnKaR.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/Worse Linux Shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/aZRaiLPhp v1.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/aZRaiLPhp_v1.0.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/accept_language.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/backupsql.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/c0derz shell [csh] v. 0.1.1 release.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/c99_locus7s.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/c99_madnet.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/cpanel.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/cybershell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/dC3 Security Crew Shell PRiV.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/dC3_Security_Crew_Shell_PRiV.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/erne.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/ex0shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/fatal.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/ftpsearch.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/g00nshell-v1.3.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/h4ntu shell [powered by tsoi].php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/h4ntu_shell_[powered_by_tsoi].php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/ironshell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/lamashell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/load_shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/lolipop.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/lostDC.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/matamu.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/megabor.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/myshell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/nshell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/php-reverse-shell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/rootshell.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/s72 Shell v1.1 Coding.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/akripai/files/malware/soldierofallah.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/triplusone.iml" afterPath="$PROJECT_DIR$/.idea/triplusone.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/composer.lock" afterPath="$PROJECT_DIR$/akripai/composer.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/files/debug/code.php" afterPath="$PROJECT_DIR$/akripai/files/debug/code.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/init_page.php" afterPath="$PROJECT_DIR$/akripai/init_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/lib/AstRegexMapper.php" afterPath="$PROJECT_DIR$/akripai/lib/AstRegexMapper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/lib/regex/GroupD.php" afterPath="$PROJECT_DIR$/akripai/lib/regex/GroupD.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/lib/regex/GroupE.php" afterPath="$PROJECT_DIR$/akripai/lib/regex/GroupE.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="code.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/akripai/files/debug/code.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupD.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/akripai/lib/regex/GroupD.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17935">
+              <caret line="1060" column="56" lean-forward="false" selection-start-line="1060" selection-start-column="56" selection-end-line="1060" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AstRegexMapper.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/akripai/lib/AstRegexMapper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShellExec.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/ShellExec.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&lt;?php</find>
+      <find>shell</find>
+      <find>&lt;?</find>
+      <find>`</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/akripai/init_page.php" />
+        <option value="$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/BooleanNot.php" />
+        <option value="$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/BitwiseNot.php" />
+        <option value="$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/Cast.php" />
+        <option value="$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/AssignRef.php" />
+        <option value="$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/StaticPropertyFetch.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/cw.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/Cyber Shell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/cybershell.php" />
+        <option value="$PROJECT_DIR$/akripai/lib/regex/GroupE.php" />
+        <option value="$PROJECT_DIR$/akripai/files/debug/code.php" />
+        <option value="$PROJECT_DIR$/akripai/lib/regex/GroupD.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/ex0shell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/GFS web-shell ver 3.1.7 - PRiV8.php" />
+        <option value="$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/ironshell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/lamashell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/lifkaS.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/Liz0ziM Private Safe Mode Command Execuriton Bypass Exploit.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/load_shell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/Loaderz WEB Shell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/megabor.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/Moroccan Spamers Ma-EditioN By GhOsT.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/Mysql interface v1.0.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/MySQL Web Interface Version 0.8.php" />
+        <option value="$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/Print_.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/rootshell.php" />
+        <option value="$PROJECT_DIR$/akripai/files/testing-malware/zaco.php" />
+        <option value="$PROJECT_DIR$/akripai/lib/AstRegexMapper.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="503" />
+    <option name="width" value="870" />
+    <option name="height" value="735" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="triplusone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PHP-Parser" />
+    <property name="SearchEverywhereHistoryKey" value="ShellExec&#9;null&#9;null&#10;ec&#9;null&#9;null&#10;Print&#9;null&#9;null&#10;astr&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;groupD&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/regex/GroupD.php&#10;code&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;astreg&#9;null&#9;null&#10;groupE&#9;null&#9;null&#10;propertyfetch&#9;null&#9;null&#10;staticproper&#9;null&#9;null&#10;init_page&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/init_page.php&#10;code.&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php" />
+    <property name="ignore_missing_gitignore" value="true" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="c6d95dd2-4672-466e-8abb-cfa2fabca7d1" name="Default" comment="" />
       <created>1514560838298</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1514560838298</updated>
+      <workItem from="1516196683200" duration="7125000" />
+      <workItem from="1516203830851" duration="11000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="7136000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/akripai/lib/regex/GroupE.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="40" column="18" lean-forward="false" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/debug/code.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/ex0shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/ftpsearch.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Gamma Web Shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/GFS web-shell ver 3.1.7 - PRiV8.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/GFS_web-shell_ver_3.1.7_-_PRiV8.php" />
+    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/GRP WebShell 2.0 release build 2018 (C)2006,Great.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8265">
+          <caret line="43" column="4" lean-forward="true" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/h4ntu shell [powered by tsoi].php" />
+    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/h4ntu_shell_[powered_by_tsoi].php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/lib/regex/GroupD.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17935">
+          <caret line="1060" column="56" lean-forward="false" selection-start-line="1060" selection-start-column="56" selection-end-line="1060" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/hiddens shell v1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/ironshell.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8211">
+          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/KA_uShell 0.1.6.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3110">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/KAdot Universal Shell v0.1.6.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lamashell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lifkaS.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Liz0ziM Private Safe Mode Command Execuriton Bypass Exploit.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/load_shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/malware/load_shell.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7942">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Loaderz WEB Shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lolipop.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lostDC.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/matamu.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/megabor.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Moroccan Spamers Ma-EditioN By GhOsT.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/myshell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Mysql interface v1.0.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/MySQL Web Interface Version 0.8.php" />
+    <entry file="file://$PROJECT_DIR$/cfg-unused/lib/PHPCfg/Op/Terminal/Echo_.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Echo_.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="28" column="4" lean-forward="false" selection-start-line="28" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/Print_.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/NCC-Shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/nshell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/NTDaddy v1.9.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/PH Vayv.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/PHP Shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/PHPRemoteView.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/php-reverse-shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/rootshell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/s72 Shell v1.1 Coding.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Simple_PHP_backdoor_by_DK.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/malware/Simple_PHP_backdoor_by_DK.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/STNC WebShell v0.8.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Worse Linux Shell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/ZyklonShell.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Web-shell (c)ShAnKaR.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/soldierofallah.php" />
+    <entry file="file://$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/ShellExec.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/zaco.php" />
+    <entry file="file://$PROJECT_DIR$/akripai/lib/AstRegexMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

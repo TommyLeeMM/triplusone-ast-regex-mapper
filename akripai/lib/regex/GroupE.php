@@ -11,7 +11,7 @@ namespace lib\regex;
 
 class GroupE extends Group
 {
-    protected $methodCount = 30;
+    protected $methodCount = 34;
 
     public function E0() {
         return parent::setNode([
@@ -353,8 +353,14 @@ class GroupE extends Group
         return parent::setNode([
             'regex' => 'E27',
             'type' => ClassConstant::FUNC_CALL,
-            'name' => 'proc_close'
+            'name' => 'proc_open'
         ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
             [
                 'type' => ClassConstant::VARIABLE
             ]
@@ -364,6 +370,72 @@ class GroupE extends Group
     public function E28() {
         return parent::setNode([
             'regex' => 'E28',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'proc_open'
+        ], [
+            [
+                'type' => ClassConstant::ARRAY_DIM_FETCH
+            ],
+            [
+                'type' => ClassConstant::ARRAY_
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function E29() {
+        return parent::setNode([
+            'regex' => 'E29',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'proc_open'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function E30() {
+        return parent::setNode([
+            'regex' => 'E30',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'proc_open'
+        ], [
+            [
+                'type' => ClassConstant::CONCAT
+            ],
+            [
+                'type' => ClassConstant::ARRAY_
+            ],
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function E31() {
+        return parent::setNode([
+            'regex' => 'E31',
+            'type' => ClassConstant::FUNC_CALL,
+            'name' => 'proc_close'
+        ], [
+            [
+                'type' => ClassConstant::VARIABLE
+            ]
+        ]);
+    }
+
+    public function E32() {
+        return parent::setNode([
+            'regex' => 'E32',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'popen'
         ], [
@@ -376,9 +448,9 @@ class GroupE extends Group
         ]);
     }
 
-    public function E29() {
+    public function E33() {
         return parent::setNode([
-            'regex' => 'E29',
+            'regex' => 'E33',
             'type' => ClassConstant::FUNC_CALL,
             'name' => 'pclose'
         ], [

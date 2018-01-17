@@ -1,3 +1,3 @@
 <?php
 
-htmlspecialchars(@file_get_contents('aa'));
+fclose($io[1]);
