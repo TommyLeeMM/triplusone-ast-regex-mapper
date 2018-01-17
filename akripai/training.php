@@ -2,49 +2,53 @@
 
 include_once 'partials/_header.php';
 
-$message = array();
-$parser = new \lib\Parser();
-$mapper = new \lib\AstRegexMapper();
-$traverser = new \PhpParser\NodeTraverser();
-$traverser->addVisitor($mapper);
-$trainer = new \lib\Trainer();
-
-if (isset($_POST['trainPositive'])) {
-    $targetPath = trim($_POST['trainPositive']);
-    if ($targetPath !== '') {
-        $regexes = array();
-        $result = $parser->parse($targetPath);
-        foreach ($result as $filename => $ast) {
-            $traverser->traverse($ast);
-            $regexes[$filename] = $mapper->getRegexes();
-        }
-        $trainer->train($regexes, 'Y');
-        $message['message'] = 'Training Success';
-        $message['isSuccess'] = true;
-    } else {
-        $message['message'] = 'Input can\'t be empty';
-        $message['isSuccess'] = false;
-    }
-} else if (isset($_POST['trainNegative'])) {
-    $targetPath = trim($_POST['trainNegative']);
-    if ($targetPath !== '') {
-        $regexes = array();
-        $result = $parser->parse($_POST['trainNegative']);
-        foreach ($result as $filename => $ast) {
-            $traverser->traverse($ast);
-            $regexes[$filename] = $mapper->getRegexes();
-        }
-        $trainer->train($regexes, 'N');
-        $message['message'] = 'Training Success';
-        $message['isSuccess'] = true;
-    } else {
-        $message['message'] = 'Input can\'t be empty';
-        $message['isSuccess'] = false;
-    }
-}
 ?>
 
 <div class="container" style="margin-top:60px">
+    <?php
+
+    $message = array();
+    $parser = new \lib\Parser();
+    $mapper = new \lib\AstRegexMapper();
+    $traverser = new \PhpParser\NodeTraverser();
+    $traverser->addVisitor($mapper);
+    $trainer = new \lib\Trainer();
+
+    if (isset($_POST['trainPositive'])) {
+        $targetPath = trim($_POST['trainPositive']);
+        if ($targetPath !== '') {
+            $regexes = array();
+            $result = $parser->parse($targetPath);
+            foreach ($result as $filename => $ast) {
+                $traverser->traverse($ast);
+                $regexes[$filename] = $mapper->getRegexes();
+            }
+            $trainer->train($regexes, 'Y');
+            $message['message'] = 'Training Success';
+            $message['isSuccess'] = true;
+        } else {
+            $message['message'] = 'Input can\'t be empty';
+            $message['isSuccess'] = false;
+        }
+    } else if (isset($_POST['trainNegative'])) {
+        $targetPath = trim($_POST['trainNegative']);
+        if ($targetPath !== '') {
+            $regexes = array();
+            $result = $parser->parse($_POST['trainNegative']);
+            foreach ($result as $filename => $ast) {
+                $traverser->traverse($ast);
+                $regexes[$filename] = $mapper->getRegexes();
+            }
+            $trainer->train($regexes, 'N');
+            $message['message'] = 'Training Success';
+            $message['isSuccess'] = true;
+        } else {
+            $message['message'] = 'Input can\'t be empty';
+            $message['isSuccess'] = false;
+        }
+    }
+
+    ?>
     <form method="post">
         <h3>Training</h3>
         <div class="form-group">

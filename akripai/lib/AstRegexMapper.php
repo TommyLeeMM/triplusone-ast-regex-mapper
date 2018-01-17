@@ -107,9 +107,12 @@ class AstRegexMapper extends NodeVisitorAbstract
         $_extractedNode['name'] = $extractedNode['name'];
         $_extractedNode['args'] = array();
 
-        foreach ($extractedNode['args'] as $arg) {
+        foreach ($extractedNode['args'] as $idx => $arg) {
             if($arg instanceof Node\Expr\Ternary)
                 return;
+            if($arg instanceof IExprOnlyExtractable) {
+                $arg = $arg->extract();
+            }
             $extracted = $arg->extract();
             $_extractedArg = array();
             foreach ($extracted as $key => $value) {

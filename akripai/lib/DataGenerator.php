@@ -15,6 +15,7 @@ use lib\regex\GroupD;
 use lib\regex\GroupE;
 use lib\regex\GroupF;
 use lib\regex\GroupG;
+use MongoDB\Driver\BulkWrite;
 use MongoDB\Driver\Query;
 
 class DataGenerator
@@ -54,5 +55,33 @@ class DataGenerator
             $data[$regex] = 0;
         }
         return $data;
+    }
+
+    public function initSettings() {
+        $setting = array();
+        $setting['sender'] = 'email@domain.com';
+        $setting['intervalDays'] = 1;
+        $setting['timeExecution'] = '17:00:00';
+        $setting['path'] = '/var/www/target_folder';
+        $setting['lastExecutionTime'] = time();
+        $bulk = new BulkWrite();
+        $bulk->insert($setting);
+        DatabaseManager::getInstance()->executeBulkWrite(DatabaseManager::SETTING_COLLECTION, $bulk);
+    }
+
+    public function initAll() {
+        DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::ATTRIBUTES_COLLECTION);
+        DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::DATA_COLLECTION);
+
+        $dictionary = $this->generateDictionary();
+        $bulkWriter = new \MongoDB\Driver\BulkWrite();
+        foreach($dictionary as $group) {
+            foreach($group as $item) {
+                $bulkWriter->insert($item);
+            }
+        }
+
+        DatabaseManager::getInstance()->executeBulkWrite(\lib\DatabaseManager::ATTRIBUTES_COLLECTION, $bulkWriter);
+        $this->initSettings();
     }
 }

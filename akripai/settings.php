@@ -6,7 +6,7 @@ $dbManager = \lib\DatabaseManager::getInstance();
 
 if (!empty($_POST)) {
     $sender = trim($_POST['sender']);
-    $intervalDays = trim($_POST['intervalDays']);
+    $intervalDays = trim($_POST['interval']);
     $timeExecution = trim($_POST['timeExecution']);
     $path = trim($_POST['path']);
     if ($sender !== '' && $intervalDays !== '' && $timeExecution !== '' && $path !== '') {

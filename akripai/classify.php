@@ -2,36 +2,37 @@
 
 include_once 'partials/_header.php';
 
-$message = array();
-$parser = new \lib\Parser();
-$mapper = new \lib\AstRegexMapper();
-$traverser = new \PhpParser\NodeTraverser();
-$traverser->addVisitor($mapper);
-$trainer = new \lib\Trainer();
-
-if (isset($_POST['classify']) && isset($_POST['lastModifiedDate'])) {
-    $regexes = array();
-    $classifier = new \lib\NaiveBayesClassifier();
-
-    $targetPath = trim($_POST['classify']);
-    $lastModifiedDate = trim($_POST['lastModifiedDate']);
-
-    if ($targetPath !== '' && $lastModifiedDate !== '') {
-        $result = $parser->parse($targetPath, $lastModifiedDate);
-        foreach ($result as $filename => $ast) {
-            $traverser->traverse($ast);
-            $regexes[$filename] = $mapper->getRegexes();
-        }
-        $thresholdValues = $classifier->classify($regexes);
-    } else {
-        $message['message'] = 'Inputs can\'t be empty';
-        $message['isSuccess'] = false;
-    }
-}
 ?>
 
 <div class="container" style="margin-top:60px">
+    <?php
+    $message = array();
+    $parser = new \lib\Parser();
+    $mapper = new \lib\AstRegexMapper();
+    $traverser = new \PhpParser\NodeTraverser();
+    $traverser->addVisitor($mapper);
+    $trainer = new \lib\Trainer();
 
+    if (isset($_POST['classify']) && isset($_POST['lastModifiedDate'])) {
+        $regexes = array();
+        $classifier = new \lib\NaiveBayesClassifier();
+
+        $targetPath = trim($_POST['classify']);
+        $lastModifiedDate = trim($_POST['lastModifiedDate']);
+
+        if ($targetPath !== '' && $lastModifiedDate !== '') {
+            $result = $parser->parse($targetPath, $lastModifiedDate);
+            foreach ($result as $filename => $ast) {
+                $traverser->traverse($ast);
+                $regexes[$filename] = $mapper->getRegexes();
+            }
+            $thresholdValues = $classifier->classify($regexes);
+        } else {
+            $message['message'] = 'Inputs can\'t be empty';
+            $message['isSuccess'] = false;
+        }
+    }
+    ?>
     <form method="post">
         <h3>Classify</h3>
         <div class="form-group">
