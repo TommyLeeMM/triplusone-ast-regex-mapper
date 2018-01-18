@@ -12,6 +12,8 @@ include_once 'partials/_header.php';
     $traverser = new \PhpParser\NodeTraverser();
     $traverser->addVisitor($mapper);
     $trainer = new \lib\Trainer();
+    $malwareClassifiedCount = 0;
+    $nonMalwareClassifiedCount = 0;
 
     if (isset($_POST['classify']) && isset($_POST['lastModifiedDate'])) {
         $regexes = array();
@@ -78,11 +80,13 @@ include_once 'partials/_header.php';
                     </td>
                     <?php
                     if ($thresholdValue['positiveValue'] >= $thresholdValue['negativeValue']) {
+                        $malwareClassifiedCount++;
                         ?>
                         <td class="bg-danger">Malware</td>
                         <?php
                     }
                     else {
+                        $nonMalwareClassifiedCount++;
                         ?>
                         <td class="bg-success">Non-Malware</td>
                         <?php
@@ -94,6 +98,11 @@ include_once 'partials/_header.php';
             ?>
             </tbody>
         </table>
+        <div>
+            <div>Malware: <?= $malwareClassifiedCount ?> files</div>
+            <div>Non-malware: <?= $nonMalwareClassifiedCount ?> files</div>
+            <div>Total Classified Files: <?= ($malwareClassifiedCount + $nonMalwareClassifiedCount) ?> files</div>
+        </div>
         <?php
     }
     if (count($message) !== 0) {
