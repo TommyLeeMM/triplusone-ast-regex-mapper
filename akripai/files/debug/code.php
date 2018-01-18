@@ -1,3 +1,3 @@
 <?php
 
-fclose($io[1]);
+mysql_query($sql) or die(mysql_error());

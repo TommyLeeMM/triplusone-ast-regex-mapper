@@ -64,6 +64,15 @@ class NaiveBayesClassifier
         }
     }
 
+    public function getProbabilityModel() {
+        return [
+            'positive' => $this->positiveProbability,
+            'negative' => $this->negativeProbability,
+            'positiveCount' => $this->positiveFileCount,
+            'negativeCount' => $this->negativeFileCount,
+        ];
+    }
+
     public function classify($regexMap) {
         $data = array();
         foreach($regexMap as $filename => $regexes) {
@@ -79,6 +88,7 @@ class NaiveBayesClassifier
         foreach($regexCount as $regex => $count) {
             $positiveProb[$regex] = ($count === 0) ? 1 : ($count * $this->positiveProbability[$regex]);
         }
+
         foreach($regexCount as $regex => $count) {
             $negativeProb[$regex] = ($count === 0) ? 1 : ($count * $this->negativeProbability[$regex]);
         }

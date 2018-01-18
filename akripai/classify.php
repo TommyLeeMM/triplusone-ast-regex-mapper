@@ -79,7 +79,7 @@ include_once 'partials/_header.php';
                         <div>Negative: <?= $thresholdValue['negativeValue'] ?></div>
                     </td>
                     <?php
-                    if ($thresholdValue['positiveValue'] >= $thresholdValue['negativeValue']) {
+                    if ($thresholdValue['positiveValue'] > $thresholdValue['negativeValue']) {
                         $malwareClassifiedCount++;
                         ?>
                         <td class="bg-danger">Malware</td>
