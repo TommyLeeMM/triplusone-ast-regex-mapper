@@ -72,6 +72,7 @@ class DataGenerator
     public function initAll() {
         DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::ATTRIBUTES_COLLECTION);
         DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::DATA_COLLECTION);
+        DatabaseManager::getInstance()->deleteAll(\lib\DatabaseManager::SETTING_COLLECTION);
 
         $dictionary = $this->generateDictionary();
         $bulkWriter = new \MongoDB\Driver\BulkWrite();
