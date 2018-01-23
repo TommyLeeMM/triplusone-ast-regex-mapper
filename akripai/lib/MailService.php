@@ -32,17 +32,16 @@ class MailService
     }
 
     private function prepare() {
-        $email = $this->getSender();
-
         $this->phpMailer = new PHPMailer();
         $this->phpMailer->isSMTP();
         $this->phpMailer->Host = 'smtp.gmail.com';
         $this->phpMailer->Port = 587;
         $this->phpMailer->SMTPSecure = 'tls';
         $this->phpMailer->SMTPAuth = true;
-        $this->phpMailer->Username = $email;
-        $this->phpMailer->Password = 'PASSWORD_HERE';
-        $this->phpMailer->setFrom($email);
+        $this->phpMailer->Username = 'slcdatabaseadm@gmail.com';
+        $this->phpMailer->Password = 'PASSWORD';
+//        $this->phpMailer->SMTPDebug = 2;
+        $this->phpMailer->setFrom($this->getSender());
         $this->phpMailer->isHTML(true);
     }
 
