@@ -9,13 +9,15 @@ if (!empty($_POST)) {
     $intervalDays = trim($_POST['interval']);
     $timeExecution = trim($_POST['timeExecution']);
     $path = trim($_POST['path']);
+    $timeExecution = $_POST['lastExecutionTime'];
     if ($sender !== '' && $intervalDays !== '' && $timeExecution !== '' && $path !== '') {
         $bulkWriter = new \MongoDB\Driver\BulkWrite();
         $bulkWriter->update([], [
             'sender' => $_POST['sender'],
             'intervalDays' => $_POST['interval'],
-            'timeExecution' => $_POST['timeExecution'],
-            'path' => $_POST['path']
+            'timeExecution' => $_POST['timeExecution'].':00',
+            'path' => $_POST['path'],
+            'lastExecutionTime' => $timeExecution
         ]);
         $dbManager->executeBulkWrite(\lib\DatabaseManager::SETTING_COLLECTION, $bulkWriter);
     } else {

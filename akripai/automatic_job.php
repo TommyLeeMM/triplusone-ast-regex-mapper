@@ -11,6 +11,24 @@
     ]);
     $settings = $cursor->toArray();
 
+    \lib\Helper::prettyVarDump(strtotime($settings[0]['timeExecution']));
+    \lib\Helper::prettyVarDump(date('H:i'));
+    \lib\Helper::prettyVarDump(strtotime(date('H:i').':00'));
+    if(strtotime($settings[0]['timeExecution']) != strtotime(date('H:i').':00')) {
+        echo 'Time is not match!';
+        return;
+    }
+
+    $bulkWriter = new \MongoDB\Driver\BulkWrite();
+    $bulkWriter->update([], [
+        'sender' => $_POST['sender'],
+        'intervalDays' => $_POST['interval'],
+        'timeExecution' => $_POST['timeExecution'].':00',
+        'path' => $_POST['path'],
+        'lastExecutionTime' => time()
+    ]);
+    $dbManager->executeBulkWrite(\lib\DatabaseManager::SETTING_COLLECTION, $bulkWriter);
+
     $regexes = array();
     $parser = new \lib\Parser();
     $mapper = new \lib\AstRegexMapper();

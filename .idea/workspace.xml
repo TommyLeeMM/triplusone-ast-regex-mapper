@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c6d95dd2-4672-466e-8abb-cfa2fabca7d1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/lib/MailService.php" afterPath="$PROJECT_DIR$/akripai/lib/MailService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/automatic_job.php" afterPath="$PROJECT_DIR$/akripai/automatic_job.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/settings.php" afterPath="$PROJECT_DIR$/akripai/settings.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,15 +14,23 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MailService.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/akripai/lib/MailService.php">
+    <leaf>
+      <file leaf-file-name="automatic_job.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/akripai/automatic_job.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="41" column="48" lean-forward="true" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-              <folding>
-                <element signature="e#106#131#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="425">
+              <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/akripai/settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,8 +83,9 @@
         <option value="$PROJECT_DIR$/akripai/classify.php" />
         <option value="$PROJECT_DIR$/akripai/lib/AstRegexMapper.php" />
         <option value="$PROJECT_DIR$/akripai/lib/DataGenerator.php" />
-        <option value="$PROJECT_DIR$/akripai/automatic_job.php" />
         <option value="$PROJECT_DIR$/akripai/lib/MailService.php" />
+        <option value="$PROJECT_DIR$/akripai/automatic_job.php" />
+        <option value="$PROJECT_DIR$/akripai/settings.php" />
       </list>
     </option>
   </component>
@@ -108,7 +118,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,16 +136,23 @@
               <item name="akripai" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="triplusone" type="b2602c69:ProjectViewProjectNode" />
+              <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="akripai" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../XAMPP718/htdocs/map" />
-    <property name="SearchEverywhereHistoryKey" value="datag&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/DataGenerator.php&#10;clas&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/classify.php&#10;index&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/index.php&#10;astrege&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;parser&#9;null&#9;null&#10;code.php&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;code.p&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/cfg-unused/code.php&#10;naive&#9;null&#9;null&#10;classify&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/classify.php&#10;ShellExec&#9;null&#9;null&#10;ec&#9;null&#9;null&#10;Print&#9;null&#9;null&#10;astr&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;groupD&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/regex/GroupD.php&#10;code&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;astreg&#9;null&#9;null&#10;groupE&#9;null&#9;null&#10;propertyfetch&#9;null&#9;null&#10;staticproper&#9;null&#9;null&#10;init_page&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/init_page.php&#10;code.&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php" />
+    <property name="SearchEverywhereHistoryKey" value="settings&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/settings.php&#10;Plus&#9;null&#9;null&#10;Assign&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;datag&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/DataGenerator.php&#10;clas&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/classify.php&#10;index&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/index.php&#10;astrege&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;parser&#9;null&#9;null&#10;code.php&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;code.p&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/cfg-unused/code.php&#10;naive&#9;null&#9;null&#10;classify&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/classify.php&#10;ShellExec&#9;null&#9;null&#10;ec&#9;null&#9;null&#10;Print&#9;null&#9;null&#10;astr&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;groupD&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/regex/GroupD.php&#10;code&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;astreg&#9;null&#9;null&#10;groupE&#9;null&#9;null&#10;propertyfetch&#9;null&#9;null&#10;staticproper&#9;null&#9;null&#10;init_page&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/init_page.php&#10;code.&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
   </component>
@@ -170,27 +186,30 @@
       <workItem from="1516256996632" duration="2464000" />
       <workItem from="1516433331678" duration="111000" />
       <workItem from="1516679255113" duration="5633000" />
-      <workItem from="1516690430188" duration="94000" />
+      <workItem from="1516690430188" duration="130000" />
+      <workItem from="1516717974531" duration="100000" />
+      <workItem from="1516718878310" duration="39000" />
+      <workItem from="1517475621420" duration="4805000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15438000" />
+    <option name="totallyTimeSpent" value="20418000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -213,12 +232,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/ironshell.php" />
-    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/KA_uShell 0.1.6.php" />
-    <entry file="file://$USER_HOME$/Downloads/php-webshells-master/php-webshells-master/KAdot Universal Shell v0.1.6.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lamashell.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lifkaS.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Liz0ziM Private Safe Mode Command Execuriton Bypass Exploit.php" />
     <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/load_shell.php" />
     <entry file="file://$PROJECT_DIR$/akripai/files/malware/load_shell.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -336,14 +349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/akripai/lib/AstRegexMapper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/akripai/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="844">
@@ -361,14 +366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/akripai/automatic_job.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="47" column="37" lean-forward="false" selection-start-line="47" selection-start-column="37" selection-end-line="47" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/akripai/classify.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -379,10 +376,74 @@
     <entry file="file://$PROJECT_DIR$/akripai/lib/MailService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="41" column="48" lean-forward="true" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
+          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
           <folding>
             <element signature="e#106#131#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cfg-unused/lib/PHPCfg/Op/Expr/Assign.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/AssignOp/Plus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/vendor/nikic/php-parser/lib/PhpParser/Node/Expr/PostInc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/vendor/nikic/php-parser/lib/PhpParser/Node/Expr/UnaryPlus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PHP-Parser/lib/PhpParser/Node/Expr/Assign.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/lib/AstRegexMapper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1650">
+          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/automatic_job.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
