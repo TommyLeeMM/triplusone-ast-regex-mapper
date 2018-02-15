@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6d95dd2-4672-466e-8abb-cfa2fabca7d1" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/akripai/files/testing-malware/025028-b374k - Copy.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/triplusone.iml" afterPath="$PROJECT_DIR$/.idea/triplusone.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/automatic_job.php" afterPath="$PROJECT_DIR$/akripai/automatic_job.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/settings.php" afterPath="$PROJECT_DIR$/akripai/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/akripai/lib/MailService.php" afterPath="$PROJECT_DIR$/akripai/lib/MailService.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,28 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="automatic_job.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/akripai/automatic_job.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/akripai/settings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -43,6 +25,9 @@
       <find>shell</find>
       <find>&lt;?</find>
       <find>`</find>
+      <find>px</find>
+      <find>max-height</find>
+      <find>partials.java</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -83,9 +68,17 @@
         <option value="$PROJECT_DIR$/akripai/classify.php" />
         <option value="$PROJECT_DIR$/akripai/lib/AstRegexMapper.php" />
         <option value="$PROJECT_DIR$/akripai/lib/DataGenerator.php" />
-        <option value="$PROJECT_DIR$/akripai/lib/MailService.php" />
         <option value="$PROJECT_DIR$/akripai/automatic_job.php" />
         <option value="$PROJECT_DIR$/akripai/settings.php" />
+        <option value="D:/Projects/MAP/public/css/style.css" />
+        <option value="D:/Projects/MAP/resources/views/retail-school/class-schedule/modals/venue.blade.php" />
+        <option value="$PROJECT_DIR$/../../../XAMPP718/htdocs/map/LSP/assets/css/style.css" />
+        <option value="D:/Projects/MAP/resources/views/cluster/modals/add-comp-unit.blade.php" />
+        <option value="D:/Projects/MAP/resources/views/scheme/modals/add-cluster.blade.php" />
+        <option value="D:/Projects/MAP/resources/views/retail-school/class-schedule/modals/guest.blade.php" />
+        <option value="D:/Projects/MAP/resources/views/retail-school/trainer/view-cluster.blade.php" />
+        <option value="D:/Projects/MAP/resources/views/retail-school/student/view-cluster.blade.php" />
+        <option value="$PROJECT_DIR$/akripai/lib/MailService.php" />
       </list>
     </option>
   </component>
@@ -117,6 +110,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -130,31 +124,19 @@
               <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="akripai" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="triplusone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="akripai" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="triplusone" type="b2602c69:ProjectViewProjectNode" />
-              <item name="triplusone" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="akripai" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../XAMPP718/htdocs/map" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="settings&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/settings.php&#10;Plus&#9;null&#9;null&#10;Assign&#9;null&#9;null&#10;assign&#9;null&#9;null&#10;datag&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/DataGenerator.php&#10;clas&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/classify.php&#10;index&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/index.php&#10;astrege&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;parser&#9;null&#9;null&#10;code.php&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;code.p&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/cfg-unused/code.php&#10;naive&#9;null&#9;null&#10;classify&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/classify.php&#10;ShellExec&#9;null&#9;null&#10;ec&#9;null&#9;null&#10;Print&#9;null&#9;null&#10;astr&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/AstRegexMapper.php&#10;groupD&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/lib/regex/GroupD.php&#10;code&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php&#10;astreg&#9;null&#9;null&#10;groupE&#9;null&#9;null&#10;propertyfetch&#9;null&#9;null&#10;staticproper&#9;null&#9;null&#10;init_page&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/init_page.php&#10;code.&#9;FILE&#9;file://C:/XAMPP/XAMPP56/htdocs/triplusone/akripai/files/debug/code.php" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -189,18 +171,20 @@
       <workItem from="1516690430188" duration="130000" />
       <workItem from="1516717974531" duration="100000" />
       <workItem from="1516718878310" duration="39000" />
-      <workItem from="1517475621420" duration="4805000" />
+      <workItem from="1517475621420" duration="5108000" />
+      <workItem from="1517891317314" duration="4821000" />
+      <workItem from="1518078847932" duration="40000" />
+      <workItem from="1518688624267" duration="153000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20418000" />
+    <option name="totallyTimeSpent" value="25735000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -232,30 +216,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/load_shell.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/malware/load_shell.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7942">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Loaderz WEB Shell.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lolipop.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/lostDC.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/matamu.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/megabor.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Moroccan Spamers Ma-EditioN By GhOsT.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/myshell.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/Mysql interface v1.0.php" />
-    <entry file="file://$PROJECT_DIR$/akripai/files/testing-malware/MySQL Web Interface Version 0.8.php" />
-    <entry file="file://$PROJECT_DIR$/cfg-unused/lib/PHPCfg/Op/Terminal/Echo_.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/akripai/vendor/nikic/php-parser/lib/PhpParser/Node/Stmt/Echo_.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -328,13 +288,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/akripai/lib/NaiveBayesClassifier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/akripai/files/debug/code.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -360,9 +313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
           <caret line="74" column="90" lean-forward="false" selection-start-line="74" selection-start-column="90" selection-end-line="74" selection-end-column="90" />
-          <folding>
-            <marker date="1516680052840" expanded="true" signature="686:731" ph="//..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -373,21 +323,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/akripai/lib/MailService.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="41" column="48" lean-forward="false" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding>
-            <element signature="e#106#131#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cfg-unused/lib/PHPCfg/Op/Expr/Assign.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -395,7 +334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -403,7 +341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -411,7 +348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -419,7 +355,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -427,15 +362,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1650">
           <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/akripai/automatic_job.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="459">
           <caret line="27" column="26" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -443,6 +376,105 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="30" lean-forward="false" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../XAMPP718/htdocs/map/LSP/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1930">
+          <caret line="1139" column="2" lean-forward="false" selection-start-line="1139" selection-start-column="2" selection-end-line="1139" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/retail-school/student-report/student-report.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="37" lean-forward="true" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/retail-school/class-schedule/modals/venue.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/cluster/add-comp-unit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/cluster/modals/add-comp-unit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="41" column="14" lean-forward="false" selection-start-line="41" selection-start-column="14" selection-end-line="41" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/scheme/modals/add-cluster.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="40" column="14" lean-forward="false" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/retail-school/class-schedule/modals/guest.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-250">
+          <caret line="19" column="55" lean-forward="false" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="1154" column="1" lean-forward="false" selection-start-line="1154" selection-start-column="1" selection-end-line="1154" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/partials/javascript.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/retail-school/student/view-cluster.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Projects/MAP/resources/views/retail-school/trainer/view-cluster.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="521" column="0" lean-forward="true" selection-start-line="521" selection-start-column="0" selection-end-line="521" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../XAMPP718/htdocs/map/RetailSchool/trainer/view-cluster.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="514" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/lib/MailService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="42" column="42" lean-forward="false" selection-start-line="42" selection-start-column="42" selection-end-line="42" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/akripai/lib/NaiveBayesClassifier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="102" column="5" lean-forward="true" selection-start-line="102" selection-start-column="5" selection-end-line="102" selection-end-column="5" />
           <folding />
         </state>
       </provider>

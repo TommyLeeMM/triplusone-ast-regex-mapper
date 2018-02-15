@@ -38,7 +38,7 @@ class MailService
         $this->phpMailer->Port = 587;
         $this->phpMailer->SMTPSecure = 'tls';
         $this->phpMailer->SMTPAuth = true;
-        $this->phpMailer->Username = 'slcdatabaseadm@gmail.com';
+        $this->phpMailer->Username = 'USERNAME';
         $this->phpMailer->Password = 'PASSWORD';
 //        $this->phpMailer->SMTPDebug = 2;
         $this->phpMailer->setFrom($this->getSender());
